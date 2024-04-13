@@ -1,21 +1,26 @@
 "use client";
-import { Footer } from "../ui/footer";
-import {
-    Navbar,
-    NavbarBrand,
-    NavbarContent,
-    NavbarItem,
-    NavbarMenuToggle,
-    NavbarMenu,
-    NavbarMenuItem,
-    Button,
-} from "@nextui-org/react";
+import { Header, Footer } from "@neodyland/ui";
 import Image from "next/image";
-import Link from "next/link";
-import { useClientTranslation } from "../i18n/client";
-
 import mikanLogo from "../assets/mikandev-circle.webp";
 
+const nav = [
+    {
+        name: "ホーム",
+        href: "/",
+    },
+    {
+        name: "サポート",
+        href: "https://neody.land/to?support",
+    },
+    {
+        name: "利用規約",
+        href: "https://neody.land/terms",
+    },
+    {
+        name: "プライバシーポリシー",
+        href: "https://neody.land/privacy",
+    },
+];
 import {
     FaDiscord,
     FaGithub,
@@ -23,21 +28,6 @@ import {
     FaTwitter,
     FaYoutube,
 } from "react-icons/fa";
-
-interface Props {
-    params: {
-        lng: string;
-    };
-}
-
-export default function HomeTemplate({
-    children,
-    params,
-}: { children: React.ReactNode, params: Props['params'] }) {
-
-    const { lng } = params;
-    const { t } = useClientTranslation(lng, "index");
-    const en = lng.split("-")[0] === "en";
 
 const social = [
     {
@@ -141,64 +131,21 @@ const buttons = [
     },
 ];
 
+export default function RootLayout({
+    children,
+}: { children: React.ReactNode }) {
     return (
         <>
-            <Navbar shouldHideOnScroll>
-                <NavbarBrand>
-                    <Image
-                        src={mikanLogo.src}
-                        alt="Logo"
-                        width={40}
-                        height={40}
-                        className="rounded-full mr-5"
-                    />
-                    <NavbarItem isActive>
-                        <Link href="/" aria-current="page">
-                            MikanDev
-                        </Link>
-                    </NavbarItem>
-                </NavbarBrand>
-                <NavbarContent
-                    className="hidden sm:flex gap-4"
-                    justify="center"
-                >
-                    <NavbarItem isActive>
-                        <Link href="/services" aria-current="page">
-                            Services
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem isActive>
-                        <Link href="/status" aria-current="page">
-                            Status
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem isActive>
-                        <Link href="/blog" aria-current="page">
-                            Blog
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem isActive>
-                        <Link href="/donate" aria-current="page">
-                            Donate
-                        </Link>
-                    </NavbarItem>
-                </NavbarContent>
-                <NavbarContent justify="end">
-                    <NavbarItem className="hidden lg:flex">
-                        <Link href="#">Login</Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Button
-                            as={Link}
-                            color="primary"
-                            href="#"
-                            variant="flat"
-                        >
-                            Sign Up
-                        </Button>
-                    </NavbarItem>
-                </NavbarContent>
-            </Navbar>
+            <Header
+                navigation={nav}
+                buttons={buttons}
+                brand={{
+                    showTitle: true,
+                    name: "MikanDev",
+                    href: "/",
+                    logo: mikanLogo.src,
+                }}
+            />
             <div className="mx-auto min-h-screen max-w-7xl px-4 py-24">
                 {children}
             </div>

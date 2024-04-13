@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Providers } from "./providers";
-import { Inter } from "next/font/google";
+import localFont from 'next/font/local'
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const hsr = localFont({ src: './assets/ja-JP.woff2' })
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -17,10 +16,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang={headers().get("x-locale")?.split("-")[0]} className='dark'>
-            <body>
-                <Providers>{children}</Providers>
-            </body>
+        <html className={hsr.className} lang={headers().get("x-locale")?.split("-")[0]}>
+            <body>{children}</body>
         </html>
     );
 }
