@@ -2,6 +2,7 @@
 import { Header, Footer } from "@neodyland/ui";
 import Image from "next/image";
 import mikanLogo from "../assets/mikandev-circle.webp";
+import mikanMascot from "../assets/MikanMascotFull.png";
 
 const nav = [
     {
@@ -21,44 +22,46 @@ const nav = [
         href: "https://neody.land/privacy",
     },
 ];
+
 import {
     FaDiscord,
     FaGithub,
-    FaMastodon,
     FaTwitter,
     FaYoutube,
 } from "react-icons/fa";
 
+import { SiMisskey } from "react-icons/si";
+
 const social = [
     {
         name: "GitHub",
-        href: "https://github.com/neodyland",
+        href: "https://github.com/maamokun",
         color: "hover:text-github hover:bg-github",
         icon: FaGithub,
     },
     {
         name: "Twitter",
-        href: "https://twitter.com/neodyland",
+        href: "https://twitter.com/kunkunmaamo",
         color: "hover:text-twitter hover:bg-twitter",
         icon: FaTwitter,
     },
     {
         name: "Discord",
-        href: "https://neody.land/to?discord",
+        href: "/to?discord",
         color: "hover:text-discord hover:bg-discord",
         icon: FaDiscord,
     },
     {
         name: "Youtube",
-        href: "https://neody.land/to?youtube",
+        href: "/to?youtube",
         color: "hover:text-youtube hover:bg-youtube",
         icon: FaYoutube,
     },
     {
-        name: "Mastodon",
-        href: "https://neody.land/to?misskey",
+        name: "Misskey Server",
+        href: "/to?misskey",
         color: "hover:text-misskey hover:bg-misskey",
-        icon: FaMastodon,
+        icon: SiMisskey,
     },
 ];
 
@@ -68,19 +71,19 @@ const links = [
         children: [
             {
                 name: "About us",
-                href: "https://neody.land/about",
+                href: "/about",
             },
             {
                 name: "Partners",
-                href: "https://neody.land/partners",
+                href: "/partners",
             },
             {
                 name: "Services",
-                href: "https://neody.land/services",
+                href: "/services",
             },
             {
-                name: "News",
-                href: "https://neody.land/news",
+                name: "Blog",
+                href: "/blog",
             },
         ],
     },
@@ -149,21 +152,15 @@ export default function RootLayout({
             <div className="mx-auto min-h-screen max-w-7xl px-4 py-24">
                 {children}
             </div>
-            <Footer social={social} links={links}>
+            <Footer social={social} links={links} copylight="2020-2024 MikanDev">
                 <div className="flex items-center self-end">
-                    <a
-                        href="https://mikn.link/gpus"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
                         <Image
-                            src="https://cdn.mikn.dev/branding/GPUComputeBy.png"
-                            width={400}
-                            height={30}
+                            src={mikanMascot.src}
+                            width={200}
+                            height={100}
                             alt="MikanDev Tech Logo"
-                            className="ml-2"
+                            className="ml-2 mb-0"
                         />
-                    </a>
                 </div>
             </Footer>
         </>
