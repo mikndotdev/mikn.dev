@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import localFont from 'next/font/local'
 import "./globals.css";
 
-const hsr = localFont({ src: './assets/ja-JP.ttf' })
+const hsr = localFont({ src: './assets/HSR.woff2' })
 
 export const metadata: Metadata = {
     title: "Create Next App",
