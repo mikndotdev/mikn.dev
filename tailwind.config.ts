@@ -34,7 +34,7 @@ const config: Config = {
         primary, secondary, tertiary は、各component の colorScheme で指定できる
       */
                 primary: "#ff9900",
-                "on-primary": "#2d1800",
+                "on-primary": "#ffffff",
                 secondary: "#ff9900",
                 "on-secondary": "#2d1800",
                 tertiary: "#ff9900",

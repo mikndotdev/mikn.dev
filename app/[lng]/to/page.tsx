@@ -6,6 +6,9 @@ import {
 } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { Card, Heading } from "@neodyland/ui";
+import Spinner from "@/app/ui/spinner";
+
 const matches = {
     discord: "https://discord.gg/cyFHD79aw3",
     support: "https://discord.gg/cyFHD79aw3",
@@ -22,7 +25,7 @@ const matches = {
     "2qis": "https://2q.is",
     "pin-bot":
         "https://discord.com/api/oauth2/authorize?client_id=1104723159543984149&permissions=27648&scope=applications.commands%20bot",
-    miq: "https://miq.moe/"
+    miq: "https://miq.moe/",
 };
 
 function match(params: ReadonlyURLSearchParams): string | null {
@@ -43,20 +46,16 @@ export default function To() {
     useEffect(() => {
         const link = match(params) ?? "/404";
         setLink(link);
-        setTimeout(() => router.replace(link), 1000);
+        setTimeout(() => router.replace(link), 1000000);
     }, []);
     return (
-        <div>
-            <h1 className="sm:text-4xl text-2xl text-center pt-10">
-                転送中です...
-            </h1>
-            <h3 className="text-2xl text-center pt-3 mx-2">
-                1秒待っても転送されない場合、
-                <a href={link || undefined} className="text-[#711be773]">
-                    ここ
-                </a>
-                をクリックしてください。
-            </h3>
-        </div>
+        <Card className="flex justify-center items-center mt-40">
+            <Heading as="h1" size="xl" className="">
+                <span className="text-5xl lg:text-5xl pl-10">
+                    Redirecting...
+                </span>
+                <Spinner size="lg" />
+            </Heading>
+        </Card>
     );
 }
