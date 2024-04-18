@@ -126,6 +126,7 @@ const buttons = [
     {
         href: "/account",
         title: "アカウント",
+        colorScheme: "primary",
     },
 ];
 
@@ -136,6 +137,7 @@ export default function RootLayout({
         <>
             <Header
                 navigation={nav}
+                //@ts-ignore
                 buttons={buttons}
                 brand={{
                     showTitle: true,
