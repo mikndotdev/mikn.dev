@@ -23,12 +23,7 @@ const nav = [
     },
 ];
 
-import {
-    FaDiscord,
-    FaGithub,
-    FaTwitter,
-    FaYoutube,
-} from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
 
 import { SiMisskey } from "react-icons/si";
 
@@ -129,8 +124,8 @@ const links = [
 
 const buttons = [
     {
-        href: "/invite",
-        title: "botを招待",
+        href: "/account",
+        title: "アカウント",
     },
 ];
 
@@ -152,15 +147,19 @@ export default function RootLayout({
             <div className="mx-auto min-h-screen max-w-7xl px-4 py-24">
                 {children}
             </div>
-            <Footer social={social} links={links} copylight="2020-2024 MikanDev">
+            <Footer
+                social={social}
+                links={links}
+                copylight="2020-2024 MikanDev"
+            >
                 <div className="flex items-center self-end">
-                        <Image
-                            src={mikanMascot.src}
-                            width={200}
-                            height={100}
-                            alt="MikanDev Tech Logo"
-                            className="ml-2 mb-0"
-                        />
+                    <Image
+                        src={mikanMascot.src}
+                        width={200}
+                        height={100}
+                        alt="MikanDev Tech Logo"
+                        className="ml-2 mb-0"
+                    />
                 </div>
             </Footer>
         </>

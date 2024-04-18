@@ -1,0 +1,13 @@
+{
+    "buttons": {
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "welcome": "Welcome to MikanDev!",
+    "load": "Loading...",
+    "pls_login": "Please login to continue.",
+    "logged_in": "You are logged in as",
+    "blurb1": "MikanDev Account",
+    "blurb2": "One account for all MikanDev services",
+    "blurb3": "Create a free account now!"
+}
