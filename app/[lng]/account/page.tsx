@@ -18,7 +18,32 @@ interface Props {
 export default function Home({ params: { lng } }: Props) {
     const { t } = useClientTranslation(lng, "acc");
     const en = lng.split("-")[0] === "en";
-    const { isAuthenticated, isLoading } = useKindeBrowserClient();
+    const {
+        isAuthenticated,
+        permissions,
+        isLoading,
+        user,
+        accessToken,
+        organization,
+        userOrganizations,
+        getPermission,
+        getBooleanFlag,
+        getIntegerFlag,
+        getFlag,
+        getStringFlag,
+        getClaim,
+        getAccessToken,
+        getToken,
+        getIdToken,
+        getOrganization,
+        getPermissions,
+        getUserOrganizations,
+    } = useKindeBrowserClient();
+
+    console.log(getBooleanFlag("flag", false));
+
+    console.log("accessToken", accessToken);
+    console.log(getClaim("aud"));
 
     if (isLoading)
         return (
