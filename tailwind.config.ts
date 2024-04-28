@@ -40,7 +40,7 @@ const config: Config = {
                 tertiary: "#ff9900",
                 "on-tertiary": "#2d1800",
                 background: "#ff9900",
-                "on-background": "#FF9900",
+                "on-background": "#ffffff",
                 surface: "#ff9900",
                 "on-surface": "#2d1800",
                 outline: "#ff9900",

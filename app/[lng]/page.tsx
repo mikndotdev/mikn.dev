@@ -1,7 +1,7 @@
 "use client";
 import { TypewriterEffect } from "../ui/type";
 import { useClientTranslation } from "../i18n/client";
-import { Button, Heading } from "@neodyland/ui";
+import { Button, Heading, Card, Center } from "@neodyland/ui";
 
 interface Props {
     params: {
@@ -29,11 +29,26 @@ export default function Home({ params: { lng } }: Props) {
     return (
         <>
             <div className="relative">
-                <TypewriterEffect words={words} className="mt-20" />
-                <Heading className="flex justify-center items-center mt-3" size="md">
+            <Card className="mt-20">
+                <Center className="mt-5">
+                    <TypewriterEffect words={words} className="" />
+                </Center>
+                <Heading
+                    className="flex justify-center items-center mt-3"
+                    size="md"
+                >
                     {t("below-main-heading")}
                 </Heading>
-                <Button>{t("buttons.click_me")}</Button>
+                <Center className="mt-7 mb-5">
+                    <Button colorScheme="primary" className="mr-3 animate-bounce">
+                        {t("buttons.check_out")}
+                    </Button>
+                    <Button colorScheme="secondary" className="ml-3">
+                        {t("buttons.account")}
+                    </Button>
+                </Center>
+
+                    </Card>
             </div>
         </>
     );

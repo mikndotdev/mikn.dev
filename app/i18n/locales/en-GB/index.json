@@ -1,6 +1,7 @@
 {
     "buttons": {
-        "click_me": "Click me!"
+        "check_out": "Check it out",
+        "account": "Account"
     },
     "Sweet": "Sweet",
     "And": "And",
