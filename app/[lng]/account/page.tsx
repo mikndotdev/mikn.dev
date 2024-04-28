@@ -77,7 +77,7 @@ export default function Home({ params: { lng } }: Props) {
                     {t("logged_in")}
                 </Heading>
                 <Center>
-                    <LogoutLink>
+                    <LogoutLink postLogoutRedirectURL="/account">
                         <Button colorScheme="primary" size="lg">
                             {t("buttons.logout")}
                         </Button>

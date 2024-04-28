@@ -3,6 +3,29 @@ import { Header, Footer } from "@neodyland/ui";
 import Image from "next/image";
 import mikanLogo from "../assets/mikandev-circle.webp";
 import mikanMascot from "../assets/MikanMascotFull.png";
+import { useRouter, usePathname } from "next/navigation";
+
+import { FaDiscord, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
+import { SiMisskey } from "react-icons/si";
+import { on } from "events";
+
+export default function RootLayout({
+    children,
+}: { children: React.ReactNode }) {
+
+const router = useRouter();
+const pathname = usePathname();
+
+const changeLanguage = () => {
+    const pathSegments = pathname.split('/');
+    if (pathSegments[1] === 'en-GB') {
+        pathSegments[1] = 'ja-JP';
+    } else if (pathSegments[1] === 'ja-JP') {
+        pathSegments[1] = 'en-GB';
+    }
+    const newPath = pathSegments.join('/');
+    router.push(newPath);
+};
 
 const nav = [
     {
@@ -22,10 +45,6 @@ const nav = [
         href: "https://neody.land/privacy",
     },
 ];
-
-import { FaDiscord, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
-
-import { SiMisskey } from "react-icons/si";
 
 const social = [
     {
@@ -128,11 +147,15 @@ const buttons = [
         title: "アカウント",
         colorScheme: "primary",
     },
+    {
+        title: "🌎",
+        colorScheme: "primary",
+        onClick: () => {
+            changeLanguage();
+        }
+    },
 ];
 
-export default function RootLayout({
-    children,
-}: { children: React.ReactNode }) {
     return (
         <>
             <Header
@@ -159,7 +182,7 @@ export default function RootLayout({
                         src={mikanMascot.src}
                         width={200}
                         height={100}
-                        alt="MikanDev Tech Logo"
+                        alt="MikanDev Tech"
                         className="ml-2 mb-0"
                     />
                 </div>

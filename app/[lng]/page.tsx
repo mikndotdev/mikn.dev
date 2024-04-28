@@ -30,8 +30,8 @@ export default function Home({ params: { lng } }: Props) {
         <>
             <div className="relative">
                 <TypewriterEffect words={words} className="mt-20" />
-                <Heading className="flex justify-center items-center">
-                    Test
+                <Heading className="flex justify-center items-center mt-3" size="md">
+                    {t("below-main-heading")}
                 </Heading>
                 <Button>{t("buttons.click_me")}</Button>
             </div>
