@@ -16,9 +16,7 @@ export default function RootLayout({
     const pathname = usePathname();
 
     const changeLanguage = () => {
-        if (!pathname) {
-            return;
-        }
+        //@ts-ignore
         const pathSegments = pathname.split("/");
         if (pathSegments[1] === "en-GB") {
             pathSegments[1] = "ja-JP";
