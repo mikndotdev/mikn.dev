@@ -16,6 +16,9 @@ export default function RootLayout({
     const pathname = usePathname();
 
     const changeLanguage = () => {
+        if (!pathname) {
+            return;
+        }
         const pathSegments = pathname.split("/");
         if (pathSegments[1] === "en-GB") {
             pathSegments[1] = "ja-JP";
@@ -36,12 +39,16 @@ export default function RootLayout({
             href: "https://neody.land/to?support",
         },
         {
+            name: "ドキュメント",
+            href: "/docs",
+        },
+        {
             name: "利用規約",
-            href: "https://neody.land/terms",
+            href: "/docs/terms",
         },
         {
             name: "プライバシーポリシー",
-            href: "https://neody.land/privacy",
+            href: "/docs/privacy",
         },
     ];
 
@@ -72,7 +79,7 @@ export default function RootLayout({
         },
         {
             name: "Misskey Server",
-            href: "/to?misskey",
+            href: "https://social.mikandev.tech/",
             color: "hover:text-misskey hover:bg-misskey",
             icon: SiMisskey,
         },

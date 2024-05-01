@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withNextra = require("nextra")({
+    theme: "nextra-theme-docs",
+    themeConfig: "./pages/theme.config.tsx",
+});
+
+module.exports = withNextra({
     images: {
         remotePatterns: [
             {
@@ -10,6 +15,4 @@ const nextConfig = {
             },
         ],
     },
-};
-
-module.exports = nextConfig;
+});
