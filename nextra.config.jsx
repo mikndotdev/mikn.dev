@@ -1,5 +1,5 @@
 import Image from "next/image";
-import mikanMascot from "../app/assets/MikanMascotFull.png";
+import mikanMascot from "./app/assets/MikanMascotFull.png";
 
 export default {
     logo: (
