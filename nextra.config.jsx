@@ -28,7 +28,10 @@ export default {
     },
     head: () => {
         <>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+            />
             <meta property="og:title" content="MikanDev Docs" />
             <meta
                 property="og:description"
@@ -38,16 +41,17 @@ export default {
     },
     sidebar: {
         titleComponent({ title, type }) {
-          if (type === 'separator') {
-            return (
-              <div style={{ background: 'cyan', textAlign: 'center' }}>{title}</div>
-            )
-          }
-          if (title === 'About') {
-            return <>❓ {title}</>
-          }
-          return <>👉 {title}</>
-        }
-      },
+            if (type === "separator") {
+                return (
+                    <div style={{ background: "cyan", textAlign: "center" }}>
+                        {title}
+                    </div>
+                );
+            }
+            if (title === "About") {
+                return <>❓ {title}</>;
+            }
+            return <>👉 {title}</>;
+        },
+    },
 };
-
