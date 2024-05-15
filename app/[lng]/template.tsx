@@ -109,20 +109,12 @@ export default function RootLayout({
             name: "Support",
             children: [
                 {
-                    name: "Neodyland",
-                    href: "https://neody.land/to?discord",
+                    name: "Discord",
+                    href: "https://discord.gg/FZCN6fjPuG",
                 },
                 {
-                    name: "Artifacter",
-                    href: "https://neody.land/to?discord",
-                },
-                {
-                    name: "Glow-bot",
-                    href: "https://neody.land/to?discord",
-                },
-                {
-                    name: "MakeItAQuote",
-                    href: "https://neody.land/to?discord",
+                    name: "Contact Info",
+                    href: "/contact",
                 },
             ],
         },
@@ -131,15 +123,15 @@ export default function RootLayout({
             children: [
                 {
                     name: "Terms of use",
-                    href: "https://neody.land/terms",
+                    href: "/terms",
                 },
                 {
                     name: "Privacy policy",
-                    href: "https://neody.land/privacy",
+                    href: "/privacy",
                 },
                 {
                     name: "Payments",
-                    href: "https://neody.land/payments",
+                    href: "/payments",
                 },
             ],
         },
