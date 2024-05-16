@@ -34,7 +34,7 @@ export default function RootLayout({
         },
         {
             name: "サポート",
-            href: "https://neody.land/to?support",
+            href: "/contact",
         },
         {
             name: "ドキュメント",
@@ -65,15 +65,9 @@ export default function RootLayout({
         },
         {
             name: "Discord",
-            href: "/to?discord",
+            href: "https://discord.gg/FZCN6fjPuG",
             color: "hover:text-discord hover:bg-discord",
             icon: FaDiscord,
-        },
-        {
-            name: "Youtube",
-            href: "/to?youtube",
-            color: "hover:text-youtube hover:bg-youtube",
-            icon: FaYoutube,
         },
         {
             name: "Misskey Server",

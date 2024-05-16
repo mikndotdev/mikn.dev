@@ -4,14 +4,16 @@ import Image from "next/image";
 
 interface SpinningGalleryProps {
     centerImage: string;
+    duration: string;
     images: string[];
 }
 
 const SpinningGallery: React.FC<SpinningGalleryProps> = ({
     centerImage,
+    duration,
     images,
 }) => {
-    const filteredImages = images.slice(0, 7);
+    const filteredImages = images.slice(0, images.length);
 
     return (
         <div className="relative w-full h-full flex justify-center items-center bg-transparent">
@@ -27,7 +29,7 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                 animate={{ rotate: 360 }}
                 transition={{
                     repeat: Infinity,
-                    duration: 20,
+                    duration: duration,
                     ease: "linear",
                 }}
                 style={{
@@ -40,7 +42,7 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                 }}
             >
                 {filteredImages.map((img, index) => {
-                    const angle = index * 51.4;
+                    const angle = index * (360 / filteredImages.length);
                     const transform = `rotate(${angle}deg) translate(200px) rotate(-${angle}deg)`;
 
                     return (
@@ -62,7 +64,7 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                                 animate={{ rotate: -360 }}
                                 transition={{
                                     repeat: Infinity,
-                                    duration: 20,
+                                    duration: duration,
                                     ease: "linear",
                                 }}
                             >
