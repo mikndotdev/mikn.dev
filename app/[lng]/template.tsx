@@ -1,9 +1,10 @@
 "use client";
-import { Header, Footer } from "@neodyland/ui";
+import { Header, Footer, ToastProvider, useToast } from "@neodyland/ui";
 import Image from "next/image";
 import mikanLogo from "../assets/mikandev-circle.webp";
 import mikanMascot from "../assets/MikanMascotFull.png";
 import { useRouter, usePathname } from "next/navigation";
+import CookieConsent from "react-cookie-consent";
 
 import { FaDiscord, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
 import { SiMisskey } from "react-icons/si";
@@ -160,7 +161,20 @@ export default function RootLayout({
                 }}
             />
             <div className="mx-auto min-h-screen max-w-7xl px-4 py-24">
-                {children}
+                <ToastProvider>
+                    {children}
+                    <CookieConsent
+                        location="bottom"
+                        buttonText="Yum! 🍪"
+                        cookieName="CookieConsent"
+                        style={{ background: "#ff9900" }}
+                        buttonStyle={{ color: "#261800", fontSize: "13px" }}
+                        expires={150}
+                    >
+                        We use cookies to enhance your experience. Would you
+                        like some?
+                    </CookieConsent>
+                </ToastProvider>
             </div>
             <Footer
                 social={social}
