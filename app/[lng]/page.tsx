@@ -57,7 +57,7 @@ export default function Home({ params: { lng } }: Props) {
         },
         {
             text: t("Juicy"),
-            className: "text-orange-500 dark:text-orange-500",
+            className: "text-primary dark:text-primary",
         },
     ];
 

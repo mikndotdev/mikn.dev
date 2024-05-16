@@ -1,9 +1,7 @@
 "use client";
-import { TypewriterEffect } from "@/app/ui/type";
 import { useClientTranslation } from "@/app/i18n/client";
 import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
 import { useRouter } from "next/navigation";
-import { Vortex } from "@/app/ui/vortex";
 import { FaPhoneAlt, FaEnvelope, FaDiscord } from "react-icons/fa";
 
 interface Props {
@@ -45,7 +43,7 @@ export default function Home({ params: { lng } }: Props) {
                             </div>
                             <FaPhoneAlt
                                 size={80}
-                                className="mr-5 text-orange-500"
+                                className="mr-5 text-primary"
                             />
                         </Flex>
                     </Card>
@@ -67,7 +65,7 @@ export default function Home({ params: { lng } }: Props) {
                             </div>
                             <FaEnvelope
                                 size={80}
-                                className="mr-5 text-orange-500"
+                                className="mr-5 text-primary"
                             />
                         </Flex>
                     </Card>
@@ -94,7 +92,7 @@ export default function Home({ params: { lng } }: Props) {
                             </div>
                             <FaDiscord
                                 size={80}
-                                className="mr-5 text-orange-500"
+                                className="mr-5 text-primary"
                             />
                         </Flex>
                     </Card>

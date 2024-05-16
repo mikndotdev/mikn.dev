@@ -19,7 +19,7 @@ export default function Home({ params: { lng } }: Props) {
     const words = [
         {
             text: t("MikanDev"),
-            className: "text-orange-500 dark:text-orange-500",
+            className: "text-primary dark:text-primary",
         },
         {
             text: t("Tech"),
