@@ -17,7 +17,12 @@ import neody from "../assets/neody.svg";
 import kuroneko from "../assets/krnk.png";
 import miq from "../assets/miq.png";
 
-import { FaGithub, FaGlobe, FaNetworkWired, FaCalendarAlt } from "react-icons/fa";
+import {
+    FaGithub,
+    FaGlobe,
+    FaNetworkWired,
+    FaCalendarAlt,
+} from "react-icons/fa";
 import { BsGpuCard } from "react-icons/bs";
 import { MdNetworkWifi3Bar } from "react-icons/md";
 
@@ -87,64 +92,109 @@ export default function Home({ params: { lng } }: Props) {
                 </Card>
                 <Card className="mt-5">
                     <Center className="mb-7">
-                    <Heading size="4xl">{t("bragging")}</Heading>
+                        <Heading size="4xl">{t("bragging")}</Heading>
                     </Center>
                     <Center className="mb-4">
                         <Card className="mr-2 min-w-80">
-                        <Center>
-                            <FaGithub className="text-white" size={70}/>
-                            <Flex direction="col" justify="start" className="ml-5">
-                                <Heading size="2xl">100+</Heading>
-                                <Heading size="xs">{t("projCount")}</Heading>
-                            </Flex>
-                        </Center>
+                            <Center>
+                                <FaGithub className="text-white" size={70} />
+                                <Flex
+                                    direction="col"
+                                    justify="start"
+                                    className="ml-5"
+                                >
+                                    <Heading size="2xl">100+</Heading>
+                                    <Heading size="xs">
+                                        {t("projCount")}
+                                    </Heading>
+                                </Flex>
+                            </Center>
                         </Card>
                         <Card className="ml-2 mr-2 min-w-80">
-                        <Center>
-                            <FaGlobe className="text-white" size={70}/>
-                            <Flex direction="col" justify="start" className="ml-5">
-                                <Heading size="2xl">2</Heading>
-                                <Heading size="xs">{t("languages")}</Heading>
-                            </Flex>
-                        </Center>
+                            <Center>
+                                <FaGlobe className="text-white" size={70} />
+                                <Flex
+                                    direction="col"
+                                    justify="start"
+                                    className="ml-5"
+                                >
+                                    <Heading size="2xl">2</Heading>
+                                    <Heading size="xs">
+                                        {t("languages")}
+                                    </Heading>
+                                </Flex>
+                            </Center>
                         </Card>
                         <Card className="ml-2 min-w-80">
-                        <Center>
-                            <FaNetworkWired className="text-white" size={70}/>
-                            <Flex direction="col" justify="start" className="ml-5">
-                                <Heading size="2xl">5</Heading>
-                                <Heading size="xs">{t("networkRegions")}</Heading>
-                            </Flex>
-                        </Center>
+                            <Center>
+                                <FaNetworkWired
+                                    className="text-white"
+                                    size={70}
+                                />
+                                <Flex
+                                    direction="col"
+                                    justify="start"
+                                    className="ml-5"
+                                >
+                                    <Heading size="2xl">5</Heading>
+                                    <Heading size="xs">
+                                        {t("networkRegions")}
+                                    </Heading>
+                                </Flex>
+                            </Center>
                         </Card>
                     </Center>
                     <Center>
                         <Card className="mr-2 min-w-80">
-                        <Center>
-                            <BsGpuCard className="text-white" size={70}/>
-                            <Flex direction="col" justify="start" className="ml-5">
-                                <Heading size="2xl">3</Heading>
-                                <Heading size="xs">{t("gpuCompute")}</Heading>
-                            </Flex>
-                        </Center>
+                            <Center>
+                                <BsGpuCard className="text-white" size={70} />
+                                <Flex
+                                    direction="col"
+                                    justify="start"
+                                    className="ml-5"
+                                >
+                                    <Heading size="2xl">3</Heading>
+                                    <Heading size="xs">
+                                        {t("gpuCompute")}
+                                    </Heading>
+                                </Flex>
+                            </Center>
                         </Card>
                         <Card className="ml-2 mr-2 min-w-80">
-                        <Center>
-                            <MdNetworkWifi3Bar className="text-white" size={70}/>
-                            <Flex direction="col" justify="start" className="ml-5">
-                                <Heading size="2xl">10+</Heading>
-                                <Heading size="xs">{t("bandwidthTB")}</Heading>
-                            </Flex>
-                        </Center>
+                            <Center>
+                                <MdNetworkWifi3Bar
+                                    className="text-white"
+                                    size={70}
+                                />
+                                <Flex
+                                    direction="col"
+                                    justify="start"
+                                    className="ml-5"
+                                >
+                                    <Heading size="2xl">10+</Heading>
+                                    <Heading size="xs">
+                                        {t("bandwidthTB")}
+                                    </Heading>
+                                </Flex>
+                            </Center>
                         </Card>
                         <Card className="ml-2 min-w-80">
-                        <Center>
-                            <FaCalendarAlt className="text-white" size={70}/>
-                            <Flex direction="col" justify="start" className="ml-5">
-                                <Heading size="2xl">8+</Heading>
-                                <Heading size="xs">{t("yearsOfEx")}</Heading>
-                            </Flex>
-                        </Center>
+                            <Center>
+                                <FaCalendarAlt
+                                    className="text-white"
+                                    size={70}
+                                />
+                                <Flex
+                                    direction="col"
+                                    justify="start"
+                                    className="ml-5"
+                                >
+                                    <Heading size="2xl">8+</Heading>
+                                    <Heading size="xs">
+                                        {t("yearsOfEx")}
+                                    </Heading>
+                                </Flex>
+                            </Center>
                         </Card>
                     </Center>
                 </Card>
