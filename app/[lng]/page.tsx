@@ -6,6 +6,7 @@ import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import mikanLogo from "../assets/mikandev-circle.webp";
+import mikan from "../assets/mikan.png";
 import discord from "../assets/discord.svg";
 import server from "../assets/server.svg";
 import next from "../assets/nextdotjs.svg";

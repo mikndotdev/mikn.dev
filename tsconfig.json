@@ -27,6 +27,7 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
+        "nextra.config.jsx",
         "theme.config.jsx"
     ],
     "exclude": ["node_modules"]

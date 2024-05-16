@@ -1,14 +1,28 @@
 import Image from "next/image";
-import mikanMascot from "./app/assets/MikanMascotFull.png";
+import mikanMascot from "@/app/assets/MikanMascotFull.png";
 
 export default {
+    toc: {
+        float: false,
+    },
+    feedback: {
+        content: null,
+    },
+    editLink: {
+        component: null,
+    },
+    useNextSeoProps() {
+        return {
+            titleTemplate: "%s – MikanDev Docs",
+        };
+    },
     logo: (
         <>
             <Image
                 src={mikanMascot.src}
-                width={50}
-                height={50}
-                alt="MikanDev Logo"
+                width={70}
+                height={70}
+                alt="MikanDev Mascot"
                 className="ml-2 mb-0"
             />
             <span style={{ marginLeft: ".4em", fontWeight: 800 }}>
@@ -26,7 +40,7 @@ export default {
             </span>
         ),
     },
-    head: () => {
+    head: (
         <>
             <meta
                 name="viewport"
@@ -35,10 +49,10 @@ export default {
             <meta property="og:title" content="MikanDev Docs" />
             <meta
                 property="og:description"
-                content="Documentation for MikanDev services"
+                content="Documentation for MikanDev services and projects."
             />
-        </>;
-    },
+        </>
+    ),
     sidebar: {
         titleComponent({ title, type }) {
             if (type === "separator") {

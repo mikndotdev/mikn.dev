@@ -29,15 +29,11 @@ export default function Home({ params: { lng } }: Props) {
 
     return (
         <>
-                <div className="relative">
-
-                    <Card className="mt-20">
+            <div className="relative">
+                <Card className="mt-20">
                     <TypewriterEffect words={words} className="" />
-
-
-
-                    </Card>
-                </div>
+                </Card>
+            </div>
         </>
     );
 }
