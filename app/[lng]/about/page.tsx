@@ -2,7 +2,13 @@
 import { useClientTranslation } from "@/app/i18n/client";
 import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
 import { useRouter } from "next/navigation";
-import { SiNextdotjs, SiCloudflare, SiTypescript, SiTailwindcss, SiUmami } from "react-icons/si";
+import {
+    SiNextdotjs,
+    SiCloudflare,
+    SiTypescript,
+    SiTailwindcss,
+    SiUmami,
+} from "react-icons/si";
 import { FaPalette, FaLanguage } from "react-icons/fa";
 
 interface Props {
@@ -80,7 +86,7 @@ export default function Home({ params: { lng } }: Props) {
                     </Card>
                     <Card className="mt-5">
                         <Flex className="" justify="between" align="center">
-                        <div>
+                            <div>
                                 <Heading
                                     className="flex justify-left items-center ml-5"
                                     size="3xl"
@@ -94,10 +100,7 @@ export default function Home({ params: { lng } }: Props) {
                                     Umami (Selfhosted)
                                 </Heading>
                             </div>
-                            <SiUmami
-                                size={80}
-                                className="mr-5 text-primary"
-                            />
+                            <SiUmami size={80} className="mr-5 text-primary" />
                         </Flex>
                     </Card>
                 </Card>

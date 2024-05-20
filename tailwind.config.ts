@@ -32,7 +32,7 @@ const config: Config = {
           - border: border の色 (default: #1f2937)
 
         primary, secondary, tertiary は、各component の colorScheme で指定できる
-      */        
+      */
                 primary: "#ff9900",
                 "on-primary": "#ffffff",
                 secondary: "#ff9900",
