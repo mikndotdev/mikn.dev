@@ -39,15 +39,15 @@ export default function RootLayout({
         },
         {
             name: "ドキュメント",
-            href: "/docs",
+            href: "https://docs.mikn.dev/",
         },
         {
             name: "利用規約",
-            href: "/docs/terms",
+            href: "/terms",
         },
         {
             name: "プライバシーポリシー",
-            href: "/docs/privacy",
+            href: "/privacy",
         },
     ];
 
