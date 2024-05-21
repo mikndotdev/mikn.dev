@@ -145,7 +145,7 @@ export default function Home({ params: { lng } }: Props) {
                         }}
                     >
                         <Geographies
-                            geography="https://cdn.mikandev.tech/public-assets/utils/geo.json"
+                            geography="https://cdn.mikandev.tech/public-assets/utils/geo.min.json"
                             fill="#FF9900"
                             stroke="#FF9900"
                         >
@@ -267,7 +267,7 @@ export default function Home({ params: { lng } }: Props) {
                     <Center className="mt-10">
                     <Image
                             src={cf.src}
-                            alt="DH"
+                            alt="CF"
                             width={200}
                             height={200}
                         />
@@ -280,7 +280,7 @@ export default function Home({ params: { lng } }: Props) {
                         />
                         <Image
                             src={bnuy.src}
-                            alt="DH"
+                            alt="BNY"
                             width={200}
                             height={200}
                         />
