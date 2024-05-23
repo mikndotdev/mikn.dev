@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-
-const nextConfig = ({
+const nextConfig = {
     images: {
         remotePatterns: [
             {
@@ -10,6 +9,20 @@ const nextConfig = ({
                 port: "",
                 pathname: "/**",
             },
+            {
+                protocol: "https",
+                hostname: "cdn.discordapp.com",
+                port: "",
+                pathname: "/avatars/**",
+            },
+            {
+                protocol: "https",
+                hostname: "cdn.statically.io",
+                port: "",
+                pathname: "/avatars/*",
+            },
         ],
     },
-});
+};
+
+module.exports = nextConfig;

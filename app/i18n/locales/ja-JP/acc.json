@@ -6,7 +6,8 @@
     "welcome": "やぁ！",
     "load": "読み込み中...",
     "pls_login": "ログインしてください。",
-    "logged_in": "で現在ログインしています。",
+    "logged_in": "現在ログインしています。",
+    "userinfo": "ユーザー情報",
     "blurb1": "MikanDevアカウント",
     "blurb2": "一つのアカウントで全てのMikanDevサービスを利用できます！",
     "blurb3": "まずは無料で登録してみよう！"

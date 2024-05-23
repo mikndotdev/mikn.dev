@@ -255,22 +255,14 @@ export default function Home({ params: { lng } }: Props) {
                     </Table>
                 </Card>
                 <Card className="mx-auto mt-10 py-10 text-center md:w-full">
-                <Heading
-                        size="4xl"
-                        className="text-center mt-0"
-                    >
+                    <Heading size="4xl" className="text-center mt-0">
                         {t("dualCDN")}
                     </Heading>
                     <Text size="md" className="text-center mt-5 text-white">
                         {t("dualCDNBlurb")}
                     </Text>
                     <Center className="mt-10">
-                    <Image
-                            src={cf.src}
-                            alt="CF"
-                            width={200}
-                            height={200}
-                        />
+                        <Image src={cf.src} alt="CF" width={200} height={200} />
                         <Image
                             src={dh.src}
                             alt="DH"
