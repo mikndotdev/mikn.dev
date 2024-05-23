@@ -12,7 +12,6 @@
     "dependencies": {
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
-        "@kinde-oss/kinde-auth-nextjs": "^2.2.3",
         "@logto/next": "^3.2.6",
         "@neodyland/ui": "^0.3.2",
         "@vercel/speed-insights": "^1.0.10",
