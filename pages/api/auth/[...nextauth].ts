@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import { NextAuthOptions } from "next-auth";
 
 const authOptions: NextAuthOptions = {
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         {
             id: "logto",
