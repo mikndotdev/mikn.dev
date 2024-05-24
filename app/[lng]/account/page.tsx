@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Card, Heading, Button, Center } from "@neodyland/ui";
+import { Card, Heading, Button, Center, useToast, ToastProvider } from "@neodyland/ui";
 import { useClientTranslation } from "@/app/i18n/client";
 import { PinContainer } from "@/app/ui/pin";
 import Loading from "@/app/ui/spinner-mask";
@@ -17,8 +17,25 @@ interface Props {
 export default function Home({ params: { lng } }: Props) {
     const { data: session, status } = useSession();
     const [IsLoading, setIsLoading] = useState(false);
+    const hasWelcomedBack = useRef(false);
     const { t } = useClientTranslation(lng, "acc");
     const en = lng.split("-")[0] === "en";
+    const toast = useToast();
+
+    const welcomeBack = (): void => { // Add return type annotation
+        toast.open({
+            title: t("welcomeBack"),
+            description:  t("welcomeBackBlurb"),
+            type: "success",
+        });
+    };
+
+    useEffect(() => {
+        if (session && status === "authenticated" && !hasWelcomedBack.current) {
+            welcomeBack();
+            hasWelcomedBack.current = true;
+        }
+    }, [session, status]);
 
     if (status === "loading") {
         return (
@@ -54,6 +71,7 @@ export default function Home({ params: { lng } }: Props) {
 
     return session ? (
         <div>
+            <ToastProvider>
             <Card className="mt-3 mb-3 flex items-center justify-between">
                 <div>
                     <Heading
@@ -90,6 +108,7 @@ export default function Home({ params: { lng } }: Props) {
             >
                 {t("buttons.logout")}
             </Button>
+            </ToastProvider>
         </div>
     ) : (
         <div>

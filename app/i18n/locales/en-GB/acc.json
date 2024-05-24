@@ -11,5 +11,7 @@
     "blurb1": "MikanDev Account",
     "blurb2": "One account for all MikanDev services",
     "blurb3": "Create a free account now!",
-    "plsWait": "Please wait..."
+    "plsWait": "Please wait...",
+    "welcomeBack": "Welcome back!",
+    "welcomeBackBlurb": "You are now logged into your MikanDev account."
 }

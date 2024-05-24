@@ -18,8 +18,13 @@ export default function Loading({ size = "lg" }: Props) {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 pointer-events-none z-50">
-            <div className={`${sizeClass} rounded-full flex items-center justify-center`}>
-                <ImSpinner2 size="125" className="text-primary animate-spin absolute"/>
+            <div
+                className={`${sizeClass} rounded-full flex items-center justify-center`}
+            >
+                <ImSpinner2
+                    size="125"
+                    className="text-primary animate-spin absolute"
+                />
                 <Image src={crown} alt="Loading" className="animate-bounce" />
             </div>
         </div>
