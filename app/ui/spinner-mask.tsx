@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import crown from "@/app/assets/mikan.png";
+import { ImSpinner2 } from "react-icons/im";
 
 interface Props {
     size?: "sm" | "md" | "lg";
@@ -17,19 +18,10 @@ export default function Loading({ size = "lg" }: Props) {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 pointer-events-none z-50">
-            <motion.div
-                className={`${sizeClass} rounded-full`}
-                animate={{
-                    rotate: 360,
-                    transition: {
-                        duration: 1,
-                        ease: "linear",
-                        repeat: Infinity,
-                    },
-                }}
-            >
-                <Image src={crown} alt="Loading" />
-            </motion.div>
+            <div className={`${sizeClass} rounded-full flex items-center justify-center`}>
+                <ImSpinner2 size="125" className="text-primary animate-spin absolute"/>
+                <Image src={crown} alt="Loading" className="animate-bounce" />
+            </div>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 "use client";
-
+import { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Card, Heading, Button, Center } from "@neodyland/ui";
 import { useClientTranslation } from "@/app/i18n/client";
@@ -16,6 +16,7 @@ interface Props {
 
 export default function Home({ params: { lng } }: Props) {
     const { data: session, status } = useSession();
+    const [IsLoading, setIsLoading] = useState(false);
     const { t } = useClientTranslation(lng, "acc");
     const en = lng.split("-")[0] === "en";
 
@@ -25,9 +26,25 @@ export default function Home({ params: { lng } }: Props) {
                 <Card>
                     <Heading
                         size="4xl"
-                        className="flex justify-center items-center mb-10"
+                        className="flex justify-center items-center"
                     >
                         {t("load")}
+                    </Heading>
+                    <Loading size="lg" />
+                </Card>
+            </div>
+        );
+    }
+
+    if (IsLoading) {
+        return (
+            <div>
+                <Card>
+                    <Heading
+                        size="4xl"
+                        className="flex justify-center items-center"
+                    >
+                        {t("plsWait")}
                     </Heading>
                     <Loading size="lg" />
                 </Card>
@@ -54,7 +71,7 @@ export default function Home({ params: { lng } }: Props) {
                 </div>
                 <Image
                     src={
-                        session.user?.image ||
+                        session.user?.image + "?size=1024" ||
                         `https://cdn.statically.io/avatar/${session.user?.name}`
                     }
                     width={200}
@@ -63,7 +80,14 @@ export default function Home({ params: { lng } }: Props) {
                     className="rounded-full ml-4"
                 />
             </Card>
-            <Button colorScheme="primary" size="lg" onClick={() => signOut()}>
+            <Button
+                colorScheme="primary"
+                size="lg"
+                onClick={() => {
+                    setIsLoading(true);
+                    signOut();
+                }}
+            >
                 {t("buttons.logout")}
             </Button>
         </div>
@@ -99,7 +123,10 @@ export default function Home({ params: { lng } }: Props) {
                     <Button
                         colorScheme="primary"
                         size="lg"
-                        onClick={() => signIn("logto")}
+                        onClick={() => {
+                            setIsLoading(true);
+                            signIn("logto");
+                        }}
                     >
                         {t("buttons.login")}
                     </Button>
