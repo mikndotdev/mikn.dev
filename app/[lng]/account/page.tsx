@@ -1,7 +1,7 @@
 "use client";
-
+import { useState, useEffect, useRef } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Card, Heading, Button, Center } from "@neodyland/ui";
+import { Card, Heading, Button, Center, useToast, ToastProvider } from "@neodyland/ui";
 import { useClientTranslation } from "@/app/i18n/client";
 import { PinContainer } from "@/app/ui/pin";
 import Loading from "@/app/ui/spinner-mask";
@@ -16,8 +16,26 @@ interface Props {
 
 export default function Home({ params: { lng } }: Props) {
     const { data: session, status } = useSession();
+    const [IsLoading, setIsLoading] = useState(false);
+    const hasWelcomedBack = useRef(false);
     const { t } = useClientTranslation(lng, "acc");
     const en = lng.split("-")[0] === "en";
+    const toast = useToast();
+
+    const welcomeBack = (): void => { // Add return type annotation
+        toast.open({
+            title: t("welcomeBack"),
+            description:  t("welcomeBackBlurb"),
+            type: "success",
+        });
+    };
+
+    useEffect(() => {
+        if (session && status === "authenticated" && !hasWelcomedBack.current) {
+            welcomeBack();
+            hasWelcomedBack.current = true;
+        }
+    }, [session, status]);
 
     if (status === "loading") {
         return (
@@ -25,7 +43,7 @@ export default function Home({ params: { lng } }: Props) {
                 <Card>
                     <Heading
                         size="4xl"
-                        className="flex justify-center items-center mb-10"
+                        className="flex justify-center items-center"
                     >
                         {t("load")}
                     </Heading>
@@ -35,8 +53,25 @@ export default function Home({ params: { lng } }: Props) {
         );
     }
 
+    if (IsLoading) {
+        return (
+            <div>
+                <Card>
+                    <Heading
+                        size="4xl"
+                        className="flex justify-center items-center"
+                    >
+                        {t("plsWait")}
+                    </Heading>
+                    <Loading size="lg" />
+                </Card>
+            </div>
+        );
+    }
+
     return session ? (
         <div>
+            <ToastProvider>
             <Card className="mt-3 mb-3 flex items-center justify-between">
                 <div>
                     <Heading
@@ -54,7 +89,7 @@ export default function Home({ params: { lng } }: Props) {
                 </div>
                 <Image
                     src={
-                        session.user?.image ||
+                        session.user?.image + "?size=1024" ||
                         `https://cdn.statically.io/avatar/${session.user?.name}`
                     }
                     width={200}
@@ -63,9 +98,17 @@ export default function Home({ params: { lng } }: Props) {
                     className="rounded-full ml-4"
                 />
             </Card>
-            <Button colorScheme="primary" size="lg" onClick={() => signOut()}>
+            <Button
+                colorScheme="primary"
+                size="lg"
+                onClick={() => {
+                    setIsLoading(true);
+                    signOut();
+                }}
+            >
                 {t("buttons.logout")}
             </Button>
+            </ToastProvider>
         </div>
     ) : (
         <div>
@@ -99,7 +142,10 @@ export default function Home({ params: { lng } }: Props) {
                     <Button
                         colorScheme="primary"
                         size="lg"
-                        onClick={() => signIn("logto")}
+                        onClick={() => {
+                            setIsLoading(true);
+                            signIn("logto");
+                        }}
                     >
                         {t("buttons.login")}
                     </Button>
