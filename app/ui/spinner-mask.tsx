@@ -25,7 +25,7 @@ export default function Loading({ size = "lg" }: Props) {
                     size="125"
                     className="text-primary animate-spin absolute"
                 />
-                <Image src={crown} alt="Loading" className="animate-bounce" />
+                <Image src={crown} alt="Loading" className="animate-pulse" />
             </div>
         </div>
     );
