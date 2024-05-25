@@ -1,8 +1,7 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import crown from "@/app/assets/mikan.png";
-import { ImSpinner2 } from "react-icons/im";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface Props {
     size?: "sm" | "md" | "lg";
@@ -21,7 +20,7 @@ export default function Loading({ size = "lg" }: Props) {
             <div
                 className={`${sizeClass} rounded-full flex items-center justify-center`}
             >
-                <ImSpinner2
+                <AiOutlineLoading3Quarters
                     size="125"
                     className="text-primary animate-spin absolute"
                 />
