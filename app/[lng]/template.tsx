@@ -8,7 +8,6 @@ import CookieConsent from "react-cookie-consent";
 
 import { FaDiscord, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
 import { SiMisskey } from "react-icons/si";
-import { on } from "events";
 
 export default function RootLayout({
     children,
