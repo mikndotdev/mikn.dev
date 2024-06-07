@@ -1,7 +1,14 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Card, Heading, Button, Center, useToast, ToastProvider } from "@neodyland/ui";
+import {
+    Card,
+    Heading,
+    Button,
+    Center,
+    useToast,
+    ToastProvider,
+} from "@neodyland/ui";
 import { useClientTranslation } from "@/app/i18n/client";
 import { PinContainer } from "@/app/ui/pin";
 import Loading from "@/app/ui/spinner-mask";
@@ -22,10 +29,11 @@ export default function Home({ params: { lng } }: Props) {
     const en = lng.split("-")[0] === "en";
     const toast = useToast();
 
-    const welcomeBack = (): void => { // Add return type annotation
+    const welcomeBack = (): void => {
+        // Add return type annotation
         toast.open({
             title: t("welcomeBack"),
-            description:  t("welcomeBackBlurb"),
+            description: t("welcomeBackBlurb"),
             type: "success",
         });
     };
@@ -72,42 +80,42 @@ export default function Home({ params: { lng } }: Props) {
     return session ? (
         <div>
             <ToastProvider>
-            <Card className="mt-3 mb-3 flex items-center justify-between">
-                <div>
-                    <Heading
-                        size="5xl"
-                        className="mb-5 justify-center text-primary mb-10"
-                    >
-                        MikanDev Account
-                    </Heading>
-                    <Heading size="4xl" className="mb-5">
-                        {session.user?.name}
-                    </Heading>
-                    <Heading size="sm" className="mb-5">
-                        {session.user?.email}
-                    </Heading>
-                </div>
-                <Image
-                    src={
-                        session.user?.image + "?size=1024" ||
-                        `https://cdn.statically.io/avatar/${session.user?.name}`
-                    }
-                    width={200}
-                    height={200}
-                    alt="User Image"
-                    className="rounded-full ml-4"
-                />
-            </Card>
-            <Button
-                colorScheme="primary"
-                size="lg"
-                onClick={() => {
-                    setIsLoading(true);
-                    signOut();
-                }}
-            >
-                {t("buttons.logout")}
-            </Button>
+                <Card className="mt-3 mb-3 flex items-center justify-between">
+                    <div>
+                        <Heading
+                            size="5xl"
+                            className="mb-5 justify-center text-primary mb-10"
+                        >
+                            MikanDev Account
+                        </Heading>
+                        <Heading size="4xl" className="mb-5">
+                            {session.user?.name}
+                        </Heading>
+                        <Heading size="sm" className="mb-5">
+                            {session.user?.email}
+                        </Heading>
+                    </div>
+                    <Image
+                        src={
+                            session.user?.image + "?size=1024" ||
+                            `https://cdn.statically.io/avatar/${session.user?.name}`
+                        }
+                        width={200}
+                        height={200}
+                        alt="User Image"
+                        className="rounded-full ml-4"
+                    />
+                </Card>
+                <Button
+                    colorScheme="primary"
+                    size="lg"
+                    onClick={() => {
+                        setIsLoading(true);
+                        signOut();
+                    }}
+                >
+                    {t("buttons.logout")}
+                </Button>
             </ToastProvider>
         </div>
     ) : (

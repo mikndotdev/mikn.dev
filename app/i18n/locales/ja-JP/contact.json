@@ -1,8 +1,8 @@
 {
     "contactUs": "問い合わせ",
-    "phone": "電話（日本国内限定）*",
-    "email": "メール",
+    "phone": "電話*¹",
+    "email": "Eメール",
     "discord": "Discordサーバー",
     "join": "参加する",
-    "discourageInternationalCalls": "*日本国外からの電話は多額の通話料がかかる場合があります。他の方法でのお問い合わせをお勧めします。"
+    "discourageInternationalCalls": "*¹日本国外からの電話は多額の通話料がかかる場合がありますので、他の方法でのお問い合わせをお勧めします。"
 }

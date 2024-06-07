@@ -24,12 +24,12 @@ export default function RootLayout({
             lang={headers().get("x-locale")?.split("-")[0]}
         >
             <body>
-                    <ClientSessionProvider>{children}</ClientSessionProvider>
-                    <script
-                        async
-                        src="https://analytics.mikandev.tech/script.js"
-                        data-website-id="8bbb0139-4084-4ba4-ab42-810b1002b0e3"
-                    ></script>
+                <ClientSessionProvider>{children}</ClientSessionProvider>
+                <script
+                    async
+                    src="https://analytics.mikandev.tech/script.js"
+                    data-website-id="8bbb0139-4084-4ba4-ab42-810b1002b0e3"
+                ></script>
             </body>
         </html>
     );
