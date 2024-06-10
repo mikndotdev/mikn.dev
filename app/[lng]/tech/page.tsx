@@ -44,6 +44,7 @@ const soonmarkers = [
     { markerOffset: -27, name: "HND", coordinates: [141, 32] },
     { markerOffset: -27, name: "HKG", coordinates: [118, 20] },
     { markerOffset: -27, name: "HEL", coordinates: [28, 60] },
+    { markerOffset: -27, name: "LON", coordinates: [0, 50] },
     { markerOffset: -27, name: "LAX", coordinates: [-120, 35] },
     { markerOffset: -27, name: "VIR", coordinates: [-77, 32] },
 ];
@@ -90,6 +91,12 @@ export default function Home({ params: { lng } }: Props) {
             count: 1,
         },
         {
+            name: "HND3",
+            place: t("tyo"),
+            provider: t("aws"),
+            count: 1,
+        },
+        {
             name: "HKG",
             place: t("hkg"),
             provider: t("albb"),
@@ -99,6 +106,12 @@ export default function Home({ params: { lng } }: Props) {
             name: "HEL",
             place: t("hel"),
             provider: t("htzn"),
+            count: 1,
+        },
+        {
+            name: "LON",
+            place: t("lon"),
+            provider: t("aws"),
             count: 1,
         },
         {
