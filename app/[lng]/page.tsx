@@ -78,7 +78,7 @@ export default function Home({ params: { lng } }: Props) {
                         <Button
                             colorScheme="primary"
                             className="mr-3 animate-bounce"
-                            onClick={() => router.push("/services")}
+                            onClick={() => router.push("/solutions")}
                         >
                             {t("buttons.check_out")}
                         </Button>

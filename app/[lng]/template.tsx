@@ -42,11 +42,11 @@ export default function RootLayout({
         },
         {
             name: "利用規約",
-            href: "/terms",
+            href: "https://docs.mikn.dev/legal/terms",
         },
         {
             name: "プライバシーポリシー",
-            href: "/privacy",
+            href: "https://docs.mikn.dev/legal/privacy",
         },
     ];
 
@@ -91,7 +91,7 @@ export default function RootLayout({
                 },
                 {
                     name: "Services",
-                    href: "/services",
+                    href: "/solutions",
                 },
                 {
                     name: "Blog",
@@ -117,15 +117,15 @@ export default function RootLayout({
             children: [
                 {
                     name: "Terms of use",
-                    href: "/terms",
+                    href: "https://docs.mikn.dev/legal/terms",
                 },
                 {
                     name: "Privacy policy",
-                    href: "/privacy",
+                    href: "https://docs.mikn.dev/legal/privacy",
                 },
                 {
                     name: "Payments",
-                    href: "/payments",
+                    href: "https://docs.mikn.dev/legal/jp-payments",
                 },
             ],
         },
