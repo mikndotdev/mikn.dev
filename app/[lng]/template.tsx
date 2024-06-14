@@ -127,6 +127,10 @@ export default function RootLayout({
                     name: "Payments",
                     href: "https://docs.mikn.dev/legal/jp-payments",
                 },
+                {
+                    name: "GDPR",
+                    href: "https://docs.mikn.dev/legal/dpa",
+                },
             ],
         },
     ];
