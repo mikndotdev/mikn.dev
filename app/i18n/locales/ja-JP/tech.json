@@ -23,6 +23,10 @@
     "gcp": "Google Cloud",
     "ndn": "New Dream Network",
     "self": "所有",
-    "dualCDN": "二重CDN",
-    "dualCDNBlurb": "2つのCDNプロバイダーとオブジェクトストレージてコンテンツを快適にダウンロード"
+    "dualCDN": "分散型コンテンツ配信",
+    "dualCDNBlurb": "グローバルオブジェクトストレージと複数の高性能CDNを採用しててコンテンツを快適にダウンロード",
+    "globalStorage": "世界各国にデータを保存",
+    "webappDist": "Webアプリ配信",
+    "caching": "高度キャッシング",
+    "fastStatic": "静的コンテンツを高速配信"
 }

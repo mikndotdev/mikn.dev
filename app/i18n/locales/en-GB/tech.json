@@ -23,6 +23,10 @@
     "gcp": "Google Cloud",
     "ndn": "New Dream Network",
     "self": "Self-hosted",
-    "dualCDN": "Dual CDN",
-    "dualCDNBlurb": "We use two different CDN providers along with object storage to ensure the fastest possible delivery of your content."
+    "dualCDN": "Distributed Content",
+    "dualCDNBlurb": "We combine globally available object storage with multiple top-teir CDNs to ensure the fastest possible delivery of your content.",
+    "globalStorage": "Globally distributed object storage",
+    "webappDist": "Webapp distribution",
+    "caching": "Advanced Caching",
+    "fastStatic": "Fast static content"
 }

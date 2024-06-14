@@ -31,6 +31,8 @@ import { LuMapPin } from "react-icons/lu";
 import dh from "@/app/assets/dh.svg";
 import cf from "@/app/assets/cf.svg";
 import bnuy from "@/app/assets/bnuy.svg";
+import cloudfront from "@/app/assets/cloudfront.png";
+import tigris from "@/app/assets/tigris.svg";
 
 interface Props {
     params: {
@@ -275,20 +277,54 @@ export default function Home({ params: { lng } }: Props) {
                         {t("dualCDNBlurb")}
                     </Text>
                     <Center className="mt-10">
-                        <Image src={cf.src} alt="CF" width={200} height={200} />
-                        <Image
-                            src={dh.src}
-                            alt="DH"
-                            width={200}
-                            height={200}
-                            className="ml-10 mr-10"
-                        />
-                        <Image
-                            src={bnuy.src}
-                            alt="BNY"
-                            width={200}
-                            height={200}
-                        />
+                        <Flex direction="col">
+                            <Image
+                                src={tigris.src}
+                                alt="Tigris Data"
+                                width={150}
+                                height={150}
+                                className="ml-10 mr-10"
+                            />
+                            <Heading size="sm" className="mt-4">
+                                {t("globalStorage")}
+                            </Heading>
+                        </Flex>
+                        <Flex direction="col">
+                            <Image
+                                src={cf.src}
+                                alt="CF"
+                                width={200}
+                                height={200}
+                                className="ml-10 mr-10"
+                            />
+                            <Heading size="sm" className="mt-7">
+                                {t("webappDist")}
+                            </Heading>
+                        </Flex>
+                        <Flex direction="col">
+                            <Image
+                                src={bnuy.src}
+                                alt="BNY"
+                                width={200}
+                                height={200}
+                                className="ml-10 mr-10"
+                            />
+                            <Heading size="sm" className="mt-5">
+                                {t("caching")}
+                            </Heading>
+                        </Flex>
+                        <Flex direction="col">
+                            <Image
+                                src={cloudfront.src}
+                                alt="ACF"
+                                width={75}
+                                height={75}
+                                className="ml-10 mr-10 rounded-full"
+                            />
+                            <Heading size="sm" className="mt-1">
+                                {t("fastStatic")}
+                            </Heading>
+                        </Flex>
                     </Center>
                 </Card>
             </div>
