@@ -94,6 +94,9 @@ export default function Home({ params: { lng } }: Props) {
                         <Heading size="sm" className="mb-5">
                             {session.user?.email}
                         </Heading>
+                        <Heading size="sm" className="mb-5">
+                            {session.user?.discord}
+                        </Heading>
                     </div>
                     <Image
                         src={
@@ -135,7 +138,7 @@ export default function Home({ params: { lng } }: Props) {
                             src={mikanMascot.src}
                             width={200}
                             height={100}
-                            alt="MikanDev Tech Logo"
+                            alt="MikanDev Logo"
                             className="ml-2 mb-0 mt-10"
                         />
                     </div>
