@@ -14,4 +14,14 @@ declare module "next-auth" {
       id: string
     }
   }
-}
+  interface Profile {
+      /** The user's postal address. */
+      discord: string
+      email: string
+      image: string
+      picture: string
+      name: string
+      id: string
+      username: string
+    }
+  }
