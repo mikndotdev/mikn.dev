@@ -7,7 +7,6 @@ const authOptions: NextAuthOptions = {
     callbacks: {
         async jwt({ token, profile, account, user }) {
             if (account && profile) {
-                token.id = profile.sub;
                 token.name = profile.name ?? profile.username;
                 token.email = profile.email;
                 token.picture = profile.picture;
@@ -18,7 +17,7 @@ const authOptions: NextAuthOptions = {
             return token;
         },
         async session({ session, token }) {
-            session.user.id = token.id as string;
+            session.user.id = token.sub as string;
             session.user.name = token.name as string;
             session.user.email = token.email as string;
             session.user.image = token.picture as string;
@@ -30,7 +29,7 @@ const authOptions: NextAuthOptions = {
     providers: [
         {
             id: "logto",
-            name: "Logto",
+            name: "MikanDev Account",  
             type: "oauth",
             wellKnown: "https://account.mikn.dev/oidc/.well-known/openid-configuration",
             authorization: {
@@ -62,14 +61,15 @@ const authOptions: NextAuthOptions = {
                     }
 
                     const userinfo = await userinfoResponse.json();
+                    profile.discord = userinfo.identities?.discord?.userId,
                     console.log("Profile Callback - Userinfo:", userinfo); // Add logging for userinfo
-
+                    console.log("Profile Callback - Profile:", profile); // Add logging for discord ID
                     return {
                         id: profile.sub,
                         name: profile.name ?? profile.username,
                         email: profile.email,
                         picture: profile.picture,
-                        discord: userinfo.identities?.discord?.userId, // Ensure discord ID is returned here
+                        discord: profile.discord, // Ensure discord ID is returned here
                     };
                 } catch (error) {
                     console.error("Error fetching userinfo:", error);
