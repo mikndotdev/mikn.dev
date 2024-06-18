@@ -48,6 +48,10 @@ export default function RootLayout({
             name: "プライバシーポリシー",
             href: "https://docs.mikn.dev/legal/privacy",
         },
+        {
+            name: "チャージセンター",
+            href: "https://payments.mikandev.com/",
+        },
     ];
 
     const social = [
@@ -82,6 +86,10 @@ export default function RootLayout({
             name: "Resouces",
             children: [
                 {
+                    name: "Payment Center",
+                    href: "https://payments.mikandev.com/",
+                },
+                {
                     name: "About us",
                     href: "/about",
                 },
@@ -95,7 +103,7 @@ export default function RootLayout({
                 },
                 {
                     name: "Blog",
-                    href: "/blog",
+                    href: "https://mikn.blog/",
                 },
             ],
         },
