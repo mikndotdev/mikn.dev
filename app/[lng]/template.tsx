@@ -156,6 +156,7 @@ export default function RootLayout({
                 navigation={nav}
                 //@ts-ignore
                 buttons={buttons}
+                color="#FF9900"
                 brand={{
                     showTitle: true,
                     name: "MikanDev",
