@@ -29,11 +29,14 @@ const authOptions: NextAuthOptions = {
     providers: [
         {
             id: "logto",
-            name: "MikanDev Account",  
+            name: "MikanDev Account",
             type: "oauth",
-            wellKnown: "https://account.mikn.dev/oidc/.well-known/openid-configuration",
+            wellKnown:
+                "https://account.mikn.dev/oidc/.well-known/openid-configuration",
             authorization: {
-                params: { scope: "openid offline_access profile email identities" },
+                params: {
+                    scope: "openid offline_access profile email identities",
+                },
             },
             clientId: process.env.LOGTO_CLIENT_ID,
             clientSecret: process.env.LOGTO_CLIENT_SECRET,
@@ -45,24 +48,31 @@ const authOptions: NextAuthOptions = {
                 console.log("Profile Callback - Tokens:", tokens); // Add logging for tokens
 
                 try {
-                    const userinfoResponse = await fetch('https://account.mikn.dev/oidc/me', {
-                        method: 'GET',
-                        headers: {
-                            Authorization: `Bearer ${tokens.access_token}`,
-                            'Content-Type': 'application/json',
+                    const userinfoResponse = await fetch(
+                        "https://account.mikn.dev/oidc/me",
+                        {
+                            method: "GET",
+                            headers: {
+                                Authorization: `Bearer ${tokens.access_token}`,
+                                "Content-Type": "application/json",
+                            },
                         },
-                    });
+                    );
 
                     if (!userinfoResponse.ok) {
-                        console.error(`Failed to fetch userinfo: ${userinfoResponse.status} - ${userinfoResponse.statusText}`);
+                        console.error(
+                            `Failed to fetch userinfo: ${userinfoResponse.status} - ${userinfoResponse.statusText}`,
+                        );
                         const errorDetails = await userinfoResponse.json();
                         console.error("Error details:", errorDetails);
-                        throw new Error(`Failed to fetch userinfo: ${userinfoResponse.statusText}`);
+                        throw new Error(
+                            `Failed to fetch userinfo: ${userinfoResponse.statusText}`,
+                        );
                     }
 
                     const userinfo = await userinfoResponse.json();
-                    profile.discord = userinfo.identities?.discord?.userId,
-                    console.log("Profile Callback - Userinfo:", userinfo); // Add logging for userinfo
+                    (profile.discord = userinfo.identities?.discord?.userId),
+                        console.log("Profile Callback - Userinfo:", userinfo); // Add logging for userinfo
                     console.log("Profile Callback - Profile:", profile); // Add logging for discord ID
                     return {
                         id: profile.sub,
