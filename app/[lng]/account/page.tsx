@@ -43,7 +43,7 @@ export default function Home({ params: { lng } }: Props) {
             welcomeBack();
             hasWelcomedBack.current = true;
         }
-    }, [session, status]);
+    }, [session, status, welcomeBack]);
 
     if (status === "loading") {
         return (
