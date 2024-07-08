@@ -17,6 +17,7 @@ import cloud from "../assets/cloud.svg";
 import neody from "../assets/neody.svg";
 import kuroneko from "../assets/krnk.png";
 import miq from "../assets/miq.png";
+import brain from "../assets/brain.svg";
 
 import {
     FaGithub,
@@ -46,6 +47,7 @@ export default function Home({ params: { lng } }: Props) {
         ts.src,
         network.src,
         cloud.src,
+        brain.src,
     ];
 
     const words = [
