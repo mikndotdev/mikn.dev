@@ -8,7 +8,7 @@ export default function myImageLoader({
     const isLocal = !src.startsWith("http");
     const query = new URLSearchParams();
 
-    const imageOptimizationApi = "https://images.mikandev.tech";
+    const imageOptimizationApi = "https://images.mikandev.tech/image";
     // Your NextJS application URL
     const baseUrl = "https://mikn.dev";
 
