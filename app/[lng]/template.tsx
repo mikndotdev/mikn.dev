@@ -91,7 +91,7 @@ export default function RootLayout({
                 },
                 {
                     name: "About us",
-                    href: "/about",
+                    href: "/vision",
                 },
                 {
                     name: "Partners",
