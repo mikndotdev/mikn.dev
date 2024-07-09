@@ -85,7 +85,7 @@ export default function AccButton({ children }: AccButtonProps) {
                         <Heading size="sm" className="text-primary mt-2 mb-5">UID {session.user.discord}</Heading>
                         </Center>
                         <ul>
-                            <li className="cursor-pointer hover:bg-gray-100 p-2 rounded" onClick={() => router.push("/account")}>Profile</li>
+                            <li className="cursor-pointer hover:bg-gray-100 p-2 rounded" onClick={() => router.push("https://mikn.dev/account")}>Profile</li>
                             <li className="cursor-pointer hover:bg-gray-100 p-2 rounded" onClick={() => signOut()}>Logout</li>
                         </ul>
                     </motion.div>
