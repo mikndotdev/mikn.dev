@@ -18,6 +18,7 @@ import neody from "../assets/neody.svg";
 import kuroneko from "../assets/krnk.png";
 import miq from "../assets/miq.png";
 import brain from "../assets/brain.svg";
+import KawaiiLogo from "../assets/mikan-vtube.svg";
 
 import {
     FaGithub,
@@ -68,7 +69,7 @@ export default function Home({ params: { lng } }: Props) {
             <div className="relative">
                 <Card className="mt-20">
                     <Center className="mt-5">
-                        <TypewriterEffect words={words} className="" />
+                        <Image src={KawaiiLogo.src} alt="MikanDev" width={700} height={500} className="mb-5"/>
                     </Center>
                     <Heading
                         className="flex justify-center items-center mt-3"
