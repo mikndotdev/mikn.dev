@@ -25,8 +25,9 @@ export default function RootLayout({
             lang={headers().get("x-locale")?.split("-")[0]}
         >
             <body>
-                <ClientSessionProvider>{children}
-                <AccButton />
+                <ClientSessionProvider>
+                    {children}
+                    <AccButton />
                 </ClientSessionProvider>
                 <script
                     async

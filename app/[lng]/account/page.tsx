@@ -8,6 +8,10 @@ import {
     Center,
     useToast,
     ToastProvider,
+    AlertDialog,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    FileInput,
 } from "@neodyland/ui";
 import { useClientTranslation } from "@/app/i18n/client";
 import { PinContainer } from "@/app/ui/pin";
@@ -22,20 +26,61 @@ interface Props {
 }
 
 export default function Home({ params: { lng } }: Props) {
-    const { data: session, status } = useSession();
+    const { data: session, status, update } = useSession();
     const [IsLoading, setIsLoading] = useState(false);
+    const [open, setOpen] = useState(false);
+    const [file, setFile] = useState<File | null>(null);
     const hasWelcomedBack = useRef(false);
     const { t } = useClientTranslation(lng, "acc");
     const en = lng.split("-")[0] === "en";
     const toast = useToast();
 
     const welcomeBack = (): void => {
-        // Add return type annotation
         toast.open({
             title: t("welcomeBack"),
             description: t("welcomeBackBlurb"),
             type: "success",
         });
+    };
+
+    const upload = async () => {
+        setOpen(false);
+        if (file) {
+            toast.open({
+                title: t("uploading"),
+                description: t("uploadingBlurb"),
+                type: "success",
+            });
+            const formData = new FormData();
+            formData.append("file", file);
+            const res = await fetch(`/api/pfp?id=${session?.user?.id}`, {
+                method: "POST",
+                body: formData,
+            });
+            if (res.ok) {
+                const data = await res.json();
+                if (data.sessionShouldBeRefreshed) {
+                    await update();
+                }
+                toast.open({
+                    title: t("success"),
+                    description: t("successBlurb"),
+                    type: "success",
+                });
+            } else {
+                toast.open({
+                    title: t("error"),
+                    description: t("errorBlurb"),
+                    type: "error",
+                });
+            }
+        } else {
+            toast.open({
+                title: t("error"),
+                description: t("errorBlurb"),
+                type: "error",
+            });
+        }
     };
 
     useEffect(() => {
@@ -79,34 +124,60 @@ export default function Home({ params: { lng } }: Props) {
 
     return session ? (
         <div>
+            <AlertDialog open={open} onClose={() => setOpen(false)}>
+                <AlertDialogDescription className="text-center">
+                    {t("changePFP")}
+                </AlertDialogDescription>
+                <FileInput
+                    className="mt-2 mb-2"
+                    accept="image/jpeg, image/png, image/gif"
+                    colorScheme={"secondary"}
+                    onChange={(e) => {
+                        const selectedFile = e.target.files?.[0];
+                        if (selectedFile) {
+                            setFile(selectedFile);
+                        }
+                    }}
+                />
+                <Center>
+                    <AlertDialogFooter
+                        actionText={t("upload")}
+                        cancelText={t("cancel")}
+                        actionColor="success"
+                        onAction={() => upload()}
+                        onCancel={() => setOpen(false)}
+                    />
+                </Center>
+            </AlertDialog>
             <ToastProvider>
                 <Card className="mt-3 mb-3 flex items-center justify-between">
                     <div>
                         <Heading
                             size="5xl"
-                            className="mb-5 justify-center text-primary mb-10"
+                            className="mb-5 justify-center text-primary mb-5"
                         >
                             MikanDev Account
                         </Heading>
-                        <Heading size="4xl" className="mb-5">
+                        <Heading size="4xl" className="mb-2">
                             {session.user?.name}
                         </Heading>
-                        <Heading size="sm" className="mb-5">
+                        <Heading size="sm" className="mb-2">
                             {session.user?.email}
                         </Heading>
-                        <Heading size="sm" className="mb-5">
+                        <Heading size="sm" className="mb-2">
                             {session.user?.discord}
                         </Heading>
                     </div>
                     <Image
                         src={
-                            session.user?.image + "?size=1024" ||
+                            `${session.user?.image}?size=1024` ||
                             `https://cdn.statically.io/avatar/${session.user?.name}`
                         }
                         width={200}
                         height={200}
                         alt="User Image"
-                        className="rounded-full ml-4"
+                        className="rounded-full ml-4 transition-all duration-300 hover:brightness-50"
+                        onClick={() => setOpen(true)}
                     />
                 </Card>
                 <Button

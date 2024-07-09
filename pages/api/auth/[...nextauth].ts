@@ -1,28 +1,103 @@
-// pages/api/auth/[...nextauth].ts
 import NextAuth from "next-auth";
-import type { NextAuthOptions } from "next-auth";
+import type { AuthOptions } from "next-auth";
+import type { JWT } from "next-auth/jwt";
 
-const authOptions: NextAuthOptions = {
+async function refreshAccessToken(token: JWT) {
+    try {
+        const response = await fetch("https://account.mikn.dev/oidc/token", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+                client_id: process.env.LOGTO_CLIENT_ID!,
+                client_secret: process.env.LOGTO_CLIENT_SECRET!,
+                grant_type: "refresh_token",
+                refresh_token: token.refreshToken as string,
+            }),
+        });
+
+        const refreshedTokens = await response.json();
+
+        if (!response.ok) {
+            throw refreshedTokens;
+        }
+
+        return {
+            ...token,
+            accessToken: refreshedTokens.access_token,
+            accessTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
+            refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to old refresh token
+        };
+    } catch (error) {
+        console.log(error);
+        return {
+            ...token,
+            error: "RefreshAccessTokenError",
+        };
+    }
+}
+
+const authOptions: AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
-        async jwt({ token, profile, account, user }) {
-            if (account && profile) {
-                token.name = profile.name ?? profile.username;
-                token.email = profile.email;
-                token.picture = profile.picture;
-                token.discord = profile.discord; // Assign discord ID to token
+        async jwt({ token, account, user }) {
+            // Initial sign in
+            if (account && user) {
+                return {
+                    accessToken: account.access_token,
+                    accessTokenExpires: account.expires_at! * 1000,
+                    refreshToken: account.refresh_token,
+                    user,
+                };
             }
-            console.log("JWT Callback - Profile:", profile); // Add logging for profile
-            console.log("JWT Callback - Token:", token); // Add logging for token
-            return token;
+
+            // Return previous token if the access token has not expired yet
+            if (Date.now() < (token.accessTokenExpires as number)) {
+                return token;
+            }
+
+            // Access token has expired, try to update it
+            return refreshAccessToken(token);
         },
         async session({ session, token }) {
-            session.user.id = token.sub as string;
-            session.user.name = token.name as string;
-            session.user.email = token.email as string;
-            session.user.image = token.picture as string;
-            session.user.discord = token.discord as string; // Assign discord ID to session
-            console.log("Session Callback - Session:", session); // Add logging for session
+            if (token.error) {
+                // Handle error state here
+                return { ...session, error: token.error };
+            }
+
+            // Fetch user info with the new access token
+            try {
+                const response = await fetch(
+                    "https://account.mikn.dev/oidc/me",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token.accessToken}`,
+                            
+                        },
+                    },
+                );
+
+                if (response.ok) {
+                    const userInfo = await response.json();
+                    session.user = {
+                        id: userInfo.sub,
+                        name: userInfo.name ?? userInfo.username,
+                        email: userInfo.email,
+                        image: userInfo.picture,
+                        discord: userInfo.identities?.discord?.userId,
+                    };
+                } else {
+                    console.error(
+                        "Failed to fetch user info:",
+                        response.statusText,
+                    );
+                }
+            } catch (error) {
+                console.error("Error fetching user info:", error);
+            }
+
+            (session as any).accessToken = token.accessToken;
             return session;
         },
     },
@@ -43,51 +118,19 @@ const authOptions: NextAuthOptions = {
             client: {
                 id_token_signed_response_alg: "ES384",
             },
-            profile: async (profile, tokens) => {
-                console.log("Profile Callback - Profile:", profile); // Add logging for profile
-                console.log("Profile Callback - Tokens:", tokens); // Add logging for tokens
-
-                try {
-                    const userinfoResponse = await fetch(
-                        "https://account.mikn.dev/oidc/me",
-                        {
-                            method: "GET",
-                            headers: {
-                                Authorization: `Bearer ${tokens.access_token}`,
-                                "Content-Type": "application/json",
-                            },
-                        },
-                    );
-
-                    if (!userinfoResponse.ok) {
-                        console.error(
-                            `Failed to fetch userinfo: ${userinfoResponse.status} - ${userinfoResponse.statusText}`,
-                        );
-                        const errorDetails = await userinfoResponse.json();
-                        console.error("Error details:", errorDetails);
-                        throw new Error(
-                            `Failed to fetch userinfo: ${userinfoResponse.statusText}`,
-                        );
-                    }
-
-                    const userinfo = await userinfoResponse.json();
-                    (profile.discord = userinfo.identities?.discord?.userId),
-                        console.log("Profile Callback - Userinfo:", userinfo); // Add logging for userinfo
-                    console.log("Profile Callback - Profile:", profile); // Add logging for discord ID
-                    return {
-                        id: profile.sub,
-                        name: profile.name ?? profile.username,
-                        email: profile.email,
-                        picture: profile.picture,
-                        discord: profile.discord, // Ensure discord ID is returned here
-                    };
-                } catch (error) {
-                    console.error("Error fetching userinfo:", error);
-                    throw new Error("Failed to fetch userinfo");
-                }
+            idToken: true,
+            profile(profile) {
+                return {
+                    id: profile.sub,
+                    name: profile.name ?? profile.username,
+                    email: profile.email,
+                    image: profile.picture,
+                    discord: profile.identities?.discord?.userId,
+                };
             },
         },
     ],
 };
 
 export default NextAuth(authOptions);
+export { authOptions };
