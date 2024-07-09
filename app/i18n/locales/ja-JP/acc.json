@@ -13,5 +13,15 @@
     "blurb3": "まずは無料で登録してみよう！",
     "plsWait": "お待ちください...",
     "welcomeBack": "おかえりなさい！",
-    "welcomeBackBlurb": "ログインしました。"
+    "welcomeBackBlurb": "ログインしました。",
+    "changePFP": "プロフィール画像を変更する",
+    "upload": "アップロード",
+    "cancel": "キャンセル",
+    "uploading": "アップロード中...",
+    "uploadingBlurb": "プロフィール画像をアップロード中です。",
+    "error": "エラー",
+    "errorBlurb": "ファイルを選択してアップロードしてください。",
+    "genericErrorBlurb": "プロフィール画像を更新する際にエラーが発生しました。",
+    "success": "成功",
+    "successBlurb": "プロフィール画像を更新しました。"
 }

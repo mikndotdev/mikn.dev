@@ -70,14 +70,14 @@ export default function Home({ params: { lng } }: Props) {
             } else {
                 toast.open({
                     title: t("error"),
-                    description: t("errorBlurb"),
+                    description: t("genericErrorBlurb"),
                     type: "error",
                 });
             }
         } else {
             toast.open({
                 title: t("error"),
-                description: t("errorBlurb"),
+                description: t("genericErrorBlurb"),
                 type: "error",
             });
         }

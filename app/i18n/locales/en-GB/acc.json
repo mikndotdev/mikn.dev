@@ -20,5 +20,8 @@
     "uploading": "Uploading...",
     "uploadingBlurb": "Your profile picture is being uploaded.",
     "error": "Error",
-    "errorBlurb": "Please choose a file to upload."
+    "errorBlurb": "Please choose a file to upload.",
+    "genericErrorBlurb": "An error occurred while updating your profile picture.",
+    "success": "Success",
+    "successBlurb": "Your profile picture has been updated."
 }
