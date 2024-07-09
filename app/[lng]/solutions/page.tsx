@@ -17,7 +17,9 @@ export default function Home({ params: { lng } }: Props) {
 
     return (
         <div>
-            <Heading>Home</Heading>
+            <Center>
+                <Heading>Home</Heading>
+            </Center>
         </div>
     );
 }

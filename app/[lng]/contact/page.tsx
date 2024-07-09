@@ -44,7 +44,7 @@ export default function Home({ params: { lng } }: Props) {
                                         className="flex justify-left items-center ml-5 mt-3"
                                         size="2xl"
                                     >
-                                        +81 050-1808-4545
+                                        +81 050-5532-0721
                                     </Heading>
                                 </div>
                                 <FaPhoneAlt
