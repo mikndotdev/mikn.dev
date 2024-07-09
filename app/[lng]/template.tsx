@@ -3,6 +3,7 @@ import { Header, Footer, ToastProvider, useToast } from "@neodyland/ui";
 import Image from "next/image";
 import mikanLogo from "../assets/mikandev-circle.webp";
 import mikanMascot from "../assets/MikanMascotFull.png";
+import MikanCat from "../assets/mikan-cat.png";
 import { useRouter, usePathname } from "next/navigation";
 import CookieConsent from "react-cookie-consent";
 
@@ -195,7 +196,7 @@ export default function RootLayout({
             >
                 <div className="flex items-center self-end">
                     <Image
-                        src={mikanMascot.src}
+                        src={MikanCat.src}
                         width={200}
                         height={100}
                         alt="MikanDev Tech"
