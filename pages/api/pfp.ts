@@ -81,7 +81,7 @@ export default async function handler(
                 fileName,
                 processedImage,
                 processedImage.length,
-                { contentType },
+                { 'Content-Type': contentType },
             );
 
             const FQURL = `https://cdn.mdusercontent.com/${fileName}`;
