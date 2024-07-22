@@ -1,5 +1,5 @@
 "use client";
-export const runtime = 'edge';
+export const runtime = "edge";
 import { Header, Footer, ToastProvider, useToast } from "@neodyland/ui";
 import Image from "next/image";
 import mikanLogo from "../assets/mikandev-circle.webp";

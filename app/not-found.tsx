@@ -1,9 +1,8 @@
 "use client";
 export const runtime = "edge";
-import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
-import { useClientTranslation } from "@/app/i18n/client";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { useClientTranslation } from "@/app/i18n/client";
+import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
 
 interface Props {
     params: {
@@ -19,7 +18,7 @@ export default function Home({ params: { lng } }: Props) {
     return (
         <div>
             <Center>
-                <Heading>Home</Heading>
+                <Heading>Not Found</Heading>
             </Center>
         </div>
     );
