@@ -1,5 +1,5 @@
 "use client";
-export const runtime = "edge";
+export const runtime = 'edge';
 import { TypewriterEffect } from "../ui/type";
 import SpinningGallery from "../ui/SpinningGallery";
 import { useClientTranslation } from "../i18n/client";
@@ -70,13 +70,7 @@ export default function Home({ params: { lng } }: Props) {
             <div className="relative">
                 <Card className="mt-20">
                     <Center className="mt-5">
-                        <Image
-                            src={KawaiiLogo.src}
-                            alt="MikanDev"
-                            width={700}
-                            height={500}
-                            className="mb-5"
-                        />
+                        <Image src={KawaiiLogo.src} alt="MikanDev" width={700} height={500} className="mb-5"/>
                     </Center>
                     <Heading
                         className="flex justify-center items-center mt-3"

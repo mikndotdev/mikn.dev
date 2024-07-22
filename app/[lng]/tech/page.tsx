@@ -1,5 +1,5 @@
 "use client";
-export const runtime = "edge";
+export const runtime = 'edge';
 import { TypewriterEffect } from "@/app/ui/type";
 import { useClientTranslation } from "@/app/i18n/client";
 import { Button, Heading, Card, Center, Flex, Text } from "@neodyland/ui";

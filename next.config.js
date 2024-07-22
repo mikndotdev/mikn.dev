@@ -27,13 +27,13 @@ const nextConfig = {
     },
     async redirects() {
         return [
-            {
-                source: "/account",
-                destination: "https://my.mikandev.com/",
-                permanent: true,
-            },
-        ];
-    },
+          {
+            source: '/account',
+            destination: 'https://my.mikandev.com/',
+            permanent: true,
+          },
+        ]
+    }
 };
 
 module.exports = nextConfig;
