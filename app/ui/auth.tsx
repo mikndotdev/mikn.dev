@@ -1,5 +1,4 @@
 "use client";
-export const runtime = 'edge';
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@neodyland/ui";

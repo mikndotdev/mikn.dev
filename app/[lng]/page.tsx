@@ -1,5 +1,4 @@
 "use client";
-export const runtime = 'edge';
 import { TypewriterEffect } from "../ui/type";
 import SpinningGallery from "../ui/SpinningGallery";
 import { useClientTranslation } from "../i18n/client";

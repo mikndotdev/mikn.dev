@@ -1,5 +1,4 @@
 "use client";
-export const runtime = 'edge';
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";

@@ -1,5 +1,4 @@
 "use client";
-export const runtime = 'edge';
 import { Button } from "@neodyland/ui";
 
 type Props = {
