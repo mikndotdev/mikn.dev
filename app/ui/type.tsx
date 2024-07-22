@@ -1,4 +1,5 @@
 "use client";
+export const runtime = 'edge';
 
 import { cn } from "./cn";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
