@@ -12,9 +12,14 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
+# Argument for NPM token
+ARG NPM_TOKEN
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
+
+# Set the NPM_TOKEN as an environment variable
+ENV NPM_TOKEN=${NPM_TOKEN}
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
@@ -34,6 +39,8 @@ RUN bun run build
 RUN rm -rf node_modules && \
     bun install --ci
 
+# Remove .npmrc to avoid token leakage
+RUN rm -f .npmrc
 
 # Final stage for app image
 FROM base
