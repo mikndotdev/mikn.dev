@@ -12,18 +12,17 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
-# Argument for NPM token
-ARG NPM_TOKEN
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
-
-# Set the NPM_TOKEN as an environment variable
-ENV NPM_TOKEN=${NPM_TOKEN}
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential pkg-config python-is-python3
+
+# Mount the GH_NPM_TOKEN secret and use it to create bunfig.toml
+RUN --mount=type=secret,id=GH_NPM_TOKEN \
+    echo '[install.scopes]' > bunfig.toml && \
+    echo 'neodyland = { token = "'$(cat /run/secrets/GH_NPM_TOKEN)'", url = "https://npm.pkg.github.com/" }' >> bunfig.toml
 
 # Install node modules
 COPY --link bun.lockb package.json ./
@@ -39,8 +38,8 @@ RUN bun run build
 RUN rm -rf node_modules && \
     bun install --ci
 
-# Remove .npmrc to avoid token leakage
-RUN rm -f .npmrc
+# Remove bunfig.toml to avoid token leakage
+RUN rm -f bunfig.toml
 
 # Final stage for app image
 FROM base
