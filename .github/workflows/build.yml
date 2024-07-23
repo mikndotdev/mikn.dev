@@ -9,7 +9,7 @@ jobs:
   build-amd64:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: safetychecker
+      IMAGE_NAME: mikn-dev
       PLATFORM: linux/amd64
 
     steps:
