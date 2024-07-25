@@ -30,9 +30,9 @@ export default function RootLayout({
                     <AccButton />
                 </ClientSessionProvider>
                 <script
-                    async
+                    defer
                     src="https://analytics.mikandev.tech/script.js"
-                    data-website-id="8bbb0139-4084-4ba4-ab42-810b1002b0e3"
+                    data-website-id="c20716e6-ae00-4444-a6ae-db49328a75a4"
                 ></script>
             </body>
         </html>

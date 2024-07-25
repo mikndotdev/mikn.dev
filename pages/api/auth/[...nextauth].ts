@@ -73,7 +73,6 @@ const authOptions: AuthOptions = {
                     {
                         headers: {
                             Authorization: `Bearer ${token.accessToken}`,
-                            
                         },
                     },
                 );
