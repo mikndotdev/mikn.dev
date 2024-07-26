@@ -4,6 +4,7 @@ import SpinningGallery from "../ui/SpinningGallery";
 import { useClientTranslation } from "../i18n/client";
 import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
 import { useRouter } from "next/navigation";
+import CinematicLoader from "../ui/CinematicLoader";
 import Image from "next/image";
 import mikanLogo from "../assets/mikandev-circle.webp";
 import mikan from "../assets/mikan.png";
@@ -66,6 +67,7 @@ export default function Home({ params: { lng } }: Props) {
 
     return (
         <>
+            <CinematicLoader />
             <div className="relative">
                 <Card className="mt-20">
                     <Center className="mt-5">
