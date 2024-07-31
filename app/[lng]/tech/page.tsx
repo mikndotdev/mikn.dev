@@ -1,7 +1,15 @@
 "use client";
 import { TypewriterEffect } from "@/app/ui/type";
 import { useClientTranslation } from "@/app/i18n/client";
-import { Button, Heading, Card, Center, Flex, Text } from "@neodyland/ui";
+import {
+    Button,
+    Heading,
+    Card,
+    Center,
+    Flex,
+    Text,
+    CodeBlock,
+} from "@neodyland/ui";
 import { useRouter } from "next/navigation";
 import { Vortex } from "@/app/ui/vortex";
 import Link from "next/link";

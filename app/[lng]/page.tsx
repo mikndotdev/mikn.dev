@@ -52,19 +52,6 @@ export default function Home({ params: { lng } }: Props) {
         brain.src,
     ];
 
-    const words = [
-        {
-            text: t("Sweet"),
-        },
-        {
-            text: t("And"),
-        },
-        {
-            text: t("Juicy"),
-            className: "text-primary dark:text-primary",
-        },
-    ];
-
     return (
         <>
             <CinematicLoader />
