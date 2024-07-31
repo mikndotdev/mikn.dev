@@ -70,7 +70,7 @@ export default function Home({ params: { lng } }: Props) {
                                     justify="start"
                                     className="ml-5"
                                 >
-                                    <Heading size="2xl">3</Heading>
+                                    <Heading size="2xl">38</Heading>
                                     <Heading size="xs">{t("origins")}</Heading>
                                 </Flex>
                             </Center>

@@ -1,0 +1,16 @@
+{
+    "publicImages": "どこでも速い画像最適化",
+    "publicImagesBlurb": "画像をリサイズ、最適化、そしてウェブ上に高速配信します。",
+    "bragging": "速度重視のネットワーク",
+    "origins": "最適化ノード",
+    "edgePoPs": "CDNノード",
+    "permacache": "半永久キャッシュ",
+    "performance": "パフォーマンス向上",
+    "avgOrigin": "直オリジンレスポンス時間",
+    "onEdge": "エッジからのレスポンス時間",
+    "testParams": "sharpとcloudflareを使用したデフォルトのNextJS画像最適化とカスタムローダーの比較",
+    "works": "どこでも使える！",
+    "nextStatic": "Static Exportを使用している場合でも、NextJS画像を最適化できます！",
+    "learnMore": "詳細を見る",
+    "easyAPI": "APIを利用して自由自在に利用することもできます"
+}
