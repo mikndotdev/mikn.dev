@@ -177,7 +177,7 @@ export default function Home({ params: { lng } }: Props) {
                         colorScheme="primary"
                         onClick={() =>
                             router.push(
-                                "https://docs.mikn.dev/solutions/images/nextjs",
+                                "https://docs.mikn.dev/solutions/images/#nextjs-integration",
                             )
                         }
                     >
