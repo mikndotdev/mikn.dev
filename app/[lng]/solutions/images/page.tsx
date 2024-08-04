@@ -194,7 +194,7 @@ export default function Home({ params: { lng } }: Props) {
                     <CodeBlock
                         language="javascript"
                         links
-                        text="https://i.mikandev.com/image/https%3A%2F%2Fexample.com%2Fimage.png?width=100"
+                        text="https://i.mikandev.com/image/https://example.com/image.png?width=100"
                         theme="atom-one-dark"
                         className="mt-5"
                     />
