@@ -2,6 +2,7 @@
     "publicImages": "Globally distributed image optimization",
     "publicImagesBlurb": "Resize, optimize, and deliver your images to the world with our global CDN.",
     "bragging": "Built for speed",
+    "serverless": "Serverless",
     "origins": "Optimization nodes",
     "edgePoPs": "Edge PoPs",
     "permacache": "Long-term caching",

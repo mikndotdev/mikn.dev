@@ -2,6 +2,7 @@
     "publicImages": "どこでも速い画像最適化",
     "publicImagesBlurb": "画像をリサイズ、最適化、そしてウェブ上に高速配信します。",
     "bragging": "速度重視のネットワーク",
+    "serverless": "サーバーレス",
     "origins": "最適化ノード",
     "edgePoPs": "CDNノード",
     "permacache": "半永久キャッシュ",

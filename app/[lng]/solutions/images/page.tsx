@@ -70,7 +70,7 @@ export default function Home({ params: { lng } }: Props) {
                                     justify="start"
                                     className="ml-5"
                                 >
-                                    <Heading size="2xl">38</Heading>
+                                    <Heading size="2xl">{t("serverless")}</Heading>
                                     <Heading size="xs">{t("origins")}</Heading>
                                 </Flex>
                             </Center>
@@ -194,7 +194,7 @@ export default function Home({ params: { lng } }: Props) {
                     <CodeBlock
                         language="javascript"
                         links
-                        text="https://i.mikandev.com/image?url=https%3A%2F%2Fexample.com%2Fimage.png&width=100"
+                        text="https://i.mikandev.com/image/https%3A%2F%2Fexample.com%2Fimage.png?width=100"
                         theme="atom-one-dark"
                         className="mt-5"
                     />
