@@ -60,9 +60,25 @@ const AnimatedButton = ({
     );
 };
 
+const discordtoCDN = async (url: string, id: string) => {
+    const image = await fetch(`${url}?size=1024`);
+    const file = await image.blob();
+    const formData = new FormData();
+    formData.append("file", file);
+    const res = await fetch(`/api/pfp?id=${id}`, {
+        method: "POST",
+        body: formData,
+    });
+    if (res.ok) {
+        const data = await res.json();
+        return data.url;
+    }
+    return null;
+}
+
 export default function AccButton({ children }: AccButtonProps) {
     const [open, setOpen] = useState(false);
-    const { data: session, status } = useSession();
+    const { data: session, status, update } = useSession();
     const router = useRouter();
     const pathname = usePathname();
 
@@ -75,6 +91,14 @@ export default function AccButton({ children }: AccButtonProps) {
     };
 
     if(status === "authenticated") {
+        if (session.user.image.startsWith("https://cdn.discordapp.com/")) {
+            discordtoCDN(session.user.image, session.user.id).then((url) => {
+                if(url) {
+                    session.user.image = url;
+                }
+                update();
+            });
+        }
         if(!session.user.name || !session.user.image.startsWith("https://cdn.mdusercontent.com/")) {
             if(pathname?.endsWith("account")) {
                 return;
