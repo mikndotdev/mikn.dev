@@ -23,5 +23,10 @@
     "errorBlurb": "Please choose a file to upload.",
     "genericErrorBlurb": "An error occurred while updating your profile picture.",
     "success": "Success",
-    "successBlurb": "Your profile picture has been updated."
+    "successBlurb": "Your profile picture has been updated.",
+    "onboarding": "Let's finish setting up your account!",
+    "setUName": "Set your username",
+    "setPFP": "Set your profile picture",
+    "autogen": "Auto-generate from username",
+    "finish": "Finish"
 }

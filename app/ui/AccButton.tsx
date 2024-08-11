@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Heading, Center, Flex } from "@neodyland/ui";
 
 import mikan from "@/app/assets/mikan.png";
@@ -64,6 +64,7 @@ export default function AccButton({ children }: AccButtonProps) {
     const [open, setOpen] = useState(false);
     const { data: session, status } = useSession();
     const router = useRouter();
+    const pathname = usePathname();
 
     const handleClick = () => {
         if (status === "unauthenticated") {
@@ -72,6 +73,15 @@ export default function AccButton({ children }: AccButtonProps) {
             setOpen(!open);
         }
     };
+
+    if(status === "authenticated") {
+        if(!session.user.name || !session.user.image.startsWith("https://cdn.mdusercontent.com/")) {
+            if(pathname?.endsWith("account")) {
+                return;
+            }
+            router.push(`https://mikn.dev/account?onboarding=true&redirect=${window.location.origin}${pathname}`);
+        }
+    }
 
     return (
         <div className="fixed z-50 bottom-10 left-10">
@@ -108,7 +118,7 @@ export default function AccButton({ children }: AccButtonProps) {
                                 size="sm"
                                 className="text-primary mt-2 mb-5"
                             >
-                                UID {session.user.discord}
+                                UID {session.user.id}
                             </Heading>
                         </Center>
                         <ul>

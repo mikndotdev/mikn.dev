@@ -1,7 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "./auth/[...nextauth]";
 import * as Minio from "minio";
 import formidable from "formidable";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 import sharp from "sharp";
 
 const minio = new Minio.Client({
@@ -23,6 +25,12 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse,
 ) {
+    const session = await getServerSession(req, res, authOptions)
+
+    if (!session) {
+        return res.status(401).json({ error: "Unauthorized" });
+    }
+
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -36,6 +44,8 @@ export default async function handler(
 
         const uid = req.query.id || "";
         const file = files.file?.[0];
+        const name = fields.name?.[0]|| "";
+
 
         if (!file) {
             return res.status(400).json({ error: "No file uploaded" });
@@ -132,6 +142,7 @@ export default async function handler(
                     },
                     body: JSON.stringify({
                         avatar: FQURL,
+                        username: name,
                     }),
                 },
             );

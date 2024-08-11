@@ -12,9 +12,12 @@ import {
     AlertDialogDescription,
     AlertDialogFooter,
     FileInput,
+    TextInput,
+    Text,
 } from "@neodyland/ui";
 import { useClientTranslation } from "@/app/i18n/client";
 import { PinContainer } from "@/app/ui/pin";
+import { useSearchParams, useRouter } from "next/navigation";
 import Loading from "@/app/ui/spinner-mask";
 import Image from "next/image";
 import mikanMascot from "@/app/assets/MikanMascotFull.png";
@@ -29,11 +32,15 @@ export default function Home({ params: { lng } }: Props) {
     const { data: session, status, update } = useSession();
     const [IsLoading, setIsLoading] = useState(false);
     const [open, setOpen] = useState(false);
+    const [onboarding, setOnboarding] = useState(false);
     const [file, setFile] = useState<File | null>(null);
+    const [nameInput, setNameInput] = useState("");
     const hasWelcomedBack = useRef(false);
     const { t } = useClientTranslation(lng, "acc");
     const en = lng.split("-")[0] === "en";
     const toast = useToast();
+    const router = useRouter();
+    const searchParams = useSearchParams();
 
     const welcomeBack = (): void => {
         toast.open({
@@ -41,6 +48,44 @@ export default function Home({ params: { lng } }: Props) {
             description: t("welcomeBackBlurb"),
             type: "success",
         });
+    };
+
+    const autogen = async () => {
+        const imgUrl = `https://cdn.statically.io/avatar/${nameInput}`;
+        const file = await fetch(imgUrl);
+        // @ts-ignore
+        setFile(await file.blob());
+    }
+
+    const finish = async () => {
+        if(file && nameInput) {
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("name", nameInput);
+            const res = await fetch(`/api/pfp?id=${session?.user?.id}`, {
+                method: "POST",
+                body: formData,
+            });
+            if (res.ok) {
+                const data = await res.json();
+                if (data.sessionShouldBeRefreshed) {
+                    await update();
+                }
+                toast.open({
+                    title: t("success"),
+                    description: t("successBlurb"),
+                    type: "success",
+                });
+                setOnboarding(false);
+                router.push(searchParams?.get("redirect") || "#");
+            } else {
+                toast.open({
+                    title: t("error"),
+                    description: t("genericErrorBlurb"),
+                    type: "error",
+                });
+            }
+        }
     };
 
     const upload = async () => {
@@ -53,6 +98,7 @@ export default function Home({ params: { lng } }: Props) {
             });
             const formData = new FormData();
             formData.append("file", file);
+            formData.append("name", session?.user?.name || "");
             const res = await fetch(`/api/pfp?id=${session?.user?.id}`, {
                 method: "POST",
                 body: formData,
@@ -89,6 +135,14 @@ export default function Home({ params: { lng } }: Props) {
             hasWelcomedBack.current = true;
         }
     }, [session, status, welcomeBack]);
+
+    useEffect(() => {
+        const onboarding = searchParams?.get("onboarding");
+        if (onboarding) {
+            setOnboarding(true);
+            setNameInput(session?.user?.name || "");
+        }
+    }, [searchParams, session]);
 
     if (status === "loading") {
         return (
@@ -149,6 +203,48 @@ export default function Home({ params: { lng } }: Props) {
                     />
                 </Center>
             </AlertDialog>
+            <AlertDialog open={onboarding} onClose={() => setOpen(false)}>
+                <AlertDialogDescription className="text-center">
+                    {t("onboarding")}
+                </AlertDialogDescription>
+                <Text className="ml-2 mt-5">{t("setUName")}</Text>
+                <TextInput
+                    className="mt-2 mb-2"
+                    value={nameInput}
+                    placeholder="Username"
+                    onChange={(e) => setNameInput(e.target.value)}
+                />
+                <Text className="ml-2 mt-5">{t("setPFP")}</Text>
+                <FileInput
+                    className="mt-2 mb-2"
+                    accept="image/jpeg, image/png, image/gif"
+                    colorScheme={"secondary"}
+                    onChange={(e) => {
+                        const selectedFile = e.target.files?.[0];
+                        if (selectedFile) {
+                            setFile(selectedFile);
+                        }
+                    }}
+                />
+                <Center>
+                <Image
+                    src={file ? URL.createObjectURL(file) : ""}
+                    width={100}
+                    height={100}
+                    alt="Preview"
+                    className="rounded-full mt-2 mb-2"
+                />
+                </Center>
+                <Center>
+                    <AlertDialogFooter
+                        actionText={t("finish")}
+                        cancelText={t("autogen")}
+                        actionColor="success"
+                        onAction={() => finish()}
+                        onCancel={() => autogen()}
+                    />
+                </Center>
+            </AlertDialog>
             <ToastProvider>
                 <Card className="mt-3 mb-3 flex items-center justify-between">
                     <div>
@@ -165,7 +261,7 @@ export default function Home({ params: { lng } }: Props) {
                             {session.user?.email}
                         </Heading>
                         <Heading size="sm" className="mb-2">
-                            {session.user?.discord}
+                            {session.user?.id}
                         </Heading>
                     </div>
                     <Image
