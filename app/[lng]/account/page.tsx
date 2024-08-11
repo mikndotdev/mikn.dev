@@ -77,7 +77,7 @@ export default function Home({ params: { lng } }: Props) {
                     type: "success",
                 });
                 setOnboarding(false);
-                router.push(searchParams?.get("redirect") || "#");
+                router.push(searchParams?.get("redirect") || "/account");
             } else {
                 toast.open({
                     title: t("error"),
