@@ -23,5 +23,10 @@
     "errorBlurb": "ファイルを選択してアップロードしてください。",
     "genericErrorBlurb": "プロフィール画像を更新する際にエラーが発生しました。",
     "success": "成功",
-    "successBlurb": "プロフィール画像を更新しました。"
+    "successBlurb": "プロフィール画像を更新しました。",
+    "onboarding": "アカウント情報を設定をしてください",
+    "setUName": "ユーザー名",
+    "setPFP": "プロフィール画像",
+    "autogen": "ユーザー名から自動生成",
+    "finish": "完了"
 }
