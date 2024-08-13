@@ -1,9 +1,9 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { Heading, Center, Flex } from "@neodyland/ui";
 
 import mikan from "@/app/assets/mikan.png";
@@ -81,6 +81,7 @@ export default function AccButton({ children }: AccButtonProps) {
     const { data: session, status, update } = useSession();
     const router = useRouter();
     const pathname = usePathname();
+    const searchParams = useSearchParams();
 
     const handleClick = () => {
         if (status === "unauthenticated") {
@@ -89,6 +90,12 @@ export default function AccButton({ children }: AccButtonProps) {
             setOpen(!open);
         }
     };
+
+    useEffect(() => {
+        if (searchParams?.get("update") === "true") {
+            update();
+        }
+    }, [searchParams, session]);
 
     if (status === "authenticated") {
         if (
