@@ -99,7 +99,7 @@ export default function AccButton({ children }: AccButtonProps) {
                 update();
             });
         }
-        if(!session.user.name || !session.user.image.startsWith("https://cdn.mdusercontent.com/")) {
+        if(!session.user.name || session.user.image == null || !session.user.image.startsWith("https://cdn.mdusercontent.com/")) {
             if(pathname?.endsWith("account")) {
                 return;
             }
