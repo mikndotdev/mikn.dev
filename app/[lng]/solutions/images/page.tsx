@@ -70,7 +70,9 @@ export default function Home({ params: { lng } }: Props) {
                                     justify="start"
                                     className="ml-5"
                                 >
-                                    <Heading size="2xl">{t("serverless")}</Heading>
+                                    <Heading size="2xl">
+                                        {t("serverless")}
+                                    </Heading>
                                     <Heading size="xs">{t("origins")}</Heading>
                                 </Flex>
                             </Center>

@@ -55,10 +55,10 @@ export default function Home({ params: { lng } }: Props) {
         const file = await fetch(imgUrl);
         // @ts-ignore
         setFile(await file.blob());
-    }
+    };
 
     const finish = async () => {
-        if(file && nameInput) {
+        if (file && nameInput) {
             const formData = new FormData();
             formData.append("file", file);
             formData.append("name", nameInput);
@@ -227,13 +227,13 @@ export default function Home({ params: { lng } }: Props) {
                     }}
                 />
                 <Center>
-                <Image
-                    src={file ? URL.createObjectURL(file) : ""}
-                    width={100}
-                    height={100}
-                    alt="Preview"
-                    className="rounded-full mt-2 mb-2"
-                />
+                    <Image
+                        src={file ? URL.createObjectURL(file) : ""}
+                        width={100}
+                        height={100}
+                        alt="Preview"
+                        className="rounded-full mt-2 mb-2"
+                    />
                 </Center>
                 <Center>
                     <AlertDialogFooter

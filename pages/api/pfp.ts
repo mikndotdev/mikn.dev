@@ -25,7 +25,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse,
 ) {
-    const session = await getServerSession(req, res, authOptions)
+    const session = await getServerSession(req, res, authOptions);
 
     if (!session) {
         return res.status(401).json({ error: "Unauthorized" });
@@ -44,8 +44,7 @@ export default async function handler(
 
         const uid = req.query.id || "";
         const file = files.file?.[0];
-        const name = fields.name?.[0]|| "";
-
+        const name = fields.name?.[0] || "";
 
         if (!file) {
             return res.status(400).json({ error: "No file uploaded" });
