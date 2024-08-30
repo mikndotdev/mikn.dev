@@ -101,7 +101,7 @@ export default function AccButton({ children }: AccButtonProps) {
         if (
             !session.user.name ||
             session.user.image == null ||
-            !session.user.image.startsWith("https://cdn.mdusercontent.com/")
+            !session.user.image?.startsWith("https://cdn.mdusercontent.com/")
         ) {
             if (pathname?.endsWith("account")) {
                 return;
@@ -110,7 +110,7 @@ export default function AccButton({ children }: AccButtonProps) {
                 `https://mikn.dev/account?onboarding=true&redirect=${window.location.origin}${pathname}`,
             );
         }
-        if (session.user.image.startsWith("https://cdn.discordapp.com/")) {
+        if (session.user.image?.startsWith("https://cdn.discordapp.com/")) {
             discordtoCDN(session.user.image, session.user.id).then((url) => {
                 if (url) {
                     session.user.image = url;
