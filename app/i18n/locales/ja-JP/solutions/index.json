@@ -1,0 +1,16 @@
+{
+    "checkOut": "見てみよう！",
+    "webSolutions": "Web製品",
+    "MDAcc": "MikanDevアカウント",
+    "MDAccBlurb": "全てのMikanDevサービスにアクセスするための1つのアカウント。",
+    "NicoDL": "Nico Nico Downloader",
+    "NicoDLBlurb": "簡単にニコニコ動画から動画をダウンロード。",
+    "devSolutions": "Developer Solutions",
+    "images": "MikanDev Images",
+    "imagesBlurb": "画像をリサイズ、最適化、そしてウェブ上に高速配信します。",
+    "Bots": "MikanDev Bots",
+    "xfixer": "XFixer",
+    "xfixerBlurb": "X (Twitter) リンクの埋め込みを修正するDiscordボット。",
+    "mikanbot": "MikanBot",
+    "mikanbotBlurb": "何でもできるオープンソースのDiscordボット。"
+}

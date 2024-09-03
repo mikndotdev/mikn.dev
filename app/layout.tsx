@@ -33,7 +33,7 @@ export default function RootLayout({
                     defer
                     src="https://analytics.mikandev.tech/script.js"
                     data-website-id="c20716e6-ae00-4444-a6ae-db49328a75a4"
-                ></script>
+                />
             </body>
         </html>
     );

@@ -42,12 +42,12 @@ export default function RootLayout({
             href: "https://docs.mikn.dev/",
         },
         {
-            name: "利用規約",
-            href: "https://docs.mikn.dev/legal/terms",
+            name: "製品",
+            href: "/solutions",
         },
         {
-            name: "プライバシーポリシー",
-            href: "https://docs.mikn.dev/legal/privacy",
+            name: "法的条約",
+            href: "https://docs.mikn.dev/legal/",
         },
         {
             name: "チャージセンター",

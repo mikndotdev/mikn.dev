@@ -1,0 +1,16 @@
+{
+    "checkOut": "Check it out!",
+    "webSolutions": "Web Solutions",
+    "MDAcc": "MikanDev Account",
+    "MDAccBlurb": "A single account to access all MikanDev services.",
+    "NicoDL": "Nico Nico Downloader",
+    "NicoDLBlurb": "Download videos from Nico Nico Douga with ease.",
+    "devSolutions": "Developer Solutions",
+    "images": "MikanDev Images",
+    "imagesBlurb": "Resize, optimize, and deliver your images to the world with our global CDN.",
+    "Bots": "MikanDev Bots",
+    "xfixer": "XFixer",
+    "xfixerBlurb": "A Discord bot that fixes embeds for X (Twitter) links.",
+    "mikanbot": "MikanBot",
+    "mikanbotBlurb": "The opensource Discord bot that does a little bit of everything."
+}
