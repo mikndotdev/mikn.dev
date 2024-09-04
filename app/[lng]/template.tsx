@@ -1,7 +1,7 @@
 "use client";
 import { Header, Footer, ToastProvider, useToast } from "@neodyland/ui";
 import Image from "next/image";
-import mikanLogo from "../assets/mikandev-circle.webp";
+import mikanLogo from "../assets/mikan.png";
 import mikanMascot from "../assets/MikanMascotFull.png";
 import MikanCat from "../assets/mikan-cat.png";
 import { useRouter, usePathname } from "next/navigation";
