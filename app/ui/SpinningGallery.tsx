@@ -8,12 +8,23 @@ interface SpinningGalleryProps {
     images: string[];
 }
 
+const shuffleArray = (array: any[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+};
+
+
+
 const SpinningGallery: React.FC<SpinningGalleryProps> = ({
     centerImage,
     duration,
     images,
 }) => {
     const filteredImages = images.slice(0, images.length);
+    const shuffledImages = shuffleArray([...filteredImages]);
     const ref = React.useRef(null);
     const isInView = useInView(ref, { once: true });
 
@@ -53,7 +64,7 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                         position: "absolute",
                     }}
                 >
-                    {filteredImages.map((img, index) => {
+                    {shuffledImages.map((img, index) => {
                         const angle = index * (360 / filteredImages.length);
                         const transform = `rotate(${angle}deg) translate(200px) rotate(-${angle}deg)`;
 

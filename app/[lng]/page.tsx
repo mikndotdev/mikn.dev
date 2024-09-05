@@ -11,6 +11,7 @@ import mikan from "../assets/mikan.png";
 import discord from "../assets/discord.svg";
 import server from "../assets/server.svg";
 import next from "../assets/nextdotjs.svg";
+import astro from "../assets/astro.svg";
 import ts from "../assets/typescript.svg";
 import network from "../assets/network-wired.svg";
 import game from "../assets/gamepad.svg";
@@ -49,6 +50,7 @@ export default function Home({ params: { lng } }: Props) {
         ts.src,
         network.src,
         cloud.src,
+        astro.src,
         brain.src,
     ];
 
