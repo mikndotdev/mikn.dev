@@ -98,6 +98,12 @@ export default function Home({ params: { lng } }: Props) {
             count: 1,
         },
         {
+            name: "DUS",
+            place: t("dus"),
+            provider: t("cntb"),
+            count: 1,
+        },
+        {
             name: "LON",
             place: t("lon"),
             provider: t("aws"),
