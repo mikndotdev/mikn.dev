@@ -89,16 +89,10 @@ export default function Home({ params: { lng } }: Props) {
             name: "HND1",
             place: t("tyo"),
             provider: t("cntb"),
-            count: 2,
-        },
-        {
-            name: "HND2",
-            place: t("tyo"),
-            provider: t("cnh"),
             count: 1,
         },
         {
-            name: "HND3",
+            name: "HND2",
             place: t("tyo"),
             provider: t("aws"),
             count: 1,
@@ -107,6 +101,18 @@ export default function Home({ params: { lng } }: Props) {
             name: "LON",
             place: t("lon"),
             provider: t("aws"),
+            count: 1,
+        },
+        {
+            name: "LON2",
+            place: t("lon"),
+            provider: t("mg"),
+            count: 1,
+        },
+        {
+            name: "NYC",
+            place: t("nyc"),
+            provider: t("mg"),
             count: 1,
         },
         {
