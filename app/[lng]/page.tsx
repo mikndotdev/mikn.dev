@@ -58,7 +58,7 @@ export default function Home({ params: { lng } }: Props) {
         <>
             <CinematicLoader />
             <div className="relative px-4 sm:px-6 lg:px-8">
-                <Card className="mt-10 sm:mt-20">
+                <Card className="mt-5 sm:mt-10">
                     <Center className="mt-5">
                         <Image
                             src={KawaiiLogo.src}
