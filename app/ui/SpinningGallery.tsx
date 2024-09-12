@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import Image from "next/image";
-import { useMediaQuery } from "./useMediaQuery.ts"; // We'll create this custom hook
+import { useMediaQuery } from "./useMediaQuery"; 
 
 interface SpinningGalleryProps {
     centerImage: string;
