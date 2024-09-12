@@ -4,7 +4,7 @@ import type { JWT } from "next-auth/jwt";
 
 async function refreshAccessToken(token: JWT) {
     try {
-        const response = await fetch("https://account.mikn.dev/oidc/token", {
+        const response = await fetch("https://auth.mikandev.com/oidc/token", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -69,7 +69,7 @@ const authOptions: AuthOptions = {
             // Fetch user info with the new access token
             try {
                 const response = await fetch(
-                    "https://account.mikn.dev/oidc/me",
+                    "https://auth.mikandev.com/oidc/me",
                     {
                         headers: {
                             Authorization: `Bearer ${token.accessToken}`,
@@ -106,7 +106,7 @@ const authOptions: AuthOptions = {
             name: "MikanDev Account",
             type: "oauth",
             wellKnown:
-                "https://account.mikn.dev/oidc/.well-known/openid-configuration",
+                "https://auth.mikandev.com/oidc/.well-known/openid-configuration",
             authorization: {
                 params: {
                     scope: "openid offline_access profile email identities",
