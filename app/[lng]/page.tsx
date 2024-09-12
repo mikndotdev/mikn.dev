@@ -191,7 +191,7 @@ export default function Home({ params: { lng } }: Props) {
     );
 }
 
-function StatCard({ icon, value, label }) {
+function StatCard({ icon, value, label }: { icon: React.ReactNode, value: string, label: string }) {
     return (
         <Card className="w-full">
             <Center>
@@ -205,7 +205,7 @@ function StatCard({ icon, value, label }) {
     );
 }
 
-function PoweredByCard({ src, alt, width, height, label, onClick }) {
+function PoweredByCard({ src, alt, width, height, label, onClick }: { src: string, alt: string, width: number, height: number, label: string, onClick: () => void }) {
     return (
         <Flex direction="col" center className="w-full sm:w-auto">
             <Image

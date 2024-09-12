@@ -11,8 +11,7 @@ import {
     CodeBlock,
 } from "@neodyland/ui";
 import { useRouter } from "next/navigation";
-import { Vortex } from "@/app/ui/vortex";
-import Link from "next/link";
+import { Cobe } from "@/app/ui/cobe";
 import Image from "next/image";
 
 import {
@@ -26,15 +25,7 @@ import {
     TableRow,
 } from "@/app/ui/table";
 
-import {
-    ComposableMap,
-    Geographies,
-    Geography,
-    Marker,
-} from "react-simple-maps";
-
-import { FaQuestionCircle } from "react-icons/fa";
-import { LuMapPin } from "react-icons/lu";
+import { FaMousePointer } from "react-icons/fa";
 
 import dh from "@/app/assets/dh.svg";
 import cf from "@/app/assets/cf.svg";
@@ -86,21 +77,9 @@ export default function Home({ params: { lng } }: Props) {
             count: 4,
         },
         {
-            name: "HND1",
-            place: t("tyo"),
-            provider: t("cntb"),
-            count: 1,
-        },
-        {
-            name: "HND2",
+            name: "HND",
             place: t("tyo"),
             provider: t("aws"),
-            count: 1,
-        },
-        {
-            name: "DUS",
-            place: t("dus"),
-            provider: t("cntb"),
             count: 1,
         },
         {
@@ -113,7 +92,7 @@ export default function Home({ params: { lng } }: Props) {
             name: "LON2",
             place: t("lon"),
             provider: t("mg"),
-            count: 1,
+            count: 3,
         },
         {
             name: "NYC",
@@ -157,101 +136,16 @@ export default function Home({ params: { lng } }: Props) {
                     <Text size="2xl" className="text-center mt-5 text-white">
                         {t("reliableNetworkBlurb")}
                     </Text>
-                    <ComposableMap
-                        projection="geoMercator"
-                        projectionConfig={{
-                            center: [0, 50],
-                            scale: 120,
-                        }}
-                    >
-                        <Geographies
-                            geography="https://cdn.mikandev.tech/public-assets/utils/geo.min.json"
-                            fill="#FF9900"
-                            stroke="#FF9900"
-                        >
-                            {({ geographies }: { geographies: any[] }) =>
-                                geographies.map((geo: { rsmKey: any }) => (
-                                    <Geography
-                                        key={geo.rsmKey}
-                                        geography={geo}
-                                    />
-                                ))
-                            }
-                        </Geographies>
-                        {markers.map(({ name, coordinates, markerOffset }) => (
-                            <Marker key={name} coordinates={coordinates}>
-                                <g
-                                    fill="none"
-                                    stroke="#3CF6E7"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    transform="translate(-12, -24) scale(0.7)"
-                                >
-                                    <circle cx="12" cy="10" r="3" />
-                                    <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-                                </g>
-                                <text
-                                    textAnchor="middle"
-                                    y={markerOffset}
-                                    x={-3}
-                                    style={{
-                                        fontFamily: "Inter",
-                                        fill: "#FFFFFF",
-                                        fontSize: "7px",
-                                    }}
-                                >
-                                    {name}
-                                </text>
-                            </Marker>
-                        ))}
-                        {soonmarkers.map(
-                            ({ name, coordinates, markerOffset }) => (
-                                <Marker key={name} coordinates={coordinates}>
-                                    <g
-                                        fill="none"
-                                        stroke="#F96666"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        transform="translate(-12, -24) scale(0.7)"
-                                    >
-                                        <circle cx="12" cy="10" r="3" />
-                                        <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-                                    </g>
-                                    <text
-                                        textAnchor="middle"
-                                        y={markerOffset}
-                                        x={-3}
-                                        style={{
-                                            fontFamily: "Inter",
-                                            fill: "#FFFFFF",
-                                            fontSize: "7px",
-                                        }}
-                                    >
-                                        {name}
-                                    </text>
-                                </Marker>
-                            ),
-                        )}
-                    </ComposableMap>
+                    <Cobe/>
                     <Flex direction="row">
-                        <LuMapPin
+                        <FaMousePointer
                             fontSize={30}
                             className="ml-5 lg:ml-10"
-                            color="#3CF6E7"
+                            color="#FF9900"
                         />
                         <Text className="text-white">
-                            {t("inHouseServers")}
+                            {t("draggable")}
                         </Text>
-                    </Flex>
-                    <Flex direction="row" className="mt-2">
-                        <LuMapPin
-                            fontSize={30}
-                            className="ml-5 lg:ml-10"
-                            color="#F96666"
-                        />
-                        <Text className="text-white">{t("cloudPoP")}</Text>
                     </Flex>
                     <Table className="mt-5">
                         <TableBody>

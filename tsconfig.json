@@ -30,6 +30,6 @@
         "nextra.config.jsx",
         "theme.config.jsx",
         "app/libraries/logto.js"
-    ],
+, "app/ui/cobe.jsx"    ],
     "exclude": ["node_modules"]
 }

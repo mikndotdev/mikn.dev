@@ -26,6 +26,7 @@
     "gcp": "Google Cloud",
     "ndn": "New Dream Network",
     "self": "Self-hosted",
+    "draggable": "Drag the globe to look around!",
     "dualCDN": "Distributed Content",
     "dualCDNBlurb": "We combine globally available object storage with multiple top-teir CDNs to ensure the fastest possible delivery of your content.",
     "globalStorage": "Globally distributed object storage",

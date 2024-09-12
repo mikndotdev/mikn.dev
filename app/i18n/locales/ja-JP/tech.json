@@ -26,6 +26,7 @@
     "gcp": "Google Cloud",
     "ndn": "New Dream Network",
     "self": "所有",
+    "draggable": "地球をドラッグしてみよう！",
     "dualCDN": "分散型コンテンツ配信",
     "dualCDNBlurb": "グローバルオブジェクトストレージと複数の高性能CDNを採用しててコンテンツを快適にダウンロード",
     "globalStorage": "世界各国にデータを保存",
