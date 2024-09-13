@@ -46,7 +46,7 @@ const authOptions: AuthOptions = {
             if (account && user) {
                 return {
                     accessToken: account.access_token,
-                    accessTokenExpires: account.expires_at! * 1000,
+                    accessTokenExpires: account.expires_at ? account.expires_at * 1000 : undefined,
                     refreshToken: account.refresh_token,
                     user,
                 };
