@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import mikanLogo from "@/app/assets/mikan-vtube.svg";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMediaQuery } from "./useMediaQuery"; // Import the custom hook
 
 const backgroundVariants = {
     initial: { opacity: 1 },
@@ -42,6 +43,8 @@ const textVariants = {
 export default function CinematicLoader() {
     const [isVisible, setIsVisible] = useState(true);
     const [showWelcome, setShowWelcome] = useState(false);
+    const isMobile = useMediaQuery("(max-width: 640px)");
+    const isTablet = useMediaQuery("(max-width: 1024px)");
 
     useEffect(() => {
         const welcomeTimer = setTimeout(() => {
@@ -50,13 +53,19 @@ export default function CinematicLoader() {
 
         const exitTimer = setTimeout(() => {
             setIsVisible(false);
-        }, 4000); // Increased to 4 seconds to allow time for the new animations
+        }, 4000);
 
         return () => {
             clearTimeout(welcomeTimer);
             clearTimeout(exitTimer);
         };
     }, []);
+
+    const getImageSize = () => {
+        if (isMobile) return 300;
+        if (isTablet) return 500;
+        return 700;
+    };
 
     return (
         <AnimatePresence>
@@ -78,12 +87,13 @@ export default function CinematicLoader() {
                         <Image
                             src={mikanLogo}
                             alt="Logo"
-                            width={700}
-                            height={700}
+                            width={getImageSize()}
+                            height={getImageSize()}
+                            priority
                         />
                         {showWelcome && (
                             <motion.div
-                                className="text-4xl font-bold text-white mt-4"
+                                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-4 text-center px-4"
                                 variants={textVariants}
                                 initial="initial"
                                 animate="animate"
