@@ -110,22 +110,39 @@ export default function Home({ params: { lng } }: Props) {
                             label={t("languages")}
                         />
                         <StatCard
-                            icon={<FaNetworkWired className="text-white" size={50} />}
+                            icon={
+                                <FaNetworkWired
+                                    className="text-white"
+                                    size={50}
+                                />
+                            }
                             value="5"
                             label={t("networkRegions")}
                         />
                         <StatCard
-                            icon={<BsGpuCard className="text-white" size={50} />}
+                            icon={
+                                <BsGpuCard className="text-white" size={50} />
+                            }
                             value="3"
                             label={t("gpuCompute")}
                         />
                         <StatCard
-                            icon={<MdNetworkWifi3Bar className="text-white" size={50} />}
+                            icon={
+                                <MdNetworkWifi3Bar
+                                    className="text-white"
+                                    size={50}
+                                />
+                            }
                             value="10+"
                             label={t("bandwidthTB")}
                         />
                         <StatCard
-                            icon={<FaCalendarAlt className="text-white" size={50} />}
+                            icon={
+                                <FaCalendarAlt
+                                    className="text-white"
+                                    size={50}
+                                />
+                            }
                             value="8+"
                             label={t("yearsOfEx")}
                         />
@@ -159,7 +176,10 @@ export default function Home({ params: { lng } }: Props) {
                     >
                         {t("poweringTheBest")}
                     </Heading>
-                    <Flex direction="col" className="items-center mt-7 gap-6 sm:flex-row sm:justify-center">
+                    <Flex
+                        direction="col"
+                        className="items-center mt-7 gap-6 sm:flex-row sm:justify-center"
+                    >
                         <PoweredByCard
                             src={neody.src}
                             alt="Neodyland"
@@ -174,7 +194,9 @@ export default function Home({ params: { lng } }: Props) {
                             width={50}
                             height={100}
                             label={t("formerDev")}
-                            onClick={() => router.push("https://kuroneko6423.com/")}
+                            onClick={() =>
+                                router.push("https://kuroneko6423.com/")
+                            }
                         />
                         <PoweredByCard
                             src={miq.src}
@@ -191,7 +213,11 @@ export default function Home({ params: { lng } }: Props) {
     );
 }
 
-function StatCard({ icon, value, label }: { icon: React.ReactNode, value: string, label: string }) {
+function StatCard({
+    icon,
+    value,
+    label,
+}: { icon: React.ReactNode; value: string; label: string }) {
     return (
         <Card className="w-full">
             <Center>
@@ -205,7 +231,21 @@ function StatCard({ icon, value, label }: { icon: React.ReactNode, value: string
     );
 }
 
-function PoweredByCard({ src, alt, width, height, label, onClick }: { src: string, alt: string, width: number, height: number, label: string, onClick: () => void }) {
+function PoweredByCard({
+    src,
+    alt,
+    width,
+    height,
+    label,
+    onClick,
+}: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    label: string;
+    onClick: () => void;
+}) {
     return (
         <Flex direction="col" center className="w-full sm:w-auto">
             <Image
@@ -216,7 +256,9 @@ function PoweredByCard({ src, alt, width, height, label, onClick }: { src: strin
                 onClick={onClick}
                 className="cursor-pointer"
             />
-            <Heading size="sm" className="mt-2 text-center">{label}</Heading>
+            <Heading size="sm" className="mt-2 text-center">
+                {label}
+            </Heading>
         </Flex>
     );
 }

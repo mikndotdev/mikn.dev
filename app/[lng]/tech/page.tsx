@@ -136,16 +136,14 @@ export default function Home({ params: { lng } }: Props) {
                     <Text size="2xl" className="text-center mt-5 text-white">
                         {t("reliableNetworkBlurb")}
                     </Text>
-                    <Cobe/>
+                    <Cobe />
                     <Flex direction="row">
                         <FaMousePointer
                             fontSize={30}
                             className="ml-5 lg:ml-10"
                             color="#FF9900"
                         />
-                        <Text className="text-white">
-                            {t("draggable")}
-                        </Text>
+                        <Text className="text-white">{t("draggable")}</Text>
                     </Flex>
                     <Table className="mt-5">
                         <TableBody>
