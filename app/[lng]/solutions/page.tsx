@@ -10,6 +10,7 @@ import mikanbot from "@/app/assets/mikanbot.png";
 
 import { FaRegImages } from "react-icons/fa";
 import { SiNiconico } from "react-icons/si";
+import { FaLink } from "react-icons/fa";
 
 interface Props {
     params: {
@@ -25,6 +26,16 @@ export default function Home({ params: { lng } }: Props) {
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <Center className="mt-5">
+                <Heading size="4xl" className="text-center">
+                    {t("solutions")}
+                </Heading>
+            </Center>
+            <Center className="mt-3">
+                <Heading size="md" className="text-center">
+                    {t("solutionsBlurb")}
+                </Heading>
+            </Center>
+            <Center className="mt-10">
                 <Heading size="4xl" className="text-center">
                     {t("webSolutions")}
                 </Heading>
@@ -58,6 +69,17 @@ export default function Home({ params: { lng } }: Props) {
                     description={t("NicoDLBlurb")}
                     buttonText={t("checkOut")}
                     onClick={() => router.push("https://nicodl.mikn.dev/")}
+                />
+            </Flex>
+            <Flex className="mt-10 mb-5" justify="center">
+                <SolutionCard
+                    title={t("shortflare")}
+                    image={
+                        <FaLink className="text-primary mb-3" size={130} />
+                    }
+                    description={t("shortflareBlurb")}
+                    buttonText={t("checkOut")}
+                    onClick={() => router.push("https://github.com/mikndotdev/shortflare")}
                 />
             </Flex>
             <Center className="mt-10">
