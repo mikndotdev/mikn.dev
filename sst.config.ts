@@ -10,16 +10,15 @@ export default $config({
     };
   },
   async run() {
-    const logtoSecret = new sst.Secret("LOGTO_CLIENT_SECRET");
-    const logtoId = new sst.Secret("LOGTO_CLIENT_ID");
-    const logtom2msecret = new sst.Secret("LOGTO_M2M_SECRET");
-    const lotom2mid = new sst.Secret("LOGTO_M2M_ID");
-    const nextauthsecret = new sst.Secret("NEXTAUTH_SECRET");
-    const s3endpoint = new sst.Secret("S3_ENDPOINT");
-    const s3accesskey = new sst.Secret("S3_ACCESS_KEY");
-    const s3secret = new sst.Secret("S3_SECRET_KEY");
+    const LOGTO_CLIENT_SECRET = new sst.Secret("LOGTO_CLIENT_SECRET");
+    const LOGTO_CLIENT_ID = new sst.Secret("LOGTO_CLIENT_ID");
+    const LOGTO_M2M_SECRET = new sst.Secret("LOGTO_M2M_SECRET");
+    const LOGTO_M2M_ID = new sst.Secret("LOGTO_M2M_ID");
+    const NEXTAUTH_SECRET = new sst.Secret("NEXTAUTH_SECRET");
+    const S3_ACCESS_KEY = new sst.Secret("S3_ACCESS_KEY");
+    const S3_SECRET_KEY = new sst.Secret("S3_SECRET_KEY");
     new sst.aws.Nextjs("mikn-dev" , {
-      link: [logtoSecret, logtoId, logtom2msecret, lotom2mid, nextauthsecret, s3endpoint, s3accesskey, s3secret],
+      link: [LOGTO_CLIENT_SECRET, LOGTO_CLIENT_ID, LOGTO_M2M_SECRET, LOGTO_M2M_ID, NEXTAUTH_SECRET, S3_ACCESS_KEY, S3_SECRET_KEY],
       domain: {
         name: "mikn.dev",
         dns: sst.cloudflare.dns()
