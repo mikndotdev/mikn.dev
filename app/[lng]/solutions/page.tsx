@@ -74,12 +74,12 @@ export default function Home({ params: { lng } }: Props) {
             <Flex className="mt-10 mb-5" justify="center">
                 <SolutionCard
                     title={t("shortflare")}
-                    image={
-                        <FaLink className="text-primary mb-3" size={130} />
-                    }
+                    image={<FaLink className="text-primary mb-3" size={130} />}
                     description={t("shortflareBlurb")}
                     buttonText={t("checkOut")}
-                    onClick={() => router.push("https://github.com/mikndotdev/shortflare")}
+                    onClick={() =>
+                        router.push("https://github.com/mikndotdev/shortflare")
+                    }
                 />
             </Flex>
             <Center className="mt-10">

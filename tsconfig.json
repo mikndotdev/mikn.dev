@@ -32,5 +32,5 @@
         "app/libraries/logto.js",
         "app/ui/cobe.jsx"
     ],
-    "exclude": ["node_modules","sst.config.ts"]
+    "exclude": ["node_modules", "sst.config.ts"]
 }
