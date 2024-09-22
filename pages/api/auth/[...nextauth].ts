@@ -11,8 +11,8 @@ async function refreshAccessToken(token: JWT) {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-                client_id: Resource.LOGTO_CLIENT_ID.value!,
-                client_secret: Resource.LOGTO_CLIENT_SECRET.value!,
+                client_id: Resource.LOGTO_CLIENT_ID.value,
+                client_secret: Resource.LOGTO_CLIENT_SECRET.value,
                 grant_type: "refresh_token",
                 refresh_token: token.refreshToken as string,
             }),
