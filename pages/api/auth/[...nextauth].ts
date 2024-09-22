@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import type { AuthOptions } from "next-auth";
 import type { JWT } from "next-auth/jwt";
+import { Resource } from "sst";
 
 async function refreshAccessToken(token: JWT) {
     try {
@@ -10,8 +11,8 @@ async function refreshAccessToken(token: JWT) {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-                client_id: process.env.LOGTO_CLIENT_ID!,
-                client_secret: process.env.LOGTO_CLIENT_SECRET!,
+                client_id: Resource.LOGTO_CLIENT_ID.value!,
+                client_secret: Resource.LOGTO_CLIENT_SECRET.value!,
                 grant_type: "refresh_token",
                 refresh_token: token.refreshToken as string,
             }),
@@ -39,7 +40,7 @@ async function refreshAccessToken(token: JWT) {
 }
 
 const authOptions: AuthOptions = {
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: Resource.NEXTAUTH_SECRET.value,
     callbacks: {
         async jwt({ token, account, user }) {
             // Initial sign in
@@ -114,8 +115,8 @@ const authOptions: AuthOptions = {
                     scope: "openid offline_access profile email identities",
                 },
             },
-            clientId: process.env.LOGTO_CLIENT_ID,
-            clientSecret: process.env.LOGTO_CLIENT_SECRET,
+            clientId: Resource.LOGTO_CLIENT_ID.value,
+            clientSecret: Resource.LOGTO_CLIENT_SECRET.value,
             client: {
                 id_token_signed_response_alg: "ES384",
             },
