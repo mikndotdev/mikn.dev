@@ -8,7 +8,7 @@ import fs from "node:fs/promises";
 import sharp from "sharp";
 
 const minio = new Minio.Client({
-    endPoint: Resource.S3_ENDPOINT.value ?? "",
+    endPoint: "fly.storage.tigris.dev",
     port: 443,
     useSSL: true,
     accessKey: Resource.S3_ACCESS_KEY.value ?? "",
