@@ -13,7 +13,7 @@ export default $config({
   },
   async run() {
     new sst.aws.Nextjs("mikn-dev" , {
-      link: [secret],
+      link: [Secret],
       domain: {
         name: "mikn.dev",
         dns: sst.cloudflare.dns()
