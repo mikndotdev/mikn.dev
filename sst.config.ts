@@ -17,8 +17,9 @@ export default $config({
     const NEXTAUTH_SECRET = new sst.Secret("NEXTAUTH_SECRET");
     const S3_ACCESS_KEY = new sst.Secret("S3_ACCESS_KEY");
     const S3_SECRET_KEY = new sst.Secret("S3_SECRET_KEY");
+    const S3_BUCKET = new sst.Secret("S3_BUCKET");
     new sst.aws.Nextjs("mikn-dev" , {
-      link: [LOGTO_CLIENT_SECRET, LOGTO_CLIENT_ID, LOGTO_M2M_SECRET, LOGTO_M2M_ID, NEXTAUTH_SECRET, S3_ACCESS_KEY, S3_SECRET_KEY],
+      link: [LOGTO_CLIENT_SECRET, LOGTO_CLIENT_ID, LOGTO_M2M_SECRET, LOGTO_M2M_ID, NEXTAUTH_SECRET, S3_ACCESS_KEY, S3_SECRET_KEY, S3_BUCKET],
       domain: {
         name: "mikn.dev",
         dns: sst.cloudflare.dns()

@@ -37,6 +37,10 @@ declare module "sst" {
       "type": "sst.sst.Secret"
       "value": string
     }
+    "S3_BUCKET": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
     "mikn-dev": {
       "type": "sst.aws.Nextjs"
       "url": string
