@@ -4,7 +4,7 @@ export default $config({
     app(input) {
         return {
             name: "mikn-dev",
-            removal: input?.stage === "master" ? "retain" : "remove",
+            removal: input?.stage === "main" ? "retain" : "remove",
             home: "aws",
             providers: { cloudflare: true },
         };
