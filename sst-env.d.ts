@@ -25,6 +25,10 @@ declare module "sst" {
       "type": "sst.sst.Secret"
       "value": string
     }
+    "NEXTAUTH_URL": {
+      "type": "sst.sst.Secret"
+      "value": string
+    }
     "S3_ACCESS_KEY": {
       "type": "sst.sst.Secret"
       "value": string
