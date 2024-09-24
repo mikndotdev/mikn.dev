@@ -1,17 +1,18 @@
 import NextAuth from "next-auth";
 import type { AuthOptions } from "next-auth";
 import type { JWT } from "next-auth/jwt";
+import { Resource } from "sst";
 
 async function refreshAccessToken(token: JWT) {
     try {
-        const response = await fetch("https://account.mikn.dev/oidc/token", {
+        const response = await fetch("https://auth.mikandev.com/oidc/token", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-                client_id: process.env.LOGTO_CLIENT_ID!,
-                client_secret: process.env.LOGTO_CLIENT_SECRET!,
+                client_id: Resource.LOGTO_CLIENT_ID.value,
+                client_secret: Resource.LOGTO_CLIENT_SECRET.value,
                 grant_type: "refresh_token",
                 refresh_token: token.refreshToken as string,
             }),
@@ -39,14 +40,16 @@ async function refreshAccessToken(token: JWT) {
 }
 
 const authOptions: AuthOptions = {
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: Resource.NEXTAUTH_SECRET.value,
     callbacks: {
         async jwt({ token, account, user }) {
             // Initial sign in
             if (account && user) {
                 return {
                     accessToken: account.access_token,
-                    accessTokenExpires: account.expires_at! * 1000,
+                    accessTokenExpires: account.expires_at
+                        ? account.expires_at * 1000
+                        : undefined,
                     refreshToken: account.refresh_token,
                     user,
                 };
@@ -69,7 +72,7 @@ const authOptions: AuthOptions = {
             // Fetch user info with the new access token
             try {
                 const response = await fetch(
-                    "https://account.mikn.dev/oidc/me",
+                    "https://auth.mikandev.com/oidc/me",
                     {
                         headers: {
                             Authorization: `Bearer ${token.accessToken}`,
@@ -106,14 +109,14 @@ const authOptions: AuthOptions = {
             name: "MikanDev Account",
             type: "oauth",
             wellKnown:
-                "https://account.mikn.dev/oidc/.well-known/openid-configuration",
+                "https://auth.mikandev.com/oidc/.well-known/openid-configuration",
             authorization: {
                 params: {
                     scope: "openid offline_access profile email identities",
                 },
             },
-            clientId: process.env.LOGTO_CLIENT_ID,
-            clientSecret: process.env.LOGTO_CLIENT_SECRET,
+            clientId: Resource.LOGTO_CLIENT_ID.value,
+            clientSecret: Resource.LOGTO_CLIENT_SECRET.value,
             client: {
                 id_token_signed_response_alg: "ES384",
             },

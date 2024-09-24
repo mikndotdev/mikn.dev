@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import Image from "next/image";
+import { useMediaQuery } from "./useMediaQuery";
 
 interface SpinningGalleryProps {
     centerImage: string;
@@ -16,8 +17,6 @@ const shuffleArray = (array: any[]) => {
     return array;
 };
 
-
-
 const SpinningGallery: React.FC<SpinningGalleryProps> = ({
     centerImage,
     duration,
@@ -27,11 +26,17 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
     const shuffledImages = shuffleArray([...filteredImages]);
     const ref = React.useRef(null);
     const isInView = useInView(ref, { once: true });
+    const isMobile = useMediaQuery("(max-width: 640px)");
 
     const containerVariants: Variants = {
         hidden: { scale: 0 },
         visible: { scale: 1, transition: { duration: 0.5 } },
     };
+
+    const containerSize = isMobile ? 200 : 300;
+    const orbitRadius = isMobile ? 120 : 200;
+    const imageSize = isMobile ? 40 : 80;
+    const centerImageSize = isMobile ? 100 : 150;
 
     return (
         <div className="relative w-full h-full flex justify-center items-center bg-transparent">
@@ -42,8 +47,8 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 style={{
-                    width: "300px",
-                    height: "300px",
+                    width: `${containerSize}px`,
+                    height: `${containerSize}px`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -66,7 +71,7 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                 >
                     {shuffledImages.map((img, index) => {
                         const angle = index * (360 / filteredImages.length);
-                        const transform = `rotate(${angle}deg) translate(200px) rotate(-${angle}deg)`;
+                        const transform = `rotate(${angle}deg) translate(${orbitRadius}px) rotate(-${angle}deg)`;
 
                         return (
                             <div
@@ -75,11 +80,11 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                                 style={{
                                     transform,
                                     position: "absolute",
-                                    width: "80px",
-                                    height: "80px",
+                                    width: `${imageSize}px`,
+                                    height: `${imageSize}px`,
                                     borderRadius: "50%",
-                                    top: "calc(50% - 40px)",
-                                    left: "calc(50% - 40px)",
+                                    top: `calc(50% - ${imageSize / 2}px)`,
+                                    left: `calc(50% - ${imageSize / 2}px)`,
                                     transformOrigin: "50% 50%",
                                 }}
                             >
@@ -101,8 +106,8 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                                         <Image
                                             src={img}
                                             alt={`Image ${index + 1}`}
-                                            width={80}
-                                            height={80}
+                                            width={imageSize}
+                                            height={imageSize}
                                             className=""
                                         />
                                     </motion.div>
@@ -116,8 +121,8 @@ const SpinningGallery: React.FC<SpinningGalleryProps> = ({
                 <Image
                     src={centerImage}
                     alt="Center Image"
-                    width={150}
-                    height={150}
+                    width={centerImageSize}
+                    height={centerImageSize}
                     className="rounded-full"
                 />
             </div>

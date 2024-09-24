@@ -7,7 +7,7 @@ export const authOptions: NextAuthOptions = {
             name: "Logto",
             type: "oauth",
             wellKnown:
-                "https://account.mikn.dev/oidc/.well-known/openid-configuration",
+                "https://auth.mikandev.com/oidc/.well-known/openid-configuration",
             authorization: {
                 params: { scope: "openid offline_access profile email" },
             },

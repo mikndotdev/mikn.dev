@@ -10,6 +10,7 @@ import mikanbot from "@/app/assets/mikanbot.png";
 
 import { FaRegImages } from "react-icons/fa";
 import { SiNiconico } from "react-icons/si";
+import { FaLink } from "react-icons/fa";
 
 interface Props {
     params: {
@@ -23,52 +24,153 @@ export default function Home({ params: { lng } }: Props) {
     const router = useRouter();
 
     return (
-        <div>
+        <div className="px-4 sm:px-6 lg:px-8">
             <Center className="mt-5">
-                <Heading size="6xl">{t("webSolutions")}</Heading>
+                <Heading size="4xl" className="text-center">
+                    {t("solutions")}
+                </Heading>
             </Center>
-            <Flex className="mt-10 mb-5" justify="center" space={7}>
-            <Card className="w-[600px] place-content-center flex items-center flex-col">
-                    <Text className="text-white text-2xl font-bold mb-3">{t("MDAcc")}</Text>
-                    <Image src={MDAccount.src} alt="MDAccount" width={290} height={290} className="mb-3"/>
-                    <Text className="text-white text-xl mb-5">{t("MDAccBlurb")}</Text>
-                    <Button className="bg-primary" onClick={() => router.push("/account")}>{t("checkOut")}</Button>
-                </Card>
-                <Card className="w-[600px] place-content-center flex items-center flex-col">
-                    <Text className="text-white text-2xl font-bold mb-3">{t("NicoDL")}</Text>
-                    <SiNiconico className="text-primary mb-3" size={150}/>
-                    <Text className="text-white text-xl mb-5">{t("NicoDLBlurb")}</Text>
-                    <Button className="bg-primary" onClick={() => router.push("https://nicodl.mikn.dev/")}>{t("checkOut")}</Button>
-                </Card>
+            <Center className="mt-3">
+                <Heading size="md" className="text-center">
+                    {t("solutionsBlurb")}
+                </Heading>
+            </Center>
+            <Center className="mt-10">
+                <Heading size="4xl" className="text-center">
+                    {t("webSolutions")}
+                </Heading>
+            </Center>
+            <Flex
+                className="mt-10 mb-5 flex-col sm:flex-row"
+                justify="center"
+                align="stretch"
+                space={7}
+            >
+                <SolutionCard
+                    title={t("MDAcc")}
+                    image={
+                        <Image
+                            src={MDAccount.src}
+                            alt="MDAccount"
+                            width={290}
+                            height={290}
+                            className="mb-3 w-full h-auto max-w-[290px]"
+                        />
+                    }
+                    description={t("MDAccBlurb")}
+                    buttonText={t("checkOut")}
+                    onClick={() => router.push("/account")}
+                />
+                <SolutionCard
+                    title={t("NicoDL")}
+                    image={
+                        <SiNiconico className="text-primary mb-3" size={150} />
+                    }
+                    description={t("NicoDLBlurb")}
+                    buttonText={t("checkOut")}
+                    onClick={() => router.push("https://nicodl.mikn.dev/")}
+                />
             </Flex>
-            <Center className="mt-5">
-                <Heading size="6xl">{t("devSolutions")}</Heading>
-            </Center>
-            <Flex className="mt-10" justify="center" space={7}>
-                <Card className="w-[600px] place-content-center flex items-center flex-col">
-                    <Text className="text-white text-2xl font-bold mb-3">{t("images")}</Text>
-                    <FaRegImages className="text-primary mb-3" size={170}/>
-                    <Text className="text-white text-xl mb-5">{t("imagesBlurb")}</Text>
-                    <Button className="bg-primary" onClick={() => router.push("/solutions/images")}>{t("checkOut")}</Button>
-                </Card>
+            <Flex className="mt-10 mb-5" justify="center">
+                <SolutionCard
+                    title={t("shortflare")}
+                    image={<FaLink className="text-primary mb-3" size={130} />}
+                    description={t("shortflareBlurb")}
+                    buttonText={t("checkOut")}
+                    onClick={() =>
+                        router.push("https://github.com/mikndotdev/shortflare")
+                    }
+                />
             </Flex>
-            <Center className="mt-5">
-                <Heading size="6xl">{t("Bots")}</Heading>
+            <Center className="mt-10">
+                <Heading size="4xl" className="text-center">
+                    {t("devSolutions")}
+                </Heading>
             </Center>
-            <Flex className="mt-10 mb-5" justify="center" space={7}>
-            <Card className="w-[600px] place-content-center flex items-center flex-col">
-                    <Text className="text-white text-2xl font-bold mb-3">{t("xfixer")}</Text>
-                    <Image src={XFixer.src} alt="MDAccount" width={150} height={150} className="mb-3 rounded-full"/>
-                    <Text className="text-white text-xl mb-5">{t("xfixerBlurb")}</Text>
-                    <Button className="bg-primary" onClick={() => router.push("/solutions/xfixer")}>{t("checkOut")}</Button>
-                </Card>
-                <Card className="w-[600px] place-content-center flex items-center flex-col">
-                    <Text className="text-white text-2xl font-bold mb-3">{t("mikanbot")}</Text>
-                    <Image src={mikanbot.src} alt="MDAccount" width={150} height={150} className="mb-3 rounded-full"/>
-                    <Text className="text-white text-xl mb-5">{t("mikanbotBlurb")}</Text>
-                    <Button className="bg-primary" onClick={() => router.push("/solutions/mikanbot")}>{t("checkOut")}</Button>
-                </Card>
+            <Flex className="mt-10 mb-5" justify="center">
+                <SolutionCard
+                    title={t("images")}
+                    image={
+                        <FaRegImages className="text-primary mb-3" size={170} />
+                    }
+                    description={t("imagesBlurb")}
+                    buttonText={t("checkOut")}
+                    onClick={() => router.push("/solutions/images")}
+                />
+            </Flex>
+            <Center className="mt-10">
+                <Heading size="4xl" className="text-center">
+                    {t("Bots")}
+                </Heading>
+            </Center>
+            <Flex
+                className="mt-10 mb-5 flex-col sm:flex-row"
+                justify="center"
+                align="stretch"
+                space={7}
+            >
+                <SolutionCard
+                    title={t("xfixer")}
+                    image={
+                        <Image
+                            src={XFixer.src}
+                            alt="XFixer"
+                            width={150}
+                            height={150}
+                            className="mb-3 rounded-full"
+                        />
+                    }
+                    description={t("xfixerBlurb")}
+                    buttonText={t("checkOut")}
+                    onClick={() => router.push("/solutions/xfixer")}
+                />
+                <SolutionCard
+                    title={t("mikanbot")}
+                    image={
+                        <Image
+                            src={mikanbot.src}
+                            alt="Mikanbot"
+                            width={150}
+                            height={150}
+                            className="mb-3 rounded-full"
+                        />
+                    }
+                    description={t("mikanbotBlurb")}
+                    buttonText={t("checkOut")}
+                    onClick={() => router.push("/solutions/mikanbot")}
+                />
             </Flex>
         </div>
+    );
+}
+
+function SolutionCard({
+    title,
+    image,
+    description,
+    buttonText,
+    onClick,
+}: {
+    title: string;
+    image: JSX.Element;
+    description: string;
+    buttonText: string;
+    onClick: () => void;
+}) {
+    return (
+        <Card className="w-full sm:w-[600px] place-content-center flex items-center flex-col mb-5 sm:mb-0">
+            <Text className="text-white text-xl sm:text-2xl font-bold mb-3 text-center">
+                {title}
+            </Text>
+            <div className="flex justify-center items-center h-[150px] mb-3">
+                {image}
+            </div>
+            <Text className="text-white text-lg sm:text-xl mb-5 text-center px-4">
+                {description}
+            </Text>
+            <Button className="bg-primary" onClick={onClick}>
+                {buttonText}
+            </Button>
+        </Card>
     );
 }

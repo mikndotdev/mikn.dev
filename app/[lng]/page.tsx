@@ -57,34 +57,35 @@ export default function Home({ params: { lng } }: Props) {
     return (
         <>
             <CinematicLoader />
-            <div className="relative">
-                <Card className="mt-20">
+            <div className="relative px-4 sm:px-6 lg:px-8">
+                <Card className="mt-5 sm:mt-10">
                     <Center className="mt-5">
                         <Image
                             src={KawaiiLogo.src}
                             alt="MikanDev"
-                            width={700}
-                            height={500}
-                            className="mb-5"
+                            width={300}
+                            height={214}
+                            className="mb-5 w-full max-w-[500px] h-auto"
                         />
                     </Center>
                     <Heading
-                        className="flex justify-center items-center mt-3"
-                        size="md"
+                        className="flex justify-center items-center mt-3 text-center"
+                        size="sm"
+                        as="h2"
                     >
                         {t("below-main-heading")}
                     </Heading>
-                    <Center className="mt-7 mb-5">
+                    <Center className="mt-7 mb-5 flex-col sm:flex-row">
                         <Button
                             colorScheme="primary"
-                            className="mr-3 animate-bounce"
+                            className="mb-3 sm:mb-0 sm:mr-3 animate-bounce"
                             onClick={() => router.push("/solutions")}
                         >
                             {t("buttons.check_out")}
                         </Button>
                         <Button
                             colorScheme="secondary"
-                            className="ml-3"
+                            className="sm:ml-3"
                             onClick={() => router.push("/account")}
                         >
                             {t("buttons.account")}
@@ -93,126 +94,75 @@ export default function Home({ params: { lng } }: Props) {
                 </Card>
                 <Card className="mt-5">
                     <Center className="mb-7">
-                        <Heading size="4xl">{t("bragging")}</Heading>
+                        <Heading size="3xl" as="h2" className="text-center">
+                            {t("bragging")}
+                        </Heading>
                     </Center>
-                    <Center className="mb-4">
-                        <Card className="mr-2 min-w-80">
-                            <Center>
-                                <FaGithub className="text-white" size={70} />
-                                <Flex
-                                    direction="col"
-                                    justify="start"
-                                    className="ml-5"
-                                >
-                                    <Heading size="2xl">100+</Heading>
-                                    <Heading size="xs">
-                                        {t("projCount")}
-                                    </Heading>
-                                </Flex>
-                            </Center>
-                        </Card>
-                        <Card className="ml-2 mr-2 min-w-80">
-                            <Center>
-                                <FaGlobe className="text-white" size={70} />
-                                <Flex
-                                    direction="col"
-                                    justify="start"
-                                    className="ml-5"
-                                >
-                                    <Heading size="2xl">2</Heading>
-                                    <Heading size="xs">
-                                        {t("languages")}
-                                    </Heading>
-                                </Flex>
-                            </Center>
-                        </Card>
-                        <Card className="ml-2 min-w-80">
-                            <Center>
+                    <Flex direction="col" className="gap-4">
+                        <StatCard
+                            icon={<FaGithub className="text-white" size={50} />}
+                            value="100+"
+                            label={t("projCount")}
+                        />
+                        <StatCard
+                            icon={<FaGlobe className="text-white" size={50} />}
+                            value="2"
+                            label={t("languages")}
+                        />
+                        <StatCard
+                            icon={
                                 <FaNetworkWired
                                     className="text-white"
-                                    size={70}
+                                    size={50}
                                 />
-                                <Flex
-                                    direction="col"
-                                    justify="start"
-                                    className="ml-5"
-                                >
-                                    <Heading size="2xl">5</Heading>
-                                    <Heading size="xs">
-                                        {t("networkRegions")}
-                                    </Heading>
-                                </Flex>
-                            </Center>
-                        </Card>
-                    </Center>
-                    <Center>
-                        <Card className="mr-2 min-w-80">
-                            <Center>
-                                <BsGpuCard className="text-white" size={70} />
-                                <Flex
-                                    direction="col"
-                                    justify="start"
-                                    className="ml-5"
-                                >
-                                    <Heading size="2xl">3</Heading>
-                                    <Heading size="xs">
-                                        {t("gpuCompute")}
-                                    </Heading>
-                                </Flex>
-                            </Center>
-                        </Card>
-                        <Card className="ml-2 mr-2 min-w-80">
-                            <Center>
+                            }
+                            value="5"
+                            label={t("networkRegions")}
+                        />
+                        <StatCard
+                            icon={
+                                <BsGpuCard className="text-white" size={50} />
+                            }
+                            value="3"
+                            label={t("gpuCompute")}
+                        />
+                        <StatCard
+                            icon={
                                 <MdNetworkWifi3Bar
                                     className="text-white"
-                                    size={70}
+                                    size={50}
                                 />
-                                <Flex
-                                    direction="col"
-                                    justify="start"
-                                    className="ml-5"
-                                >
-                                    <Heading size="2xl">10+</Heading>
-                                    <Heading size="xs">
-                                        {t("bandwidthTB")}
-                                    </Heading>
-                                </Flex>
-                            </Center>
-                        </Card>
-                        <Card className="ml-2 min-w-80">
-                            <Center>
+                            }
+                            value="10+"
+                            label={t("bandwidthTB")}
+                        />
+                        <StatCard
+                            icon={
                                 <FaCalendarAlt
                                     className="text-white"
-                                    size={70}
+                                    size={50}
                                 />
-                                <Flex
-                                    direction="col"
-                                    justify="start"
-                                    className="ml-5"
-                                >
-                                    <Heading size="2xl">8+</Heading>
-                                    <Heading size="xs">
-                                        {t("yearsOfEx")}
-                                    </Heading>
-                                </Flex>
-                            </Center>
-                        </Card>
-                    </Center>
+                            }
+                            value="8+"
+                            label={t("yearsOfEx")}
+                        />
+                    </Flex>
                 </Card>
                 <Card className="mt-5">
                     <Heading
-                        className="flex justify-center items-center mt-3"
-                        size="5xl"
+                        className="flex justify-center items-center mt-3 text-center"
+                        size="3xl"
+                        as="h2"
                     >
                         {t("manySkillTitle")}
                     </Heading>
                     <Heading
-                        className="flex justify-center items-center mt-3"
-                        size="md"
+                        className="flex justify-center items-center mt-3 text-center"
+                        size="sm"
                     >
                         {t("manySkill")}
                     </Heading>
-                    <div className="flex items-center justify-center min-h-[600px] bg-transparent">
+                    <div className="flex items-center justify-center min-h-[300px] sm:min-h-[600px] bg-transparent">
                         <SpinningGallery
                             centerImage={mikanLogo.src}
                             images={images}
@@ -220,49 +170,95 @@ export default function Home({ params: { lng } }: Props) {
                         />
                     </div>
                     <Heading
-                        className="flex justify-center items-center mt-3"
-                        size="4xl"
+                        className="flex justify-center items-center mt-3 text-center"
+                        size="2xl"
+                        as="h2"
                     >
                         {t("poweringTheBest")}
                     </Heading>
-                    <Center className="mt-7">
-                        <Flex direction="col" center className="mr-5">
-                            <Image
-                                src={neody.src}
-                                alt="Neodyland"
-                                width={150}
-                                height={100}
-                                onClick={() =>
-                                    router.push("https://neody.land/")
-                                }
-                            />
-                            <Heading size="sm">{t("infraAndDev")}</Heading>
-                        </Flex>
-                        <Flex direction="col" center className="ml-5">
-                            <Image
-                                src={kuroneko.src}
-                                alt="KuronekoServer"
-                                width={50}
-                                height={100}
-                                onClick={() =>
-                                    router.push("https://kuroneko6423.com/")
-                                }
-                            />
-                            <Heading size="sm">{t("formerDev")}</Heading>
-                        </Flex>
-                        <Flex direction="col" center className="ml-5">
-                            <Image
-                                src={miq.src}
-                                alt="Make it a Quote"
-                                width={50}
-                                height={100}
-                                onClick={() => router.push("https://miq.moe/")}
-                            />
-                            <Heading size="sm">{t("coreInfra")}</Heading>
-                        </Flex>
-                    </Center>
+                    <Flex
+                        direction="col"
+                        className="items-center mt-7 gap-6 sm:flex-row sm:justify-center"
+                    >
+                        <PoweredByCard
+                            src={neody.src}
+                            alt="Neodyland"
+                            width={150}
+                            height={100}
+                            label={t("infraAndDev")}
+                            onClick={() => router.push("https://neody.land/")}
+                        />
+                        <PoweredByCard
+                            src={kuroneko.src}
+                            alt="KuronekoServer"
+                            width={50}
+                            height={100}
+                            label={t("formerDev")}
+                            onClick={() =>
+                                router.push("https://kuroneko6423.com/")
+                            }
+                        />
+                        <PoweredByCard
+                            src={miq.src}
+                            alt="Make it a Quote"
+                            width={50}
+                            height={100}
+                            label={t("coreInfra")}
+                            onClick={() => router.push("https://miq.moe/")}
+                        />
+                    </Flex>
                 </Card>
             </div>
         </>
+    );
+}
+
+function StatCard({
+    icon,
+    value,
+    label,
+}: { icon: React.ReactNode; value: string; label: string }) {
+    return (
+        <Card className="w-full">
+            <Center>
+                {icon}
+                <Flex direction="col" justify="start" className="ml-5">
+                    <Heading size="2xl">{value}</Heading>
+                    <Heading size="xs">{label}</Heading>
+                </Flex>
+            </Center>
+        </Card>
+    );
+}
+
+function PoweredByCard({
+    src,
+    alt,
+    width,
+    height,
+    label,
+    onClick,
+}: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    label: string;
+    onClick: () => void;
+}) {
+    return (
+        <Flex direction="col" center className="w-full sm:w-auto">
+            <Image
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+                onClick={onClick}
+                className="cursor-pointer"
+            />
+            <Heading size="sm" className="mt-2 text-center">
+                {label}
+            </Heading>
+        </Flex>
     );
 }

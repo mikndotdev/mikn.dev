@@ -1,17 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./auth/[...nextauth]";
+import { Resource } from "sst";
 import * as Minio from "minio";
 import formidable from "formidable";
 import fs from "node:fs/promises";
 import sharp from "sharp";
 
 const minio = new Minio.Client({
-    endPoint: process.env.S3_ENDPOINT ?? "",
+    endPoint: "fly.storage.tigris.dev",
     port: 443,
     useSSL: true,
-    accessKey: process.env.S3_ACCESS_KEY ?? "",
-    secretKey: process.env.S3_SECRET_KEY ?? "",
+    accessKey: Resource.S3_ACCESS_KEY.value ?? "",
+    secretKey: Resource.S3_SECRET_KEY.value ?? "",
     region: "auto",
 });
 
@@ -78,7 +79,7 @@ export default async function handler(
                 return res.status(400).json({ error: "Invalid image file" });
             }
 
-            const s3Bucket = process.env.S3_BUCKET;
+            const s3Bucket = Resource.S3_BUCKET.value;
             if (!s3Bucket) {
                 throw new Error(
                     "S3_BUCKET environment variable is not defined",
@@ -95,8 +96,8 @@ export default async function handler(
 
             const FQURL = `https://cdn.mdusercontent.com/${fileName}`;
 
-            const authID = process.env.LOGTO_M2M_ID;
-            const authSecret = process.env.LOGTO_M2M_SECRET;
+            const authID = Resource.LOGTO_M2M_ID.value;
+            const authSecret = Resource.LOGTO_M2M_SECRET.value;
 
             if (!authID || !authSecret) {
                 throw new Error("Logto credentials are not defined");
@@ -107,7 +108,7 @@ export default async function handler(
             );
 
             const LogtoResponse = await fetch(
-                "https://account.mikn.dev/oidc/token",
+                "https://auth.mikandev.com/oidc/token",
                 {
                     method: "POST",
                     headers: {
@@ -132,7 +133,7 @@ export default async function handler(
             const token = data.access_token;
 
             const LogtoAvatarResponse = await fetch(
-                `https://account.mikn.dev/api/users/${uid}`,
+                `https://auth.mikandev.com/api/users/${uid}`,
                 {
                     method: "PATCH",
                     headers: {
