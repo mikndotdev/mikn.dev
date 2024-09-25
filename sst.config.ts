@@ -39,7 +39,7 @@ export default $config({
                 NEXTAUTH_URL: NEXTAUTH_URL.value,
             },
             server: {
-                install: ["sharp"],
+                install: ["sharp"]
             },
         });
     },
