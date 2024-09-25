@@ -38,9 +38,9 @@ export default $config({
             environment: {
                 NEXTAUTH_URL: NEXTAUTH_URL.value,
             },
-            nodejs: {
+            server: {
                 install: ["sharp"],
-            },
+            }
         });
     },
 });
