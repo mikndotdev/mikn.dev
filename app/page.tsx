@@ -13,8 +13,6 @@ interface Props {
 }
 
 export default function Home({ params: { lng } }: Props) {
-    const { t } = useClientTranslation(lng, "index");
-    const en = lng.split("-")[0] === "en";
     const router = useRouter();
 
     return (
