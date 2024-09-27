@@ -10,8 +10,8 @@
         "start": "next start",
         "build:worker": "cloudflare",
         "dev:worker": "wrangler dev --port 8771",
-        "preview:worker": "bun run build:worker && bun run dev:worker",
-        "deploy:worker": "bun run build:worker && wrangler deploy"
+        "preview:worker": "npm run build:worker && npm run dev:worker",
+        "deploy:worker": "npm run build:worker && wrangler deploy"
     },
     "dependencies": {
         "@emotion/react": "^11.11.4",

@@ -1,4 +1,3 @@
-import NextAuth from "next-auth";
 import type { AuthOptions } from "next-auth";
 import type { JWT } from "next-auth/jwt";
 
@@ -133,5 +132,4 @@ const authOptions: AuthOptions = {
     ],
 };
 
-export default NextAuth(authOptions);
 export { authOptions };
