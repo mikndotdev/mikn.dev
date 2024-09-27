@@ -19,7 +19,7 @@ export default function Home({ params: { lng } }: Props) {
     return (
         <>
             <div className="relative">
-                a
+                Coming soon...
             </div>
         </>
     );
