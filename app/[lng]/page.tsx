@@ -1,5 +1,5 @@
 "use client";
-import { TypewriterEffect } from "../ui/type";
+import type { Metadata } from 'next'
 import SpinningGallery from "../ui/SpinningGallery";
 import { useClientTranslation } from "../i18n/client";
 import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
