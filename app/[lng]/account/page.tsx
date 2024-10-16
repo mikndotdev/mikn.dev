@@ -289,6 +289,15 @@ export default function Home({ params: { lng } }: Props) {
                 >
                     {t("buttons.logout")}
                 </Button>
+                <Button
+                    colorScheme="primary"
+                    size="lg"
+                    onClick={() => {
+                        setOpen(true);
+                    }}
+                >
+                    {t("buttons.editProfile")}
+                </Button>
             </ToastProvider>
         </div>
     ) : (
