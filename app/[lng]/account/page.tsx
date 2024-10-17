@@ -77,6 +77,7 @@ export default function Home({ params: { lng } }: Props) {
                     type: "success",
                 });
                 setOnboarding(false);
+                await update();
             } else {
                 toast.open({
                     title: t("error"),
@@ -251,7 +252,7 @@ export default function Home({ params: { lng } }: Props) {
                             size="5xl"
                             className="mb-5 justify-center text-primary mb-5"
                         >
-                            MikanDev Account
+                            MyMikanDev
                         </Heading>
                         <Heading size="4xl" className="mb-2">
                             {session.user?.name}
