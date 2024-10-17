@@ -291,9 +291,10 @@ export default function Home({ params: { lng } }: Props) {
                 </Button>
                 <Button
                     colorScheme="primary"
+                    className="ml-3"
                     size="lg"
                     onClick={() => {
-                        setOpen(true);
+                        setOnboarding(true);
                     }}
                 >
                     {t("buttons.editProfile")}
