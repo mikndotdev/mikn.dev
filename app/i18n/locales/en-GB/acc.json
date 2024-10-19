@@ -1,7 +1,8 @@
 {
     "buttons": {
         "login": "Login",
-        "logout": "Logout"
+        "logout": "Logout",
+        "editProfile": "Edit Profile"
     },
     "welcome": "Welcome to MikanDev!",
     "load": "Loading...",
@@ -24,7 +25,7 @@
     "genericErrorBlurb": "An error occurred while updating your profile picture.",
     "success": "Success",
     "successBlurb": "Your profile picture has been updated.",
-    "onboarding": "Let's finish setting up your account!",
+    "onboarding": "Edit your profile",
     "setUName": "Set your username",
     "setPFP": "Set your profile picture",
     "autogen": "Auto-generate from username",

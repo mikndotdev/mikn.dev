@@ -42,7 +42,7 @@ export default async function handler(
             return res.status(500).json({ error: "Error parsing form data" });
         }
 
-        const uid = req.query.id || "";
+        const uid = session.user.id as string;
         const file = files.file?.[0];
         const name = fields.name?.[0] || "";
 
@@ -164,7 +164,6 @@ export default async function handler(
                 error: "Error processing or uploading file",
             });
         } finally {
-            // Clean up the temporary file
             if (file.filepath) {
                 fs.unlink(file.filepath).catch(console.error);
             }

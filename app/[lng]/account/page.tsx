@@ -77,10 +77,7 @@ export default function Home({ params: { lng } }: Props) {
                     type: "success",
                 });
                 setOnboarding(false);
-                router.push(
-                    `${searchParams?.get("redirect")}?update=true` ||
-                        "/account",
-                );
+                await update();
             } else {
                 toast.open({
                     title: t("error"),
@@ -255,7 +252,7 @@ export default function Home({ params: { lng } }: Props) {
                             size="5xl"
                             className="mb-5 justify-center text-primary mb-5"
                         >
-                            MikanDev Account
+                            MyMikanDev
                         </Heading>
                         <Heading size="4xl" className="mb-2">
                             {session.user?.name}
@@ -288,6 +285,16 @@ export default function Home({ params: { lng } }: Props) {
                     }}
                 >
                     {t("buttons.logout")}
+                </Button>
+                <Button
+                    colorScheme="primary"
+                    className="ml-3"
+                    size="lg"
+                    onClick={() => {
+                        setOnboarding(true);
+                    }}
+                >
+                    {t("buttons.editProfile")}
                 </Button>
             </ToastProvider>
         </div>
