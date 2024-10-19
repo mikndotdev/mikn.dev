@@ -104,7 +104,7 @@ export default function RootLayout({
                 },
                 {
                     name: "Blog",
-                    href: "https://mikn.blog/",
+                    href: "https://blog.mikn.dev/",
                 },
             ],
         },
