@@ -1,4 +1,5 @@
 "use client";
+export const runtime = "edge";
 import { useClientTranslation } from "@/app/i18n/client";
 import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
 import { cookieName } from "./i18n/settings";
@@ -17,9 +18,7 @@ export default function Home({ params: { lng } }: Props) {
 
     return (
         <>
-            <div className="relative">
-                Coming soon...
-            </div>
+            <div className="relative">Coming soon...</div>
         </>
     );
 }

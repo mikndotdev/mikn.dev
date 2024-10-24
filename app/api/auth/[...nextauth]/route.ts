@@ -1,8 +1,3 @@
-import NextAuth from "next-auth";
-import type { JWT } from "next-auth/jwt";
-import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
-
-
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST }
+export const runtime = "edge";
+import { handlers } from "@/auth"; // Referring to the auth.ts we just created
+export const { GET, POST } = handlers;

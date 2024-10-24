@@ -8,12 +8,12 @@
         "format": "biome format --write .",
         "lint": "next lint",
         "start": "next start",
-        "build:worker": "cloudflare",
-        "dev:worker": "wrangler dev --port 8771",
-        "preview:worker": "npm run build:worker && npm run dev:worker",
-        "deploy:worker": "npm run build:worker && wrangler deploy"
+        "pages:build": "npx @cloudflare/next-on-pages",
+        "preview": "npm run pages:build && wrangler pages dev",
+        "deploy": "npm run pages:build && wrangler pages deploy"
     },
     "dependencies": {
+        "@cloudflare/next-on-pages": "^1.13.5",
         "@emotion/react": "^11.11.4",
         "@emotion/styled": "^11.11.5",
         "@neodyland/ui": "^0.3.2",
@@ -32,8 +32,8 @@
         "i18next-browser-languagedetector": "^8.0.0",
         "i18next-resources-to-backend": "^1.2.1",
         "minio": "^8.0.1",
-        "next": "^14.2.13",
-        "next-auth": "^4.24.7",
+        "next": "14.2.15",
+        "next-auth": "^5.0.0-beta.25",
         "next-i18next": "^15.2.0",
         "react": "^18",
         "react-animated-cursor": "^2.11.2",

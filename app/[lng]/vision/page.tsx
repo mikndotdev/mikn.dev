@@ -1,4 +1,5 @@
 "use client";
+export const runtime = "edge";
 import { useClientTranslation } from "@/app/i18n/client";
 import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
 import { useRouter } from "next/navigation";
