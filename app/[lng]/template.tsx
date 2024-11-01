@@ -192,14 +192,14 @@ export default function RootLayout({
             <Footer
                 social={social}
                 links={links}
-                copylight="2020-2024 MikanDev"
+                copylight="2020-2024 MikanDev | 届出電気通信事業者E-06-05378"
             >
                 <div className="flex items-center self-end">
                     <Image
                         src={MikanCat.src}
                         width={200}
                         height={100}
-                        alt="MikanDev Tech"
+                        alt="MikanDev"
                         className="ml-2 mb-0"
                     />
                 </div>
