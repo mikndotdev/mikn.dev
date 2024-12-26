@@ -13,6 +13,7 @@ const config: Config = {
             {
                 mytheme: {
                     primary: "#ff9900",
+                    secondary: "#ff7700",
                 },
             },
         ],
@@ -22,6 +23,8 @@ const config: Config = {
             colors: {
                 primary: "#ff9900",
                 "on-primary": "#ffffff",
+                secondary: "#ff7700",
+                "on-secondary": "#ffffff",
             },
         },
     },
