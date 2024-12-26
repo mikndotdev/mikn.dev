@@ -5,6 +5,7 @@ import { Footer } from "@/app/components/nUI/Footer";
 import Image from "next/image";
 import mikanLogo from "@/app/assets/img/mikan.png";
 import MikanCat from "@/app/assets/img/mikan-cat.png";
+import KawaiiLogo from "@/app/assets/img/mikan-vtube.svg";
 import { useRouter, usePathname } from "next/navigation";
 import CookieConsent from "react-cookie-consent";
 import { ReactNode } from "react";
@@ -155,10 +156,10 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
                 className="text-white"
                 color="#FF9900"
                 brand={{
-                    showTitle: true,
+                    showTitle: false,
                     name: "MikanDev",
                     href: "/",
-                    logo: mikanLogo.src,
+                    logo: KawaiiLogo.src,
                 }}
             />
             <div className="mx-auto min-h-screen max-w-7xl px-4 py-24">
