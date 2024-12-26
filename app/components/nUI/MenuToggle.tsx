@@ -5,7 +5,7 @@ const Path: React.FC<SVGMotionProps<SVGPathElement>> = (props) => (
     <motion.path
         fill="transparent"
         strokeWidth="2"
-        stroke="#0A1014"
+        stroke="#FFFFFF"
         strokeLinecap="round"
         {...props}
     />
@@ -17,7 +17,7 @@ export interface MenuToggleProps {
 
 export const MenuToggle: React.FC<MenuToggleProps> = ({ toggle }) => (
     <button className="p-2 lg:hidden" onClick={toggle}>
-        <svg width="20" height="20" viewBox="0 0 23 23" fill={"#FFFFFF"}>
+        <svg width="20" height="20" viewBox="0 0 23 23">
             <Path
                 variants={{
                     closed: { d: "M 2 2.5 L 20 2.5" },
