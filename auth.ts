@@ -6,6 +6,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         async jwt({ token, profile, account, user }) {
             if (account && profile) {
                 token.id = profile.sub;
+                //@ts-ignore
                 token.name = profile.name ?? profile.username;
                 token.email = profile.email;
                 token.picture = profile.picture;
