@@ -1,6 +1,22 @@
 {
-    "HomePage": {
-        "title": "Hello world!",
-        "about": "Go to the about page"
+    "home": {
+        "title": "Home",
+        "welcome": "Welcome to the home page"
+    },
+    "nav": {
+        "support": "Support",
+        "docs": "Docs",
+        "solutions": "Solutions",
+        "legal": "Legal",
+        "payments": "Payment Center",
+        "blog": "Blog",
+        "discord": "Discord",
+        "contact": "Contact Us",
+        "terms": "Terms of Service",
+        "privacy": "Privacy Policy",
+        "jp-payments": "特定商取引法に基づく表記",
+        "gdpr": "GDPR Compliance",
+        "myAccount": "My Account",
+        "resources": "Resources"
     }
 }

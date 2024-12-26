@@ -1,0 +1,53 @@
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { SessionProvider } from "next-auth/react";
+import { CSPostHogProvider } from "@/app/components/posthog";
+import { Toaster } from "sonner";
+import AccButton from "@/app/components/AccButton";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import "../globals.css";
+
+const hsr = localFont({ src: "../assets/fonts/HSR.woff2" });
+
+export const metadata: Metadata = {
+    title: "MikanDev",
+    description: "We make cool stuff to make life easier 🍊",
+    openGraph: {
+        images: ["https://mikn.dev/og-homepage.png"],
+    },
+};
+
+export default async function LocaleLayout({
+    children,
+    params: { locale },
+}: {
+    children: React.ReactNode;
+    params: { locale: string };
+}) {
+    // Ensure that the incoming `locale` is valid
+    if (!routing.locales.includes(locale as any)) {
+        notFound();
+    }
+
+    // Providing all messages to the client
+    // side is the easiest way to get started
+    const messages = await getMessages();
+    return (
+        <html className={hsr.className} lang={locale}>
+            <body>
+                <NextIntlClientProvider messages={messages}>
+                    <CSPostHogProvider>
+                        <SessionProvider>
+                            {children}
+                            <AccButton />
+                            <Toaster richColors />
+                        </SessionProvider>
+                    </CSPostHogProvider>
+                </NextIntlClientProvider>
+            </body>
+        </html>
+    );
+}
