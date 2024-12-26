@@ -13,9 +13,9 @@ interface AccButtonProps {
 }
 
 const AnimatedButton = ({
-    onClick,
-    status,
-}: {
+                            onClick,
+                            status,
+                        }: {
     onClick: () => void;
     status: "authenticated" | "loading" | "unauthenticated";
 }) => {
@@ -98,7 +98,8 @@ export default function AccButton({ children }: AccButtonProps) {
                         </div>
                         <div className="flex justify-center">
                             <Image
-                                src={session.user.image}
+                                //@ts-ignore
+                                src={session?.user?.image}
                                 alt="MikanDev"
                                 width={80}
                                 height={80}
@@ -107,12 +108,12 @@ export default function AccButton({ children }: AccButtonProps) {
                         </div>
                         <div className="flex justify-center mt-5">
                             <h3 className="text-primary text-sm">
-                                {session.user.name}
+                                {session?.user?.name}
                             </h3>
                         </div>
                         <div className="flex justify-center">
                             <h3 className="text-primary mt-2 mb-5 text-sm">
-                                UID {session.user.id}
+                                UID {session?.user?.id}
                             </h3>
                         </div>
                         <ul>

@@ -104,11 +104,11 @@ interface MobileMenuItemProps {
 }
 
 const MobileMenuItem: React.FC<MobileMenuItemProps> = ({
-                                                           name,
-                                                           href,
-                                                           color,
-                                                           isCurrent,
-                                                       }) => {
+    name,
+    href,
+    color,
+    isCurrent,
+}) => {
     return (
         <motion.li className="font-semibold" variants={mobileMenuItemVariants}>
             <a
@@ -127,9 +127,13 @@ const MobileMenuItem: React.FC<MobileMenuItemProps> = ({
     );
 };
 
-export interface HeaderButtonProps extends ButtonProps {
+export interface HeaderButtonProps {
     href?: string;
     target?: "_blank" | "_self" | "_parent" | "_top";
+    title: string;
+    onClick?: () => void;
+    disabled?: boolean;
+    className?: string;
 }
 
 export interface HeaderProps extends ComponentPropsWithoutRef<"div"> {
@@ -231,7 +235,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                                     color ||
                                     (generateItemColors(navigation.length)[
                                         index
-                                        ] as string);
+                                    ] as string);
                                 const isCurrent =
                                     (typeof current === "string" &&
                                         item.href === current) ||
@@ -258,7 +262,8 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                                             <Link
                                                 href={buttonProps.href}
                                                 target={
-                                                    buttonProps.target ?? "_self"
+                                                    buttonProps.target ??
+                                                    "_self"
                                                 }
                                                 key={buttonProps.title}
                                             >
@@ -290,7 +295,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                                 color ||
                                 (generateItemColors(navigation.length)[
                                     index
-                                    ] as string);
+                                ] as string);
                             const isCurrent =
                                 (typeof current === "string" &&
                                     item.href === current) ||
