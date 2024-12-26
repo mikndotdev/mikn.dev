@@ -1,7 +1,17 @@
 {
     "home": {
         "title": "Home",
-        "welcome": "Welcome to the home page"
+        "welcome": "Welcome to the home page",
+        "creating-cool": "Creating cool",
+        "makeLifeEasier": "to make life easier.",
+        "stuff": "stuff",
+        "apps": "Apps",
+        "tools": "Tools",
+        "bots": "Bots",
+        "mainBlurb1": "We create open-source solutions for those itches in life that need scratching.",
+        "mainBlurb2": "Enrich your life without breaking the bank.",
+        "takeLook": "Take a look",
+        "learnMore": "Learn More"
     },
     "nav": {
         "support": "Support",
