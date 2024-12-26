@@ -211,7 +211,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                         className="-m-1.5 flex items-center gap-2 p-1.5"
                     >
                         <img
-                            className="h-10 w-auto"
+                            className="h-10 w-auto transition-transform duration-300 transform hover:scale-125 hover:-rotate-6 active:scale-90"
                             src={brand.logo}
                             alt={brand.name}
                         />

@@ -1,22 +1,22 @@
 {
-  "home": {
-    "title": "ホーム",
-    "welcome": "ホームページへようこそ"
-  },
-  "nav": {
-    "support": "サポート",
-    "docs": "ドキュメント",
-    "solutions": "ソリューション",
-    "legal": "法的条約",
-    "payments": "支払いセンター",
-    "blog": "ブログ",
-    "discord": "Discord",
-    "contact": "お問い合わせ",
-    "terms": "利用規約",
-    "privacy": "プライバシーポリシー",
-    "jp-payments": "特定商取引法に基づく表記",
-    "gdpr": "GDPRコンプライアンス",
-    "myAccount": "マイアカウント",
-    "resources": "リソース"
-  }
+    "home": {
+        "title": "ホーム",
+        "welcome": "ホームページへようこそ"
+    },
+    "nav": {
+        "support": "サポート",
+        "docs": "ドキュメント",
+        "solutions": "ソリューション",
+        "legal": "法的条約",
+        "payments": "支払いセンター",
+        "blog": "ブログ",
+        "discord": "Discord",
+        "contact": "お問い合わせ",
+        "terms": "利用規約",
+        "privacy": "プライバシーポリシー",
+        "jp-payments": "特定商取引法に基づく表記",
+        "gdpr": "GDPRコンプライアンス",
+        "myAccount": "マイアカウント",
+        "resources": "リソース"
+    }
 }
