@@ -13,9 +13,9 @@ interface AccButtonProps {
 }
 
 const AnimatedButton = ({
-                            onClick,
-                            status,
-                        }: {
+    onClick,
+    status,
+}: {
     onClick: () => void;
     status: "authenticated" | "loading" | "unauthenticated";
 }) => {
