@@ -7,8 +7,6 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
 	images: {
 		dangerouslyAllowSVG: true,
-		loader: "custom",
-		loaderFile: "./imgLoader.ts",
 		remotePatterns: [
 			{
 				protocol: "https",
