@@ -1,22 +1,19 @@
 const normalizeSrc = (src: string) => {
-    return src.startsWith("/") ? src.slice(1) : src;
+	return src.startsWith("/") ? src.slice(1) : src;
 };
 
 export default function cloudflareLoader({
-    src,
-    width,
-    quality,
+	src,
+	width,
+	quality,
 }: { src: string; width: number; quality?: number }) {
-    if (process.env.NODE_ENV === "development") {
-        return src;
-    }
-    if (src.includes("pages.dev")) {
-        return src;
-    }
-    const params = [`width=${width}`];
-    if (quality) {
-        params.push(`quality=${quality}`);
-    }
-    const paramsString = params.join(",");
-    return `/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
+	if (process.env.NODE_ENV === "development") {
+		return src;
+	}
+	const params = [`width=${width}`];
+	if (quality) {
+		params.push(`quality=${quality}`);
+	}
+	const paramsString = params.join(",");
+	return `/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
 }

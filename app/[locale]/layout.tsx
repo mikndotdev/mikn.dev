@@ -14,45 +14,45 @@ import "../globals.css";
 const hsr = localFont({ src: "../assets/fonts/HSR.woff2" });
 
 export const metadata: Metadata = {
-    title: "MikanDev",
-    description: "We make cool stuff to make life easier 🍊",
-    openGraph: {
-        images: ["https://mikn.dev/og-homepage.png"],
-    },
+	title: "MikanDev",
+	description: "We make cool stuff to make life easier 🍊",
+	openGraph: {
+		images: ["https://mikn.dev/og-homepage.png"],
+	},
 };
 
 interface LocaleLayoutProps {
-    children: ReactNode;
-    params: Promise<{ locale: string }>;
+	children: ReactNode;
+	params: Promise<{ locale: string }>;
 }
 
 export default async function LocaleLayout({
-    children,
-    params,
+	children,
+	params,
 }: LocaleLayoutProps) {
-    const { locale } = await params;
+	const { locale } = await params;
 
-    // Ensure that the incoming `locale` is valid
-    if (!routing.locales.includes(locale as any)) {
-        notFound();
-    }
+	// Ensure that the incoming `locale` is valid
+	if (!routing.locales.includes(locale as any)) {
+		notFound();
+	}
 
-    // Providing all messages to the client
-    // side is the easiest way to get started
-    const messages = await getMessages();
-    return (
-        <html className={hsr.className} lang={locale}>
-            <body>
-                <NextIntlClientProvider messages={messages}>
-                    <CSPostHogProvider>
-                        <SessionProvider>
-                            {children}
-                            <AccButton />
-                            <Toaster richColors />
-                        </SessionProvider>
-                    </CSPostHogProvider>
-                </NextIntlClientProvider>
-            </body>
-        </html>
-    );
+	// Providing all messages to the client
+	// side is the easiest way to get started
+	const messages = await getMessages();
+	return (
+		<html className={hsr.className} lang={locale}>
+			<body>
+				<NextIntlClientProvider messages={messages}>
+					<CSPostHogProvider>
+						<SessionProvider>
+							{children}
+							<AccButton />
+							<Toaster richColors />
+						</SessionProvider>
+					</CSPostHogProvider>
+				</NextIntlClientProvider>
+			</body>
+		</html>
+	);
 }
