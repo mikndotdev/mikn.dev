@@ -179,8 +179,8 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
 			<Footer
 				social={social}
 				links={links}
-				copylight="2020-2024 MikanDev"
-				className="text-white bg-primary"
+				copylight={`2020-${new Date().getFullYear()} MikanDev`}
+				className="text-white font-thin bg-primary"
 			>
 				<div className="flex items-center self-end">
 					<div className="tooltip tooltip-warning" data-tip=":3">
