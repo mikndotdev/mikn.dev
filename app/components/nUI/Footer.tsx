@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({
 				<div>
 					<div className="mx-4 border-t border-footer-border py-2 lg:mx-0">
 						<div className="mb-4 mt-1 flex w-full flex-col-reverse items-start justify-between gap-1 lg:m-0 lg:flex-row lg:items-center lg:gap-0">
-							<p className="text-xs tracking-wider text-gray-400">
+							<p className="text-xs tracking-wider text-white">
 								&copy; {copylight}
 							</p>
 							<div className="flex flex-row justify-start gap-1 lg:items-center">
