@@ -28,7 +28,12 @@
 		"monthlyUptime": "Avg. Monthly uptime",
 		"HowSoCheap": "How so cheap?",
 		"SelfFunded": "100% Self-funded",
-		"SelfFundedBlurb": "We don't have any investors or VC to answer to, so we can decide when we make a profit. We're here to make cool stuff, not money."
+		"SelfFundedBlurb": "We don't have any investors or VC to answer to, so we can decide when we make a profit. We're here to make cool stuff, not money.",
+		"WorkWithBest": "Working with the best",
+		"WorkWithBestBlurb": "We partner with other cool organizations and help get their cool stuff out there. We're all about the community :3",
+		"workWithMe": "Work with us!",
+		"NoWait": "What's more to say?",
+		"NoWaitBlurb": "Check out our projects and see if there's something you like!"
 	},
 	"nav": {
 		"support": "Support",

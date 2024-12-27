@@ -9,11 +9,16 @@ import { IconCloud } from "@/app/components/fancy/icon-cloud";
 import { CodeComparison } from "@/app/components/fancy/code-comp";
 import { beforeCode, afterCode } from "@/app/components/codecomp-v3v4";
 import { NumberTicker } from "@/app/components/fancy/NumberTicker";
+import { Marquee } from "@/app/components/fancy/marqee";
 
 import { TbBrandOpenSource, TbWallet, TbPigMoney } from "react-icons/tb";
 
 import mikan from "@/app/assets/img/mikan.png";
 import HeartMascot from "@/app/assets/img/MDHeart.png";
+import NeodyLogo from "@/app/assets/img/NeodyLogo.png";
+import RTLogo from "@/app/assets/img/rt.png";
+import KuronekoLogo from "@/app/assets/img/kuroneko.png";
+import TakasumiLogo from "@/app/assets/img/takasumi.png";
 
 const icons = Array(120).fill(mikan.src);
 
@@ -28,19 +33,21 @@ export default function Home() {
 			>
 				<div className={"flex flex-col"}>
 					<Link href={"#self-funded"}>
-					<div
-						className={"flex flex-row items-center space-x-3 mb-3"}
-					>
-						<TbWallet className={"text-primary"} size={30} />
-						<h1
+						<div
 							className={
-								"text-md text-white tooltip tooltip-warning"
+								"flex flex-row items-center space-x-3 mb-3"
 							}
-							data-tip="No VC money here :3"
 						>
-							Backed by my own pocket money
-						</h1>
-					</div>
+							<TbWallet className={"text-primary"} size={30} />
+							<h1
+								className={
+									"text-md text-white tooltip tooltip-warning"
+								}
+								data-tip="No VC money here :3"
+							>
+								Backed by my own pocket money
+							</h1>
+						</div>
 					</Link>
 					<div className={"flex flex-row space-x-5"}>
 						<h1 className={"text-6xl text-white font-bold"}>
@@ -268,12 +275,15 @@ export default function Home() {
 					>
 						<Image
 							src={mikan.src}
-							alt={"Mascot Heart"}
+							alt={"Mikan"}
 							width={100}
 							height={100}
 						/>
 					</div>
-					<h1 className={"text-4xl text-white font-bold mt-3"} id={"self-funded"}>
+					<h1
+						className={"text-4xl text-white font-bold mt-3"}
+						id={"self-funded"}
+					>
 						{t("SelfFunded")}
 					</h1>
 					<h3
@@ -283,6 +293,95 @@ export default function Home() {
 					>
 						{t("SelfFundedBlurb")}
 					</h3>
+					<div
+						className={
+							"flex flex-row justify-center items-center space-x-5 mt-24"
+						}
+					>
+						<Image
+							src={HeartMascot.src}
+							alt={"Mascot Heart"}
+							width={200}
+							height={200}
+						/>
+					</div>
+					<h1 className={"text-4xl text-white font-bold mt-3"}>
+						{t("WorkWithBest")}
+					</h1>
+					<h3
+						className={
+							"text-xl text-gray-400 mt-3 text-center w-3/4"
+						}
+					>
+						{t("WorkWithBestBlurb")}
+					</h3>
+					<Marquee className="[--duration:20s] mt-10 w-[99vw]">
+						<Link href={"https://neody.land"}>
+							<Image
+								src={NeodyLogo.src}
+								alt={"Neody"}
+								width={150}
+								height={50}
+								className={
+									"ml-16 mr-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+								}
+							/>
+						</Link>
+						<Link href={"https://rt.neody.land"}>
+							<Image
+								src={RTLogo.src}
+								alt={"RT"}
+								width={50}
+								height={50}
+								className={
+									"ml-16 mr-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+								}
+							/>
+						</Link>
+						<Link href={"https://kuroneko6423.com"}>
+							<Image
+								src={KuronekoLogo.src}
+								alt={"Kuroneko"}
+								width={50}
+								height={50}
+								className={
+									"ml-16 mr-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+								}
+							/>
+						</Link>
+						<Link href={"https://takasumibot.com"}>
+							<Image
+								src={TakasumiLogo.src}
+								alt={"Takasumi"}
+								width={50}
+								height={50}
+								className={
+									"ml-16 mr-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+								}
+							/>
+						</Link>
+					</Marquee>
+					<Link href={"/contact"}>
+						<button className={"btn btn-primary mt-10 text-white"}>
+							{t("workWithMe")}
+						</button>
+					</Link>
+					<div className={"h-[30vh]"}></div>
+					<h1 className={"text-4xl text-white font-bold mt-24"}>
+						{t("NoWait")}
+					</h1>
+					<h3
+						className={
+							"text-xl text-gray-400 mt-3 text-center w-3/4"
+						}
+					>
+						{t("NoWaitBlurb")}
+					</h3>
+					<Link href={"/solutions"}>
+						<button className={"btn btn-primary mt-5 text-white"}>
+							{t("takeLook")}
+						</button>
+					</Link>
 				</div>
 			</div>
 		</main>
