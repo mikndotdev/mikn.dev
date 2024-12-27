@@ -10,6 +10,9 @@ export default function cloudflareLoader({
     if (process.env.NODE_ENV === "development") {
         return src;
     }
+    if (src.includes("pages.dev")) {
+        return src;
+    }
     const params = [`width=${width}`];
     if (quality) {
         params.push(`quality=${quality}`);

@@ -38,15 +38,17 @@ export default function Home() {
                     <h1 className={"text-xl text-white mt-10"}>
                         {t("mainBlurb1")}
                     </h1>
-                    <h1 className={"text-xl text-white"}>
-                        {t("mainBlurb2")}
-                    </h1>
+                    <h1 className={"text-xl text-white"}>{t("mainBlurb2")}</h1>
                     <div className={"flex flex-row space-x-5 mt-10"}>
                         <Link href={"/solutions"}>
-                            <button className={"btn btn-primary text-white"}>{t("takeLook")}</button>
+                            <button className={"btn btn-primary text-white"}>
+                                {t("takeLook")}
+                            </button>
                         </Link>
                         <Link href={"#more"}>
-                            <button className={"btn btn-secondary text-white"}>{t("learnMore")}</button>
+                            <button className={"btn btn-secondary text-white"}>
+                                {t("learnMore")}
+                            </button>
                         </Link>
                     </div>
                 </div>
@@ -55,7 +57,7 @@ export default function Home() {
                         "w-1/3 flex flex-col justify-center items-center"
                     }
                 >
-                    <IconCloud imageArray={icons}/>
+                    <IconCloud imageArray={icons} />
                 </div>
             </div>
         </main>
