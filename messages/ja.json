@@ -12,11 +12,11 @@
 		"learnMore": "もっと知る",
 		"infoTitle": "私達の秘訣",
 		"infoBlurb": "「The MikanDev Difference」",
-		"OSSonOSS": "オープンソースを基のオープンソース",
+		"OSSonOSS": "オープンソース上のオープンソース",
 		"OSSonOSSBlurb": "私達はオープンソースの力を信じています。私達のプロジェクトは全て自己ホスト、修正、貢献が可能です。使用するサードパーティサービスもオープンソースです。",
 		"partOfPage": "このページもなんとオープンソースです！前のバージョンと比較してみましょう：",
 		"viewOnGH": "GitHubで見てみる",
-		"SimpleNCheap": "シンプルさを追求した究極のコストパフォマンス",
+		"SimpleNCheap": "シンプルさを追求し生まれた究極ののコストパフォマンス",
 		"SimpleNCheapBlurb": "私達は複雑なことを好みません。私達のプロジェクトは使いやすさを重視し、高額なサードパーティサービスに依存しません。その節約分はあなたに還元されます！",
 		"monthlyCost": "平均月額運用費用",
 		"MAUBilled": "従量課金サービス使用",
@@ -47,6 +47,8 @@
 		"jp-payments": "特定商取引法に基づく表記",
 		"gdpr": "GDPRコンプライアンス",
 		"myAccount": "マイアカウント",
-		"resources": "リソース"
+		"resources": "リソース",
+		"cookieConsent": "そこの君！このサイトはCookieを使ってるぞ！！使ってもいいかな？",
+		"accept": "いいね！"
 	}
 }
