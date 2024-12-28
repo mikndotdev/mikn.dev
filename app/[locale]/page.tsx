@@ -209,7 +209,7 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<Link href={"#"}>
+					<Link href={"/cost"}>
 						<button className="btn btn-primary mt-5 text-white">
 							{t("HowSoCheap")}
 						</button>
