@@ -136,7 +136,7 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
 
 	const buttons = [
 		{
-			href: "https://my.mikandev.com/",
+			href: "https://my.mikandev.com/init?url=https://mikn.dev",
 			title: t("myAccount"),
 		},
 		{
