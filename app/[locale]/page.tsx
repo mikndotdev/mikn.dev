@@ -20,7 +20,7 @@ import RTLogo from "@/app/assets/img/rt.png";
 import KuronekoLogo from "@/app/assets/img/kuroneko.png";
 import TakasumiLogo from "@/app/assets/img/takasumi.png";
 
-const icons = Array(120).fill(mikan.src);
+const icons = Array(100).fill(mikan.src);
 
 export default function Home() {
 	const t = useTranslations("home");
@@ -72,7 +72,7 @@ export default function Home() {
 					</div>
 				</div>
 				<div className="w-full lg:w-1/3 mt-8 lg:mt-0">
-					<IconCloud imageArray={icons}/>
+					<IconCloud images={icons} />
 				</div>
 			</div>
 
