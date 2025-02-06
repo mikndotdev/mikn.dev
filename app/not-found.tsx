@@ -1,24 +1,30 @@
-"use client";
 export const runtime = "edge";
-import { useClientTranslation } from "@/app/i18n/client";
-import { Button, Heading, Card, Center, Flex } from "@neodyland/ui";
-import { cookieName } from "./i18n/settings";
-import { useRouter } from "next/navigation";
 
-import Image from "next/image";
+import Link from "next/link";
+import localFont from "next/font/local";
+import "./globals.css";
 
-interface Props {
-    params: {
-        lng: string;
-    };
-}
+const hsr = localFont({ src: "./assets/fonts/HSR.woff2" });
 
-export default function Home({ params: { lng } }: Props) {
-    const router = useRouter();
-
-    return (
-        <>
-            <div className="relative">Coming soon...</div>
-        </>
-    );
+export default function NotFound() {
+	return (
+		<>
+			<html className={hsr.className} lang="en">
+				<body>
+					<div className="h-screen flex flex-col items-center justify-center">
+						<h1 className={"text-4xl text-center text-white"}>
+							404 - Page Not Found
+						</h1>
+						<Link href={"/"}>
+							<button
+								className={"btn btn-primary text-white mt-5"}
+							>
+								Take me back
+							</button>
+						</Link>
+					</div>
+				</body>
+			</html>
+		</>
+	);
 }
