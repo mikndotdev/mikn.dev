@@ -3,7 +3,6 @@ import { type ComponentPropsWithoutRef, forwardRef, useState } from "react";
 import { tv } from "tailwind-variants";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useLockBodyScroll, useToggle } from "react-use";
-import pSBC from "shade-blend-color";
 import { MenuToggle } from "./MenuToggle";
 import { useIsWide } from "./hooks";
 import Link from "next/link";
@@ -379,11 +378,7 @@ function generateItemColors(numItems: number) {
 
 	for (let i = 0; i < numItems; i++) {
 		result.push(
-			pSBC(
 				i * step,
-				"rgba(60, 246, 231, 1.0)",
-				"rgba(113, 27, 231, 0.45)",
-			),
 		);
 	}
 
