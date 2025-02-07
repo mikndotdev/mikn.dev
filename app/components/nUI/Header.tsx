@@ -231,10 +231,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 						>
 							{navigation.map((item, index) => {
 								const _color =
-									color ||
-									(generateItemColors(navigation.length)[
-										index
-									] as string);
+									color || "";
 								const isCurrent =
 									(typeof current === "string" &&
 										item.href === current) ||
@@ -290,11 +287,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 
 					<div className="hidden h-full items-center py-4 lg:flex lg:gap-x-12">
 						{navigation.map((item, index) => {
-							const _color =
-								color ||
-								(generateItemColors(navigation.length)[
-									index
-								] as string);
+							const _color = color ;
 							const isCurrent =
 								(typeof current === "string" &&
 									item.href === current) ||
@@ -367,20 +360,3 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 	},
 );
 Header.displayName = "Header";
-
-function generateItemColors(numItems: number) {
-	if (numItems < 3) {
-		throw new Error("generateItemColors: numItems must be at least 3");
-	}
-
-	const step = 1 / (numItems - 1);
-	const result = [];
-
-	for (let i = 0; i < numItems; i++) {
-		result.push(
-				i * step,
-		);
-	}
-
-	return result;
-}
