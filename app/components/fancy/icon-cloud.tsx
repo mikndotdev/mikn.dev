@@ -62,7 +62,12 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 					img.crossOrigin = "anonymous";
 					img.src = items[index] as string;
 					img.onload = () => {
-						offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
+						offCtx.clearRect(
+							0,
+							0,
+							offscreen.width,
+							offscreen.height,
+						);
 
 						// Create circular clipping path
 						offCtx.beginPath();
@@ -78,11 +83,18 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 				} else {
 					// Handle SVG icons
 					offCtx.scale(0.4, 0.4);
-					const svgString = renderToString(item as React.ReactElement);
+					const svgString = renderToString(
+						item as React.ReactElement,
+					);
 					const img = new Image();
 					img.src = "data:image/svg+xml;base64," + btoa(svgString);
 					img.onload = () => {
-						offCtx.clearRect(0, 0, offscreen.width, offscreen.height);
+						offCtx.clearRect(
+							0,
+							0,
+							offscreen.width,
+							offscreen.height,
+						);
 						offCtx.drawImage(img, 0, 0);
 						imagesLoadedRef.current[index] = true;
 					};
@@ -163,7 +175,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 				const currentX = rotationRef.current.x;
 				const currentY = rotationRef.current.y;
 				const distance = Math.sqrt(
-					Math.pow(targetX - currentX, 2) + Math.pow(targetY - currentY, 2),
+					Math.pow(targetX - currentX, 2) +
+						Math.pow(targetY - currentY, 2),
 				);
 
 				const duration = Math.min(2000, Math.max(800, distance * 1000));
@@ -221,7 +234,9 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
 			const centerX = canvas.width / 2;
 			const centerY = canvas.height / 2;
-			const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
+			const maxDistance = Math.sqrt(
+				centerX * centerX + centerY * centerY,
+			);
 			const dx = mousePos.x - centerX;
 			const dy = mousePos.y - centerY;
 			const distance = Math.sqrt(dx * dx + dy * dy);
@@ -235,10 +250,12 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 				rotationRef.current = {
 					x:
 						targetRotation.startX +
-						(targetRotation.x - targetRotation.startX) * easedProgress,
+						(targetRotation.x - targetRotation.startX) *
+							easedProgress,
 					y:
 						targetRotation.startY +
-						(targetRotation.y - targetRotation.startY) * easedProgress,
+						(targetRotation.y - targetRotation.startY) *
+							easedProgress,
 				};
 
 				if (progress >= 1) {
@@ -262,7 +279,10 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 				const rotatedY = icon.y * cosX + rotatedZ * sinX;
 
 				const scale = (rotatedZ + 200) / 300;
-				const opacity = Math.max(0.2, Math.min(1, (rotatedZ + 150) / 200));
+				const opacity = Math.max(
+					0.2,
+					Math.min(1, (rotatedZ + 150) / 200),
+				);
 
 				ctx.save();
 				ctx.translate(
@@ -278,7 +298,13 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 						iconCanvasesRef.current[index] &&
 						imagesLoadedRef.current[index]
 					) {
-						ctx.drawImage(iconCanvasesRef.current[index], -20, -20, 40, 40);
+						ctx.drawImage(
+							iconCanvasesRef.current[index],
+							-20,
+							-20,
+							40,
+							40,
+						);
 					}
 				} else {
 					// Show numbered circles if no icons/images are provided

@@ -10,6 +10,7 @@ import { CodeComparison } from "@/app/components/fancy/code-comp";
 import { beforeCode, afterCode } from "@/app/components/codecomp-v3v4";
 import { NumberTicker } from "@/app/components/fancy/NumberTicker";
 import { Marquee } from "@/app/components/fancy/marqee";
+import { VRM } from "@/app/components/vrm";
 
 import { TbBrandOpenSource, TbWallet, TbPigMoney } from "react-icons/tb";
 
@@ -30,8 +31,11 @@ export default function Home() {
 				<div className="flex flex-col w-full lg:w-auto">
 					<Link href={"#self-funded"}>
 						<div className="flex flex-row items-center space-x-3 mb-3">
-							<TbWallet className="text-primary" size={30}/>
-							<h1 className="text-md text-white tooltip tooltip-warning" data-tip="No VC money here :3">
+							<TbWallet className="text-primary" size={30} />
+							<h1
+								className="text-md text-white tooltip tooltip-warning"
+								data-tip="No VC money here :3"
+							>
 								Backed by my own pocket money
 							</h1>
 						</div>
@@ -41,7 +45,12 @@ export default function Home() {
 							{t("creating-cool")}
 						</h1>
 						<Typewriter
-							text={[t("stuff"), t("apps"), t("tools"), t("bots")]}
+							text={[
+								t("stuff"),
+								t("apps"),
+								t("tools"),
+								t("bots"),
+							]}
 							speed={70}
 							className="text-primary text-4xl lg:text-6xl"
 							waitTime={1500}
@@ -71,8 +80,13 @@ export default function Home() {
 						</Link>
 					</div>
 				</div>
-				<div className="w-full lg:w-1/3 mt-8 lg:mt-0">
-					<IconCloud images={icons} />
+				<div className="">
+					<Link
+						href={"https://www.youtube.com/@mikndotdev"}
+						target={"_blank"}
+					>
+						<VRM />
+					</Link>
 				</div>
 			</div>
 
@@ -179,7 +193,10 @@ export default function Home() {
 										value={12}
 										className="text-white text-3xl lg:text-4xl"
 									/>
-									<h3 className="text-3xl text-white"> +TB</h3>
+									<h3 className="text-3xl text-white">
+										{" "}
+										+TB
+									</h3>
 								</div>
 								{t("monthlyBandwidth")}
 							</div>
@@ -223,7 +240,10 @@ export default function Home() {
 							height={100}
 						/>
 					</div>
-					<h1 className="text-3xl lg:text-4xl text-white font-bold mt-3 text-center" id="self-funded">
+					<h1
+						className="text-3xl lg:text-4xl text-white font-bold mt-3 text-center"
+						id="self-funded"
+					>
 						{t("SelfFunded")}
 					</h1>
 					<h3 className="text-lg lg:text-xl text-gray-400 mt-3 text-center w-full lg:w-3/4">

@@ -230,8 +230,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 							variants={mobileMenuItemContainerVariants}
 						>
 							{navigation.map((item, index) => {
-								const _color =
-									color || "";
+								const _color = color || "";
 								const isCurrent =
 									(typeof current === "string" &&
 										item.href === current) ||
@@ -287,7 +286,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 
 					<div className="hidden h-full items-center py-4 lg:flex lg:gap-x-12">
 						{navigation.map((item, index) => {
-							const _color = color ;
+							const _color = color;
 							const isCurrent =
 								(typeof current === "string" &&
 									item.href === current) ||

@@ -120,7 +120,9 @@ export default function AccButton({ children }: AccButtonProps) {
 							<li
 								className="cursor-pointer hover:bg-gray-100 p-2 rounded"
 								onClick={() =>
-									router.push("https://my.mikandev.com/init?url=https://mikn.dev")
+									router.push(
+										"https://my.mikandev.com/init?url=https://mikn.dev",
+									)
 								}
 							>
 								Profile
