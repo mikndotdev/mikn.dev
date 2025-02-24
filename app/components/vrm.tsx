@@ -47,7 +47,7 @@ export function VRM() {
 			return new Promise<import("@pixiv/three-vrm").VRM>(
 				(resolve, reject) => {
 					loader.load(
-						"https://mikn.dev/vroid/mikan.dev_short.vrm",
+						"https://mikn.dev/vroid/mikan.dev(long).vrm",
 						(gltf: GLTF) => {
 							const loadedVrm = gltf.userData.vrm;
 							setVrm(loadedVrm);
