@@ -50,5 +50,16 @@
 		"resources": "リソース",
 		"cookieConsent": "そこの君！このサイトはCookieを使ってるぞ！！使ってもいいかな？",
 		"accept": "いいね！"
+	},
+	"contact": {
+		"title": "お問い合わせ",
+		"mail": "メール",
+		"phone": "電話 (日本のみ)*",
+		"discord": "Discord",
+		"join": "Discordに参加",
+		"general-support": "一般サポート",
+		"billing-support": "請求に関する問い合わせ",
+		"abuse-reports": "不正行為の報告",
+		"phone-disclaimer": "※日本国内の電話番号のみ対応しています。"
 	}
 }

@@ -50,5 +50,16 @@
 		"resources": "Resources",
 		"cookieConsent": "We use cookies for analytics and making stuff work. By clicking 'mmmmmmm cookies 🍪', you agree to our use of cookies.",
 		"accept": "mmmmmmm cookies 🍪"
+	},
+	"contact": {
+		"title": "Contact Us",
+		"mail": "Email",
+		"phone": "Phone (JP Only)*",
+		"discord": "Discord",
+		"join": "Join our Discord",
+		"general-support": "General Support",
+		"billing-support": "Billing Support",
+		"abuse-reports": "Abuse Reports",
+		"phone-disclaimer": "*Calling this number from outside of Japan may result in high charges. Please use the email or Discord for support."
 	}
 }
