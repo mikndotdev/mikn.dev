@@ -8,7 +8,7 @@
 		"format": "biome format --write .",
 		"lint": "next lint",
 		"start": "next start",
-		"build:worker": "cloudflare",
+		"build:worker": "opennextjs-cloudflare",
 		"dev:worker": "wrangler dev --port 8771",
 		"preview:worker": "bun run build:worker && bun run dev:worker",
 		"deploy:worker": "bun run build:worker && wrangler deploy"
