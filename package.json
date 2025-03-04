@@ -13,7 +13,7 @@
 		"deploy": "npm run pages:build && wrangler pages deploy"
 	},
 	"dependencies": {
-		"@cloudflare/next-on-pages": "^1.13.5",
+		"@cloudflare/next-on-pages": "^1.13.8",
 		"@emotion/react": "^11.11.4",
 		"@emotion/styled": "^11.11.5",
 		"@pixiv/three-vrm": "^3.3.4",
