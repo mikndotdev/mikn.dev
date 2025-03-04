@@ -1,16 +1,15 @@
 "use client";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 // @ts-ignore
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import * as THREE from "three";
 import { VRMLoaderPlugin } from "@pixiv/three-vrm";
 import {
 	VRMAnimationLoaderPlugin,
 	createVRMAnimationClip,
 } from "@pixiv/three-vrm-animation";
-import { Vector3, AnimationMixer, Clock } from "three";
+import { AnimationMixer, LoopOnce, LoopRepeat } from "three";
 
 export const VRMModel: React.FC<{
 	vrm: import("@pixiv/three-vrm").VRM | null;
@@ -92,10 +91,10 @@ export function VRM() {
 								animationUrl ===
 								"https://mikn.dev/vroid/hi.vrma"
 							) {
-								action.setLoop(THREE.LoopOnce, 1);
+								action.setLoop(LoopOnce, 1);
 								action.clampWhenFinished = true;
 							} else {
-								action.setLoop(THREE.LoopRepeat, Infinity);
+								action.setLoop(LoopRepeat, Infinity);
 							}
 
 							action.play();
@@ -133,7 +132,7 @@ export function VRM() {
 				<div className="flex items-center justify-center p-4">
 					<AiOutlineLoading3Quarters
 						className="animate-spin text-primary"
-						size={100}
+						size={80}
 					/>
 				</div>
 			) : (
