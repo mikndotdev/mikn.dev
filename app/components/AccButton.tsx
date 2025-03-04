@@ -118,7 +118,7 @@ export default function AccButton({ children }: AccButtonProps) {
 						</div>
 						<ul>
 							<li
-								className="cursor-pointer hover:bg-gray-100 p-2 rounded"
+								className="cursor-pointer hover:bg-gray-100 p-2 rounded-sm"
 								onClick={() =>
 									router.push(
 										"https://my.mikandev.com/init?url=https://mikn.dev",
@@ -128,7 +128,7 @@ export default function AccButton({ children }: AccButtonProps) {
 								Profile
 							</li>
 							<li
-								className="cursor-pointer hover:bg-gray-100 p-2 rounded"
+								className="cursor-pointer hover:bg-gray-100 p-2 rounded-sm"
 								onClick={() => signOut()}
 							>
 								Logout
