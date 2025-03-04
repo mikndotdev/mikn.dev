@@ -41,7 +41,7 @@ export default async function LocaleLayout({
 	// side is the easiest way to get started
 	const messages = await getMessages();
 	return (
-		<html className={hsr.className} lang={locale}>
+		<html className={hsr.className} lang={locale} data-theme={"mikn"}>
 			<body>
 				<NextIntlClientProvider messages={messages}>
 					<CSPostHogProvider>

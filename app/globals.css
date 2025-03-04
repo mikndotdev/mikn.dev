@@ -1,8 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../tailwind.config.ts';
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 body {
   color: #2d1800;
   background: #2d1800
+}
+
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "mikn";
+  default: true; /* set as default */
+  --color-primary: #ff9900;
+  --color-secondary: #ff7700;
 }
