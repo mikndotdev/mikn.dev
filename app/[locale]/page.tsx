@@ -123,18 +123,6 @@ export default function Home() {
 						<h3 className="text-md text-white mb-3">
 							{t("partOfPage")}
 						</h3>
-						<div className="w-full overflow-x-auto">
-							<CodeComparison
-								beforeCode={beforeCode}
-								afterCode={afterCode}
-								language="tsx"
-								filename="page.tsx"
-								lightTheme="github-dark"
-								darkTheme="github-dark"
-								beforeTitle="mikn.dev v2"
-								afterTitle="mikn.dev v3"
-							/>
-						</div>
 					</div>
 					<Link href={"https://github.com/mikndotdev/mikn.dev"}>
 						<button className="btn btn-primary mt-5 text-white">

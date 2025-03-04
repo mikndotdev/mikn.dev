@@ -20,6 +20,7 @@ body {
 @plugin "daisyui";
 @plugin "daisyui/theme" {
   name: "mikn";
+  default: true; /* set as default */
   --color-primary: #ff9900;
   --color-secondary: #ff7700;
 }
