@@ -2,7 +2,7 @@ main = ".open-next/worker.js"
 name = "mikn-dev"
 compatibility_date = "2025-03-04"
 compatibility_flags = ["nodejs_compat"]
-assets = { directory = ".worker-next/assets", binding = "ASSETS" }
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
 
 [[kv_namespaces]]
 binding = "NEXT_CACHE_WORKERS_KV"
