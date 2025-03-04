@@ -1,4 +1,9 @@
+main = ".worker-next/index.mjs"
 name = "mikn-dev"
 compatibility_date = "2025-03-04"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".vercel/output/static"
+assets = { directory = ".worker-next/assets", binding = "ASSETS" }
+
+[[kv_namespaces]]
+binding = "NEXT_CACHE_WORKERS_KV"
+id = "914f30b5215d4d3c9dbae19952e042c5"

@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default async function Home() {

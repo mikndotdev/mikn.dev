@@ -1,7 +1,4 @@
 import Image from "next/image";
-
-export const runtime = "edge";
-
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import Typewriter from "../components/fancy/typewriter";

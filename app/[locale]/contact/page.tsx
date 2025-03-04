@@ -1,7 +1,3 @@
-import {NumberTicker} from "@/app/components/fancy/NumberTicker";
-
-export const runtime = "edge";
-
 import Link from "next/link";
 
 import { useTranslations } from "next-intl";

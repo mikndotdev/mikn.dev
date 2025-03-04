@@ -8,14 +8,15 @@
 		"format": "biome format --write .",
 		"lint": "next lint",
 		"start": "next start",
-		"pages:build": "npx @cloudflare/next-on-pages",
-		"preview": "npm run pages:build && wrangler pages dev",
-		"deploy": "npm run pages:build && wrangler pages deploy"
+		"build:worker": "cloudflare",
+		"dev:worker": "wrangler dev --port 8771",
+		"preview:worker": "bun run build:worker && bun run dev:worker",
+		"deploy:worker": "bun run build:worker && wrangler deploy"
 	},
 	"dependencies": {
-		"@cloudflare/next-on-pages": "^1.13.8",
 		"@emotion/react": "^11.11.4",
 		"@emotion/styled": "^11.11.5",
+		"@opennextjs/cloudflare": "^0.5.8",
 		"@pixiv/three-vrm": "^3.3.4",
 		"@pixiv/three-vrm-animation": "^3.3.4",
 		"@react-three/fiber": "^9.0.4",
