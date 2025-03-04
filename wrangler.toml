@@ -1,4 +1,4 @@
-main = ".worker-next/index.mjs"
+main = ".worker-next/worker.js"
 name = "mikn-dev"
 compatibility_date = "2025-03-04"
 compatibility_flags = ["nodejs_compat"]
