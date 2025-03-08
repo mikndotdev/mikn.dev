@@ -15,5 +15,10 @@
 		"indentWidth": 4,
 		"indentStyle": "tab",
 		"ignore": [".next/", "out/"]
+	},
+	"javascript": {
+		"formatter": {
+			"bracketSpacing": true
+		}
 	}
 }
