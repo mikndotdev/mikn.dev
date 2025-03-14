@@ -15,7 +15,7 @@ import RTLogo from "@/app/assets/img/rt.png";
 import KuronekoLogo from "@/app/assets/img/kuroneko.png";
 import TakasumiLogo from "@/app/assets/img/takasumi.png";
 
-const icons = Array(100).fill(mikan.src);
+export const experimental_ppr = true
 
 export default function Home() {
 	const t = useTranslations("home");
