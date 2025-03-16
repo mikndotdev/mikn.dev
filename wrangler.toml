@@ -7,3 +7,9 @@ assets = { directory = ".open-next/assets", binding = "ASSETS" }
 [[kv_namespaces]]
 binding = "NEXT_CACHE_WORKERS_KV"
 id = "914f30b5215d4d3c9dbae19952e042c5"
+
+[observability.logs]
+enabled = true
+
+
+
