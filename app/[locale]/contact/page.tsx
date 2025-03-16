@@ -11,8 +11,6 @@ import {
 } from "react-icons/md";
 import { FaDiscord } from "react-icons/fa";
 
-export const experimental_ppr = true
-
 export default function Home() {
 	const t = useTranslations("contact");
 	return (
