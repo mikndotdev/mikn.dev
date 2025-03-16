@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-	secret: process.env.AUTH_SECRET,
 	trustHost: true,
 	callbacks: {
 		async jwt({ token, profile, account, user }) {
