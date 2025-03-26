@@ -2,20 +2,21 @@ import { getRequestConfig } from "next-intl/server";
 import { routing } from "./routing";
 
 export default getRequestConfig(async ({ requestLocale }) => {
-	// This typically corresponds to the `[locale]` segment
 	let locale = await requestLocale;
 
-	// Ensure that a valid locale is used
 	if (!locale || !routing.locales.includes(locale as any)) {
 		locale = routing.defaultLocale;
 	}
 
-	if (process.env.NODE_ENV === 'development') {
-		const res = await fetch(`${process.env.TOLGEE_API_URL}/v2/projects/${process.env.TOLGEE_PROJECT_ID}/translations/${locale}`, {
-			headers: {
-				'x-api-key': `${process.env.TOLGEE_API_KEY}`,
+	if (process.env.NODE_ENV === "development") {
+		const res = await fetch(
+			`${process.env.TOLGEE_API_URL}/v2/projects/${process.env.TOLGEE_PROJECT_ID}/translations/${locale}`,
+			{
+				headers: {
+					"x-api-key": `${process.env.TOLGEE_API_KEY}`,
+				},
 			},
-		});
+		);
 		const data = await res.json();
 		const messages = data[locale];
 
