@@ -67,7 +67,7 @@ export default function Home() {
 							</h3>
 						</div>
 						<div className="flex flex-row justify-center items-center space-x-5">
-							<h3 className="text-xl">+81 050-5532-0721</h3>
+							<h3 className="text-xl">+81 090-9276-3628</h3>
 						</div>
 					</div>
 				</div>
