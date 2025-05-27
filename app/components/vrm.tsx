@@ -46,7 +46,7 @@ export function VRM() {
 			return new Promise<import("@pixiv/three-vrm").VRM>(
 				(resolve, reject) => {
 					loader.load(
-						"https://mikn.dev/vroid/mikan.dev(web).vrm",
+						"https://cdn.mikn.dev/vroid/mikan.dev(web).vrm",
 						(gltf: GLTF) => {
 							const loadedVrm = gltf.userData.vrm;
 							setVrm(loadedVrm);
@@ -68,8 +68,8 @@ export function VRM() {
 		const loadAnimation = (loadedVrm: import("@pixiv/three-vrm").VRM) => {
 			const animationUrl =
 				Math.random() < 0.3
-					? "https://mikn.dev/vroid/shikanoko.vrma"
-					: "https://mikn.dev/vroid/hi.vrma";
+					? "https://cdn.mikn.dev/vroid/shikanoko.vrma"
+					: "https://cdn.mikn.dev/vroid/hi.vrma";
 
 			loader.load(
 				animationUrl,
@@ -89,7 +89,7 @@ export function VRM() {
 
 							if (
 								animationUrl ===
-								"https://mikn.dev/vroid/hi.vrma"
+								"https://cdn.mikn.dev/vroid/hi.vrma"
 							) {
 								action.setLoop(LoopOnce, 1);
 								action.clampWhenFinished = true;

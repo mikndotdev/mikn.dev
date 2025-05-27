@@ -49,11 +49,8 @@ export default async function LocaleLayout({
 			<body>
 				<NextIntlClientProvider messages={messages}>
 					<CSPostHogProvider>
-						<SessionProvider>
 							{children}
-							<AccButton />
 							<Toaster richColors />
-						</SessionProvider>
 					</CSPostHogProvider>
 				</NextIntlClientProvider>
 			</body>
