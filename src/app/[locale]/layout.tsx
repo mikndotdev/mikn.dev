@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { CSPostHogProvider } from "@/components/posthog";
 import { Toaster } from "sonner";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { ReactNode } from "react";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 	title: "MikanDev",
 	description: "We make cool stuff to make life easier 🍊",
 	openGraph: {
-		images: ["https://mikn.dev/og-homepage.png"],
+		images: ["https://mikn.dev/img/og-homepage.png"],
 	},
 };
 
@@ -39,6 +39,7 @@ export default async function LocaleLayout({
 		notFound();
 	}
 
+	setRequestLocale(locale);
 	// Providing all messages to the client
 	// side is the easiest way to get started
 	const messages = await getMessages();
