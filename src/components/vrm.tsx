@@ -11,14 +11,19 @@ import {
 } from "@pixiv/three-vrm-animation";
 import { AnimationMixer, LoopOnce, LoopRepeat } from "three";
 
+const animations = [
+	{ url: "https://cdn.mikn.dev/vroid/shikanoko.vrma", loop: true, percentage: 30 },
+	{ url: "https://cdn.mikn.dev/vroid/hi.vrma", loop: false, percentage: 70 },
+];
+
 export const VRMModel: React.FC<{
 	vrm: import("@pixiv/three-vrm").VRM | null;
 	mixer: AnimationMixer | null;
 }> = ({ vrm, mixer }) => {
 	useFrame(({ clock }, delta) => {
 		if (vrm) {
-			vrm.scene.position.set(0, -4, 0);
-			vrm.scene.scale.set(5, 5, 5);
+			vrm.scene.position.set(0, -4.2, 0);
+			vrm.scene.scale.set(6.5, 5, 5);
 			vrm.scene.rotation.y = Math.PI;
 			vrm.expressionManager?.setValue("neutral", 1);
 
@@ -46,7 +51,7 @@ export function VRM() {
 			return new Promise<import("@pixiv/three-vrm").VRM>(
 				(resolve, reject) => {
 					loader.load(
-						"https://cdn.mikn.dev/vroid/mikan.dev(web).vrm",
+						"https://cdn.mikn.dev/vroid/mikan.dev(kyonyu).vrm",
 						(gltf: GLTF) => {
 							const loadedVrm = gltf.userData.vrm;
 							setVrm(loadedVrm);
@@ -65,14 +70,22 @@ export function VRM() {
 			);
 		};
 
+		function pickAnimation() {
+			const total = animations.reduce((sum, anim) => sum + anim.percentage, 0);
+			const rand = Math.random() * total;
+			let acc = 0;
+			for (const anim of animations) {
+				acc += anim.percentage;
+				if (rand < acc) return anim;
+			}
+			return animations[0]; // fallback
+		}
+
 		const loadAnimation = (loadedVrm: import("@pixiv/three-vrm").VRM) => {
-			const animationUrl =
-				Math.random() < 0.3
-					? "https://cdn.mikn.dev/vroid/shikanoko.vrma"
-					: "https://cdn.mikn.dev/vroid/hi.vrma";
+			const { url, loop } = pickAnimation();
 
 			loader.load(
-				animationUrl,
+				url,
 				(gltf: GLTF) => {
 					const vrmAnimations = gltf.userData.vrmAnimations;
 					if (vrmAnimations && vrmAnimations.length > 0) {
@@ -81,37 +94,26 @@ export function VRM() {
 								vrmAnimations[0],
 								loadedVrm,
 							);
-							const animationMixer = new AnimationMixer(
-								loadedVrm.scene,
-							);
-							const action =
-								animationMixer.clipAction(animationClip);
+							const animationMixer = new AnimationMixer(loadedVrm.scene);
+							const action = animationMixer.clipAction(animationClip);
 
-							if (
-								animationUrl ===
-								"https://cdn.mikn.dev/vroid/hi.vrma"
-							) {
+							if (loop) {
+								action.setLoop(LoopRepeat, Infinity);
+							} else {
 								action.setLoop(LoopOnce, 1);
 								action.clampWhenFinished = true;
-							} else {
-								action.setLoop(LoopRepeat, Infinity);
 							}
 
 							action.play();
 							setMixer(animationMixer);
 						} else {
-							console.error(
-								"VRM model or humanoid is not loaded correctly.",
-							);
+							console.error("VRM model or humanoid is not loaded correctly.");
 						}
 					}
 				},
 				undefined,
 				(error: Error) => {
-					console.error(
-						"An error occurred while loading the animation:",
-						error,
-					);
+					console.error("An error occurred while loading the animation:", error);
 				},
 			);
 		};
@@ -130,14 +132,13 @@ export function VRM() {
 		<div className="flex justify-center items-center w-96 h-96">
 			{!isLoaded ? (
 				<div className="flex items-center justify-center p-4">
-					<AiOutlineLoading3Quarters
-						className="animate-spin text-primary"
-						size={80}
+					<span
+						className="loading loading-xl loading-spinner text-primary"
 					/>
 				</div>
 			) : (
 				<Canvas camera={{ position: [0, 0, 3] }}>
-					<ambientLight intensity={2.1} />
+					<ambientLight intensity={1.5} />
 					<VRMModel vrm={vrm} mixer={mixer} />
 				</Canvas>
 			)}

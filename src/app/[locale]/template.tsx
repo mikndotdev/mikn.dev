@@ -126,10 +126,6 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
 					name: t("jp-payments"),
 					href: "https://docs.mikn.dev/legal/jp-payments",
 				},
-				{
-					name: t("gdpr"),
-					href: "https://docs.mikn.dev/legal/dpa",
-				},
 			],
 		},
 	];
