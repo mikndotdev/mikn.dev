@@ -12,8 +12,10 @@ import {
 import { AnimationMixer, LoopOnce, LoopRepeat } from "three";
 
 const animations = [
-	{ url: "https://cdn.mikn.dev/vroid/shikanoko.vrma", loop: true, percentage: 30 },
+	{ url: "https://cdn.mikn.dev/vroid/shikanoko.vrma", loop: true, percentage: 10 },
 	{ url: "https://cdn.mikn.dev/vroid/hi.vrma", loop: false, percentage: 70 },
+	{ url: "https://cdn.mikn.dev/vroid/uishig.vrma", loop: true, percentage: 10 },
+	{ url: "https://cdn.mikn.dev/vroid/tetoris.vrma", loop: false, percentage: 10 },
 ];
 
 export const VRMModel: React.FC<{
@@ -138,7 +140,7 @@ export function VRM() {
 				</div>
 			) : (
 				<Canvas camera={{ position: [0, 0, 3] }}>
-					<ambientLight intensity={1.5} />
+					<ambientLight intensity={1.7} />
 					<VRMModel vrm={vrm} mixer={mixer} />
 				</Canvas>
 			)}
