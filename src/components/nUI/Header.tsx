@@ -263,7 +263,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 												key={buttonProps.title}
 											>
 												<button
-													className="btn btn-primary text-white"
+													className="btn btn-secondary text-white"
 													{...buttonProps}
 												>
 													{buttonProps.title}
@@ -271,7 +271,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 											</Link>
 										) : (
 											<button
-												className="btn btn-primary text-white"
+												className="btn btn-secondary text-white"
 												{...buttonProps}
 												key={buttonProps.title}
 											>
@@ -334,7 +334,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 									key={buttonProps.title}
 								>
 									<button
-										className="btn btn-primary text-white"
+										className="btn btn-secondary text-white"
 										{...buttonProps}
 									>
 										{buttonProps.title}
@@ -342,7 +342,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 								</Link>
 							) : (
 								<button
-									className="btn btn-primary text-white"
+									className="btn btn-secondary text-white"
 									{...buttonProps}
 									key={buttonProps.title}
 								>

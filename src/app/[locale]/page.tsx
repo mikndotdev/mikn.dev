@@ -73,12 +73,7 @@ export default function Home() {
 					</div>
 				</div>
 				<div className="">
-					<Link
-						href={"https://www.youtube.com/@mikndotdev"}
-						target={"_blank"}
-					>
-						<VRM />
-					</Link>
+					<VRM />
 				</div>
 			</div>
 
