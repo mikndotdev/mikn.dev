@@ -8,13 +8,13 @@
 		"rules": {
 			"recommended": true
 		},
-		"ignore": [".next/", "out/"]
+		"ignore": [".next/", "out/", ".wrangler/", ".open-next/"]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentWidth": 4,
 		"indentStyle": "tab",
-		"ignore": [".next/", "out/"]
+		"ignore": [".next/", "out/", ".wrangler/", ".open-next/"],
 	},
 	"javascript": {
 		"formatter": {
