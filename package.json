@@ -38,7 +38,7 @@
 		"shiki": "^1.24.4",
 		"sonner": "^1.7.1",
 		"tailwind-merge": "^2.6.0",
-		"tailwind-variants": "^0.3.0",
+		"tailwind-variants": "^1.0.0",
 		"three": "^0.176.0"
 	},
 	"devDependencies": {
