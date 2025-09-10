@@ -6,6 +6,7 @@ import Image from "next/image";
 import mikanLogo from "@/assets/img/mikan.png";
 import MikanCat from "@/assets/img/mikan-cat.png";
 import KawaiiLogo from "@/assets/img/mikan-vtube.svg";
+import { useSwetrix } from '@swetrix/nextjs'
 import { useRouter, usePathname } from "next/navigation";
 import CookieConsent from "react-cookie-consent";
 import { ReactNode } from "react";
@@ -17,6 +18,7 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
 	const router = useRouter();
 	const pathname = usePathname();
 	const t = useTranslations("nav");
+    useSwetrix("XxNIMaHCaVG3", { apiURL: "https://analytics.mikandev.tech/log" })
 
 	const changeLanguage = () => {
 		//@ts-ignore

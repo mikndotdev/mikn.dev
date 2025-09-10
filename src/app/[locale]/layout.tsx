@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { CSPostHogProvider } from "@/components/posthog";
 import { Toaster } from "sonner";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -47,10 +46,8 @@ export default async function LocaleLayout({
 		<html className={hsr.className} lang={locale} data-theme={"mikn"}>
 			<body>
 				<NextIntlClientProvider messages={messages}>
-					<CSPostHogProvider>
 						{children}
 						<Toaster richColors />
-					</CSPostHogProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>
