@@ -20,7 +20,7 @@
 		"@react-three/fiber": "^9.1.2",
 		"@swetrix/nextjs": "^1.0.1",
 		"@tailwindcss/postcss": "^4.1.7",
-		"@types/three": "^0.176.0",
+		"@types/three": "^0.180.0",
 		"caniuse-lite": "^1.0.30001664",
 		"clsx": "^2.1.1",
 		"daisyui": "^5.0.0",
@@ -39,7 +39,7 @@
 		"sonner": "^1.7.1",
 		"tailwind-merge": "^2.6.0",
 		"tailwind-variants": "^0.3.0",
-		"three": "^0.176.0"
+		"three": "^0.180.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.5.1",
