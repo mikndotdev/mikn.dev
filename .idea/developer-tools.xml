@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="hmac-transformer">
+    <developerToolsConfigurations>
+      <developerToolConfiguration developerToolId="jwt-encoder-decoder" id="686ff55f-0e35-4c89-bdff-256e4e19a4c6" name="Workbench">
+        <properties>
+          <property key="encodedText" type="INPUT" value="kotlin.String|ewogICJ0eXAiOiJKV1QiLAogICJhbGciOiJIUzI1NiIKfQ.ewogICJqdGkiOiI5NjQ5MmQ1OS0wYWQ1LTRjMDAtODkyZC01OTBhZDVhYzAwZjMiLAogICJzdWIiOiIwMTIzNDU2Nzg5IiwKICAibmFtZSI6IkpvaG4gRG9lIiwKICAiaWF0IjoxNjgxMDQwNTE1Cn0.ZXdvZ0lDSjBlWEFpT2lKS1YxUWlMQW9nSUNKaGJHY2lPaUpJVXpJMU5pSUtmUS4uSXFlTmwzbEhTVWZQZkVZbXR0dmxRcDFzSDlMcEFvUEpsVWlTdjRYUERTRQ" />
+        </properties>
+      </developerToolConfiguration>
+    </developerToolsConfigurations>
+  </component>
+</project>
