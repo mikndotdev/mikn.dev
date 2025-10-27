@@ -6,6 +6,11 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
   output: "export",
+  images: {
+    loader: "custom",
+    loaderFile: "./imgLoader.ts",
+  },
+  reactCompiler: true,
 };
 
 export default withNextIntl(nextConfig);

@@ -23,6 +23,7 @@
     "@swetrix/nextjs": "^1.0.1",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/three": "^0.176.0",
+    "babel-plugin-react-compiler": "^1.0.0",
     "caniuse-lite": "^1.0.30001664",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
