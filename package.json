@@ -4,14 +4,10 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "NODE_OPTIONS='--inspect' next dev --turbo",
+    "dev": "next dev --turbo",
     "format": "biome format --write .",
     "lint": "next lint",
-    "start": "next start",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "start": "next start"
   },
   "dependencies": {
     "@c15t/nextjs": "^1.7.1",
@@ -28,6 +24,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "daisyui": "^5.0.0",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.548.0",
     "motion": "^11.15.0",
     "next": "^16.0.0",
