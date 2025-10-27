@@ -6,7 +6,7 @@ export default async function IndexPage(params: Promise<{ locale: string }>) {
 
   setRequestLocale(locale);
 
-  const t = await getTranslations("HomePage");
+  const t = await getTranslations("home");
   return (
     <>
       <Button>a</Button>
