@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Toaster } from "sonner";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -7,8 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { ReactNode } from "react";
 import "../globals.css";
-
-const hsr = localFont({ src: "../../assets/fonts/HSR.woff2" });
+import { ConsentManager } from "@/components/consent-manager";
 
 export const metadata: Metadata = {
   title: "MikanDev",
@@ -41,13 +39,13 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
   return (
-    <html className={hsr.className} lang={locale}>
-      <body>
-        <NextIntlClientProvider messages={messages}>
+    <>
+      <NextIntlClientProvider messages={messages}>
+        <ConsentManager>
           {children}
           <Toaster richColors />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+        </ConsentManager>
+      </NextIntlClientProvider>
+    </>
   );
 }
