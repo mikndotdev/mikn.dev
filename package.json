@@ -42,7 +42,7 @@
 		"three": "^0.176.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.5.1",
+		"@biomejs/biome": "^2.0.0",
 		"@opennextjs/aws": "^3.6.4",
 		"@types/node": "^20",
 		"@types/react": "^18",
