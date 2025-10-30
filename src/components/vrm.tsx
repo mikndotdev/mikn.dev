@@ -44,13 +44,44 @@ const animations = [
 export const VRMModel: FC<{
   vrm: import("@pixiv/three-vrm").VRM | null;
   mixer: AnimationMixer | null;
-}> = ({ vrm, mixer }) => {
+  enableLookAt: boolean;
+  mousePosition: { x: number; y: number };
+}> = ({ vrm, mixer, enableLookAt, mousePosition }) => {
   useFrame(({ clock }, delta) => {
     if (vrm) {
       vrm.scene.position.set(0, -4.2, 0);
       vrm.scene.scale.set(6.5, 5, 5);
       vrm.scene.rotation.y = Math.PI;
       vrm.expressionManager?.setValue("neutral", 1);
+
+      // Enable eye tracking if animation is done
+      if (enableLookAt && vrm.lookAt) {
+        // Convert mouse position to 3D world coordinates
+        const target = {
+          x: mousePosition.x * 2,
+          y: mousePosition.y * 2 + 0.5,
+          z: 2,
+        };
+        // Use the lookAt method to set the target position
+        try {
+          //@ts-ignore
+          vrm.lookAt.lookAt(target);
+        } catch (error) {
+          // Silently handle if lookAt is not available
+        }
+
+        // Also rotate the head slightly to match
+        const headBone = vrm.humanoid.getNormalizedBoneNode("head");
+        if (headBone) {
+          // Apply subtle head rotation based on mouse position
+          const headRotationX = mousePosition.y * 0.3; // Up/down
+          const headRotationY = mousePosition.x * 0.3; // Left/right
+
+          // Smoothly interpolate to the target rotation
+          headBone.rotation.x += (headRotationX - headBone.rotation.x) * 0.1;
+          headBone.rotation.y += (headRotationY - headBone.rotation.y) * 0.1;
+        }
+      }
 
       vrm.update(delta);
     }
@@ -66,7 +97,34 @@ export function VRM() {
   const [vrm, setVrm] = useState<import("@pixiv/three-vrm").VRM | null>(null);
   const [mixer, setMixer] = useState<AnimationMixer | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [enableLookAt, setEnableLookAt] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const actionRef = useRef<AnimationAction | null>(null);
+  const isLoopingRef = useRef<boolean>(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Global mouse tracking
+  useEffect(() => {
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+
+      const rect = containerRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      // Calculate normalized position relative to the container center
+      const x = (e.clientX - centerX) / rect.width;
+      const y = -(e.clientY - centerY) / rect.height;
+
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleGlobalMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleGlobalMouseMove);
+    };
+  }, []);
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -104,6 +162,7 @@ export function VRM() {
 
     const loadAnimation = (loadedVrm: import("@pixiv/three-vrm").VRM) => {
       const { url, loop } = pickAnimation();
+      isLoopingRef.current = loop;
 
       loader.load(
         url,
@@ -123,6 +182,11 @@ export function VRM() {
               } else {
                 action.setLoop(LoopOnce, 1);
                 action.clampWhenFinished = true;
+
+                // Enable eye tracking when animation finishes
+                animationMixer.addEventListener("finished", () => {
+                  setEnableLookAt(true);
+                });
               }
 
               action.play();
@@ -155,7 +219,10 @@ export function VRM() {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center w-96 h-96">
+      <div
+        ref={containerRef}
+        className="flex flex-col justify-center items-center w-96 h-96"
+      >
         {!isLoaded ? (
           <div className="flex items-center justify-center p-4">
             <span className="loading loading-xl loading-spinner text-primary" />
@@ -167,8 +234,13 @@ export function VRM() {
             className={"block w-full h-full"}
           >
             <Canvas camera={{ position: [0, 0, 3] }}>
-              <ambientLight intensity={1.7} />
-              <VRMModel vrm={vrm} mixer={mixer} />
+              <ambientLight intensity={1.5} />
+              <VRMModel
+                vrm={vrm}
+                mixer={mixer}
+                enableLookAt={enableLookAt}
+                mousePosition={mousePosition}
+              />
             </Canvas>
           </a>
         )}
@@ -194,6 +266,10 @@ export function VRM() {
               actionRef.current.reset();
               actionRef.current.paused = false;
               actionRef.current.play();
+              // Disable look-at when restarting animation
+              if (!isLoopingRef.current) {
+                setEnableLookAt(false);
+              }
             }
           }}
         >

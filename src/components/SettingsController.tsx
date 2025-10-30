@@ -59,31 +59,46 @@ export default function SettingsController({ children }: AccButtonProps) {
                 <div className="grid grid-cols-2 gap-2">
                   <Button
                     disabled={selectedToy === "none"}
-                    onClick={() => setSelectedToy("none")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedToy("none");
+                    }}
                   >
                     None
                   </Button>
                   <Button
                     disabled={selectedToy === "spark"}
-                    onClick={() => setSelectedToy("spark")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedToy("spark");
+                    }}
                   >
                     Click Spark
                   </Button>
                   <Button
                     disabled={selectedToy === "splash"}
-                    onClick={() => setSelectedToy("splash")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedToy("splash");
+                    }}
                   >
                     Splash Cursor
                   </Button>
                   <Button
                     disabled={selectedToy === "custom"}
-                    onClick={() => setSelectedToy("custom")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedToy("custom");
+                    }}
                   >
                     Custom Cursor
                   </Button>
                   <Button
                     disabled={selectedToy === "target"}
-                    onClick={() => setSelectedToy("target")}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedToy("target");
+                    }}
                   >
                     Target Cursor
                   </Button>

@@ -1,34 +1,61 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Mikan from "@/assets/img/mikan.png";
 import Image from "next/image";
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.body.style.cursor = "none";
+    // Add a global style to hide cursor on all elements
+    const styleElement = document.createElement("style");
+    styleElement.id = "custom-cursor-style";
+    styleElement.innerHTML = `* { cursor: none !important; }`;
+    document.head.appendChild(styleElement);
 
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      if (cursorRef.current) {
+        // Use requestAnimationFrame for smooth rendering without flickering
+        requestAnimationFrame(() => {
+          if (cursorRef.current) {
+            // Center the cursor on the mouse position
+            cursorRef.current.style.left = `${e.clientX}px`;
+            cursorRef.current.style.top = `${e.clientY}px`;
+          }
+        });
+      }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      document.body.style.cursor = "auto";
+      // Remove the global cursor style
+      const style = document.getElementById("custom-cursor-style");
+      if (style) {
+        style.remove();
+      }
     };
   }, []);
 
   return (
-    <div className="fixed" style={{ left: position.x, top: position.y }}>
+    <div
+      ref={cursorRef}
+      className="fixed pointer-events-none z-[9999]"
+      style={{
+        left: 0,
+        top: 0,
+        transform: "translate(-50%, -50%)",
+      }}
+    >
       <Image
-        src={Mikan.src}
+        src={Mikan}
         alt="Custom Cursor"
-        className="w-8 h-8 z-50"
-        width={20}
-        height={20}
+        className="w-8 h-8"
+        width={32}
+        height={32}
+        priority
+        draggable={false}
       />
     </div>
   );

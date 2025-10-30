@@ -9,7 +9,9 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
 
   return (
     <CursorToys>
-      {children}
+      <div className="mx-auto min-h-screen max-w-7xl px-4 py-24">
+        {children}
+      </div>
       <SettingsController />
     </CursorToys>
   );
