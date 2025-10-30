@@ -4,6 +4,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
-const nextConfig = {};
+const nextConfig = {
+  output: "export",
+  images: {
+    loader: "custom",
+    loaderFile: "./imgLoader.ts",
+  },
+  reactCompiler: true,
+};
 
 export default withNextIntl(nextConfig);

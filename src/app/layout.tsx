@@ -1,11 +1,18 @@
 import { ReactNode } from "react";
-import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { CursorToysProvider } from "@/contexts/CursorToysContext";
 
-export const metadata: Metadata = {
-	title: "MikanDev",
-	description: "We make cool stuff to make life easier 🍊",
-};
+const hsr = localFont({
+  src: "../assets/fonts/HSR.woff2",
+  variable: "--font-sans",
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-	return <>{children}</>;
+  return (
+    <html className={hsr.className}>
+      <body>
+        <CursorToysProvider>{children}</CursorToysProvider>
+      </body>
+    </html>
+  );
 }
