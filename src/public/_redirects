@@ -20,4 +20,4 @@
 /favicon.ico /favicon.ico 200
 
 # Redirect all other paths to English version
-/* /ja/:splat 302
+/* /en/:splat 302
