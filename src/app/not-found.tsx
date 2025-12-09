@@ -1,13 +1,17 @@
 import Link from "next/link";
-import localFont from "next/font/local";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const hsr = localFont({ src: ".././assets/fonts/HSR.woff2" });
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-noto-sans-jp",
+});
 
 export default function NotFound() {
   return (
     <>
-      <html className={hsr.className} lang="en">
+      <html className={notoSansJP.variable} lang="en">
         <body>
           <div className="h-screen flex flex-col items-center justify-center">
             <h1 className={"text-4xl text-center text-white"}>

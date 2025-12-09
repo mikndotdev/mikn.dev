@@ -1,17 +1,21 @@
 import { ReactNode } from "react";
-import localFont from "next/font/local";
 import { CursorToysProvider } from "@/contexts/CursorToysContext";
+import { NextIntlClientProvider } from "next-intl";
+import { Noto_Sans_JP } from "next/font/google";
 
-const hsr = localFont({
-  src: "../assets/fonts/HSR.woff2",
-  variable: "--font-sans",
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-noto-sans-jp",
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html className={hsr.className}>
+    <html className={notoSansJP.variable}>
       <body>
-        <CursorToysProvider>{children}</CursorToysProvider>
+        <NextIntlClientProvider>
+          <CursorToysProvider>{children}</CursorToysProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

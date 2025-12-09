@@ -3,14 +3,15 @@ import { useState, useEffect, useRef, FC } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 // @ts-ignore
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { AnimationAction } from "three";
+import { AnimationAction, Vector3 } from "three";
 import { VRMLoaderPlugin } from "@pixiv/three-vrm";
 import {
   VRMAnimationLoaderPlugin,
   createVRMAnimationClip,
 } from "@pixiv/three-vrm-animation";
 import { AnimationMixer, LoopOnce, LoopRepeat } from "three";
-import { PiPlayPause, PiRepeat } from "react-icons/pi";
+import { Spinner } from "@/components/ui/shadcn-io/spinner";
+import Link from "next/link";
 
 const animations = [
   {
@@ -44,13 +45,25 @@ const animations = [
 export const VRMModel: FC<{
   vrm: import("@pixiv/three-vrm").VRM | null;
   mixer: AnimationMixer | null;
-}> = ({ vrm, mixer }) => {
-  useFrame(({ clock }, delta) => {
+  action: AnimationAction | null;
+  mousePosition: { x: number; y: number };
+}> = ({ vrm, mixer, action, mousePosition }) => {
+  useFrame((_state, delta) => {
     if (vrm) {
       vrm.scene.position.set(0, -4.2, 0);
       vrm.scene.scale.set(6.5, 5, 5);
       vrm.scene.rotation.y = Math.PI;
       vrm.expressionManager?.setValue("neutral", 1);
+
+      const isAnimationFinished = action && !action.isRunning();
+
+      if (isAnimationFinished && vrm.lookAt) {
+        const targetX = mousePosition.x * 3;
+        const targetY = mousePosition.y * 3;
+        const targetZ = 5;
+        const lookAtTarget = new Vector3(targetX, targetY, targetZ);
+        vrm.lookAt.lookAt(lookAtTarget);
+      }
 
       vrm.update(delta);
     }
@@ -67,6 +80,7 @@ export function VRM() {
   const [mixer, setMixer] = useState<AnimationMixer | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const actionRef = useRef<AnimationAction | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -99,7 +113,7 @@ export function VRM() {
         acc += anim.percentage;
         if (rand < acc) return anim;
       }
-      return animations[0]; // fallback
+      return animations[0];
     }
 
     const loadAnimation = (loadedVrm: import("@pixiv/three-vrm").VRM) => {
@@ -153,52 +167,37 @@ export function VRM() {
       });
   }, []);
 
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      const x = (event.clientX / window.innerWidth) * 2 - 1;
+      const y = -(event.clientY / window.innerHeight) * 2 + 1;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <div>
-      <div className="flex flex-col justify-center items-center w-96 h-96">
+    <div className="rounded-full overflow-hidden size-70">
+      <div className="flex flex-col justify-center items-center w-full h-full">
         {!isLoaded ? (
-          <div className="flex items-center justify-center p-4">
-            <span className="loading loading-xl loading-spinner text-primary" />
+          <div className="flex items-center justify-center">
+            <Spinner className={"text-primary size-12"} />
           </div>
         ) : (
-          <a
-            href={"https://youtube.com/@mikndotdev"}
-            target="_blank"
-            className={"block w-full h-full"}
-          >
+          <Link href={"/playground"} className={"block w-full h-full"}>
             <Canvas camera={{ position: [0, 0, 3] }}>
-              <ambientLight intensity={1.7} />
-              <VRMModel vrm={vrm} mixer={mixer} />
+              <ambientLight intensity={2} />
+              <VRMModel
+                vrm={vrm}
+                mixer={mixer}
+                action={actionRef.current}
+                mousePosition={mousePosition}
+              />
             </Canvas>
-          </a>
+          </Link>
         )}
-      </div>
-      <div className="flex gap-2 mt-5 w-full justify-center">
-        <PiPlayPause
-          className="text-primary w-10 h-10 cursor-pointer"
-          onClick={() => {
-            if (!actionRef.current) return;
-            if (actionRef.current?.paused) {
-              actionRef.current.paused = false;
-            } else {
-              actionRef.current.paused = true;
-            }
-          }}
-        >
-          Pause
-        </PiPlayPause>
-        <PiRepeat
-          className="text-primary w-10 h-10 cursor-pointer"
-          onClick={() => {
-            if (actionRef.current) {
-              actionRef.current.reset();
-              actionRef.current.paused = false;
-              actionRef.current.play();
-            }
-          }}
-        >
-          Restart
-        </PiRepeat>
       </div>
     </div>
   );

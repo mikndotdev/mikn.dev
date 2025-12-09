@@ -55,7 +55,9 @@ export default function SettingsController({ children }: AccButtonProps) {
                 Privacy Settings
               </Button>
               <div>
-                <h3 className="text-sm font-medium mb-2">Cursor Toys</h3>
+                <h3 className="text-primary mb-3 text-md text-center font-bold">
+                  Fun Cursors!
+                </h3>
                 <div className="grid grid-cols-2 gap-2">
                   <Button
                     disabled={selectedToy === "none"}
@@ -80,12 +82,6 @@ export default function SettingsController({ children }: AccButtonProps) {
                     onClick={() => setSelectedToy("custom")}
                   >
                     Custom Cursor
-                  </Button>
-                  <Button
-                    disabled={selectedToy === "target"}
-                    onClick={() => setSelectedToy("target")}
-                  >
-                    Target Cursor
                   </Button>
                 </div>
               </div>

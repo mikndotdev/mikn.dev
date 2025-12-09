@@ -1,5 +1,26 @@
 {
   "home": {
     "hi": "Hello"
+  },
+  "layout": {
+    "resources": "Resources",
+    "solutions": "Solutions",
+    "accountCenter": "Account Center",
+    "support": "Support",
+    "contact": "Contact Us",
+    "legal": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "refunds": "Refund Policy",
+    "jp-payments": "特定商取引法に基づく表記"
+  },
+  "home": {
+    "hero": {
+      "blurb1": "Creators of",
+      "blurb2": "lots of cool stuff",
+      "blurb3": "making life easier.",
+      "circularText": "Open Source ☆ Sugoi ☆ MikanDev ☆ Freedom ☆ ",
+      "primaryCta": "Take a Look"
+    }
   }
 }
