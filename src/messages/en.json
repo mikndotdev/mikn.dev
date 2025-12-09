@@ -1,7 +1,4 @@
 {
-  "home": {
-    "hi": "Hello"
-  },
   "layout": {
     "resources": "Resources",
     "solutions": "Solutions",
@@ -12,7 +9,10 @@
     "terms": "Terms of Service",
     "privacy": "Privacy Policy",
     "refunds": "Refund Policy",
-    "jp-payments": "特定商取引法に基づく表記"
+    "jp-payments": "特定商取引法に基づく表記",
+    "home": "Home",
+    "visions": "Our Vision",
+    "opensource": "Open Source"
   },
   "home": {
     "hero": {

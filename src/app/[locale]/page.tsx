@@ -34,11 +34,11 @@ export default function IndexPage() {
             />
             <p className="text-lg md:text-2xl">{t("hero.blurb3")}</p>
             <div className="mt-4 md:mt-6 flex flex-col md:flex-row gap-4 md:gap-6 justify-center md:justify-start">
-                <Link href={"/solutions"}>
-                    <Button variant="default" size="lg">
-                        {t("hero.primaryCta")}
-                    </Button>
-                </Link>
+              <Link href={"/solutions"}>
+                <Button variant="default" size="lg">
+                  {t("hero.primaryCta")}
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="relative flex items-center justify-center aspect-square w-full max-w-sm md:max-w-md flex-shrink-0">

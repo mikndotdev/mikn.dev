@@ -5,6 +5,7 @@ import { Settings } from "@/components/animate-ui/icons/settings";
 import { useConsentManager } from "@c15t/react";
 import { Button } from "@/components/animate-ui/components/buttons/button";
 import { useCursorToys } from "@/contexts/CursorToysContext";
+import { usePathname } from "@/i18n/routing";
 
 interface AccButtonProps {
   children?: React.ReactNode;
@@ -12,7 +13,7 @@ interface AccButtonProps {
 
 const AnimatedButton = ({ onClick }: { onClick: () => void }) => {
   return (
-    <motion.div
+    <motion.button
       whileHover={{ scale: 1.2 }}
       whileTap={{
         scale: 0.8,
@@ -27,7 +28,7 @@ const AnimatedButton = ({ onClick }: { onClick: () => void }) => {
       >
         <Settings animateOnHover />
       </div>
-    </motion.div>
+    </motion.button>
   );
 };
 
@@ -35,6 +36,7 @@ export default function SettingsController({ children }: AccButtonProps) {
   const [open, setOpen] = useState(false);
   const { setIsPrivacyDialogOpen } = useConsentManager();
   const { selectedToy, setSelectedToy } = useCursorToys();
+  const pathname = usePathname();
 
   return (
     <div className="fixed z-50 bottom-5 left-5">
@@ -47,9 +49,6 @@ export default function SettingsController({ children }: AccButtonProps) {
             exit={{ opacity: 0, y: 7 }}
             className="absolute bottom-full mb-5 bg-white shadow-lg rounded-lg p-4 w-80"
           >
-            <div className="flex justify-center">
-              <h2 className="text-primary mb-5 text-md">Site settings</h2>
-            </div>
             <div className="flex flex-col gap-3">
               <Button onClick={() => setIsPrivacyDialogOpen(true)}>
                 Privacy Settings
@@ -85,6 +84,17 @@ export default function SettingsController({ children }: AccButtonProps) {
                   </Button>
                 </div>
               </div>
+              <h3 className="text-primary text-md text-center font-bold">
+                Page Source
+              </h3>
+              <a
+                href={`https://github.com/mikndotdev/mikn.dev/blob/main/src/app/%5Blocale%5D${pathname}page.tsx`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={"flex justify-center"}
+              >
+                <Button>View Source for {pathname}</Button>
+              </a>
             </div>
           </motion.div>
         )}

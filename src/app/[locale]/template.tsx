@@ -72,6 +72,14 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
     },
   ];
 
+  const navigation = [
+    { name: t("home"), href: "/" },
+    { name: t("solutions"), href: "/solutions" },
+    { name: t("contact"), href: "/contact" },
+    { name: t("vision"), href: "/vision" },
+    { name: t("opensource"), href: "/opensource" },
+  ];
+
   return (
     <>
       <CursorToys>
@@ -82,7 +90,8 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
             logo: Logo.src,
             showTitle: false,
           }}
-          buttons={[{ title: t("solutions"), href: "/solutions" }]}
+          navigation={navigation}
+          color={"#FF7700"}
         />
         <div className={"mt-24"}>{children}</div>
         <SettingsController />
