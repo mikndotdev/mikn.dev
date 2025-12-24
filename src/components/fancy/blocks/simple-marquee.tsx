@@ -245,8 +245,12 @@ const SimpleMarquee = ({
   return (
     <motion.div
       className={cn("flex", isHorizontal ? "flex-row" : "flex-col", className)}
-      onHoverStart={() => (isHovered.current = true)}
-      onHoverEnd={() => (isHovered.current = false)}
+      onHoverStart={() => {
+        isHovered.current = true;
+      }}
+      onHoverEnd={() => {
+        isHovered.current = false;
+      }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}

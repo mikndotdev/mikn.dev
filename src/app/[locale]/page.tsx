@@ -1,21 +1,32 @@
 "use client";
-import { Button } from "@/components/animate-ui/components/buttons/button";
-import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
+import { Button } from "@/components/animate-ui/components/buttons/button";
+import SimpleMarquee from "@/components/fancy/blocks/simple-marquee";
+import CircularText from "@/components/CircularText";
+import FaultyTerminal from "@/components/FaultyTerminal";
+import ScrollFloat from "@/components/ScrollFloat";
 import SplitText from "@/components/SplitText";
 import { VRM } from "@/components/vrm";
-import CircularText from "@/components/CircularText";
-import Link from "next/link";
+
+import NeodyLogo from "@/assets/img/NeodyLogo.png";
+import KuronekoLogo from "@/assets/img/kuroneko.png";
+import RTLogo from "@/assets/img/rt.png";
+import TakasumiLogo from "@/assets/img/takasumi.png";
 
 export default function IndexPage() {
   const t = useTranslations("home");
   const [showCircularText, setShowCircularText] = useState(false);
 
   return (
-    <>
-      <div className="min-h-screen w-full flex items-center justify-center px-4 md:px-8 lg:px-12 overflow-x-hidden">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 lg:gap-12 w-full max-w-7xl mx-auto">
+    <main className="flex flex-col items-center justify-center w-full overflow-x-hidden">
+      <div className="min-h-screen w-full flex items-center justify-center relative">
+        <div className="absolute inset-0 z-[-1]">
+        </div>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 lg:gap-12 w-full max-w-7xl mx-auto px-4 md:px-30">
           <div className="flex flex-col text-center md:text-left flex-1 space-y-2 md:space-y-4 max-w-full">
             <p className="text-lg md:text-2xl font-bold">{t("hero.blurb1")}</p>
             <SplitText
@@ -58,6 +69,64 @@ export default function IndexPage() {
           </div>
         </div>
       </div>
-    </>
+
+      <div className="flex flex-col justify-center items-center py-24 px-4 w-full max-w-7xl mx-auto">
+        <ScrollFloat
+          animationDuration={1}
+          ease="back.inOut(2)"
+          scrollStart="center bottom+=50%"
+          scrollEnd="bottom bottom-=40%"
+          stagger={0.03}
+          containerClassName="text-center font-bold mt-3"
+          textClassName="text-3xl lg:text-4xl"
+        >
+          {t("WorkWithBest")}
+        </ScrollFloat>
+        <h3 className="text-lg lg:text-xl text-gray-400 text-center w-full lg:w-3/4">
+          {t("WorkWithBestBlurb")}
+        </h3>
+
+        <SimpleMarquee className="mt-10 w-full" baseVelocity={1}>
+          <div className="flex items-center">
+            <Link href={"https://neody.land"} target="_blank">
+              <Image
+                src={NeodyLogo.src}
+                alt={"Neody"}
+                width={150}
+                height={50}
+                className="mx-8 md:mx-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+              />
+            </Link>
+            <Link href={"https://rt.neody.land"} target="_blank">
+              <Image
+                src={RTLogo.src}
+                alt={"RT"}
+                width={50}
+                height={50}
+                className="mx-8 md:mx-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+              />
+            </Link>
+            <Link href={"https://kuroneko6423.com"} target="_blank">
+              <Image
+                src={KuronekoLogo.src}
+                alt={"Kuroneko"}
+                width={50}
+                height={50}
+                className="mx-8 md:mx-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+              />
+            </Link>
+            <Link href={"https://takasumibot.com"} target="_blank">
+              <Image
+                src={TakasumiLogo.src}
+                alt={"Takasumi"}
+                width={50}
+                height={50}
+                className="mx-8 md:mx-16 transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
+              />
+            </Link>
+          </div>
+        </SimpleMarquee>
+      </div>
+    </main>
   );
 }

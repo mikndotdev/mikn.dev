@@ -21,6 +21,20 @@
       "blurb3": "making life easier.",
       "circularText": "Open Source ☆ Sugoi ☆ MikanDev ☆ Freedom ☆ ",
       "primaryCta": "Take a Look"
-    }
+    },
+    "WorkWithBest": "Working with the best",
+    "WorkWithBestBlurb": "We partner with other cool organizations and help get their cool stuff out there. We're all about the community :3",
+    "workWithMe": "Work with us!"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "mail": "Email",
+    "phone": "Phone (JP Only)*",
+    "discord": "Discord",
+    "join": "Join our Discord",
+    "general-support": "General Support",
+    "billing-support": "Billing Support",
+    "abuse-reports": "Abuse Reports",
+    "phone-disclaimer": "*Calling this number from outside of Japan may result in high charges. Please use the email or Discord for support."
   }
 }

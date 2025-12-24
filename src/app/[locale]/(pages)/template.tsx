@@ -93,7 +93,7 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
           navigation={navigation}
           color={"#FF7700"}
         />
-        <div className={""}>{children}</div>
+        <div className={"py-24 px-4 md:px-30"}>{children}</div>
         <SettingsController />
         <Footer
           social={social}
