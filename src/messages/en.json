@@ -20,11 +20,24 @@
       "blurb2": "lots of cool stuff",
       "blurb3": "making life easier.",
       "circularText": "Open Source ☆ Sugoi ☆ MikanDev ☆ Freedom ☆ ",
-      "primaryCta": "Take a Look"
+      "primaryCta": "Take a Look",
+      "loop": "What makes us cool"
     },
+    "OpenSource": "Everything. Open. Source.",
+    "OpenSourceBlurb": "We believe in freedom and openness. Every single one of our projects and services are open source and available for anyone to use, modify, and distribute. Check out our GitHub to see what we're working on!",
     "WorkWithBest": "Working with the best",
     "WorkWithBestBlurb": "We partner with other cool organizations and help get their cool stuff out there. We're all about the community :3",
-    "workWithMe": "Work with us!"
+    "workWithMe": "Work with us!",
+    "ossProducts": {
+      "karaSnap": {
+        "title": "KaraSnap",
+        "description": "The easiest karaoke logging app ever, powered by AI"
+      },
+      "nextDiscordAuth": {
+        "title": "Next Discord Auth",
+        "description": "Simple, no-nonsense Discord OAuth for your Next.js apps"
+      }
+    }
   },
   "contact": {
     "title": "Contact Us",
@@ -36,5 +49,9 @@
     "billing-support": "Billing Support",
     "abuse-reports": "Abuse Reports",
     "phone-disclaimer": "*Calling this number from outside of Japan may result in high charges. Please use the email or Discord for support."
+  },
+  "ossProducts": {
+    "viewRepo": "View Repository",
+    "visitSite": "Visit Website"
   }
 }

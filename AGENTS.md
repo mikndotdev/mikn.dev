@@ -56,6 +56,7 @@ This project uses **Biome** for formatting and linting, alongside Next.js's buil
   - Use **Animate UI** components from `@/components/animate-ui` for animations.
   - Use **Lucide React** for icons (`import { Mail } from "lucide-react"`).
 - **Icons:** Do **not** use `react-icons` if Lucide equivalents are available.
+- **Responsive Design:** Use Tailwind's md: class for styles for desktop views. Don't use any other responsive classes such as sm:, lg:, xl:, etc.
 
 ### Internationalization (i18n)
 - Use `next-intl` for translations.

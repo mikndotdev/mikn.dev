@@ -5,8 +5,11 @@
       "blurb2": "いろいろな",
       "blurb3": "ヤツらを作っています。",
       "circularText": "Open Source ☆ Sugoi ☆ MikanDev ☆ Freedom ☆ ",
-      "primaryCta": "見てみよう"
+      "primaryCta": "見てみよう",
+      "loop": "私たちの良さげなところ"
     },
+    "OpenSource": "すべてがオープンソース",
+    "OpenSourceBlurb": "私たちは自由とオープンさを信じています。私たちのプロジェクトやサービスはすべてオープンソースで、誰でも使用、修正、配布が可能です。私たちのGitHubを是非見てみてね！",
     "WorkWithBest": "最高の人たちと一緒に",
     "WorkWithBestBlurb": "私達は他の素敵な組織と提携し、彼らの素晴らしいものを世に出すお手伝いをします。私達はコミュニティに全力を注いでいます！",
     "workWithMe": "私たちと一緒にやろう！"
@@ -39,5 +42,9 @@
     "billing-support": "請求に関する問い合わせ",
     "abuse-reports": "不正行為の報告",
     "phone-disclaimer": "※日本国内の電話番号のみ対応しています。"
+  },
+  "ossProducts": {
+    "viewRepo": "リポジトリを見る",
+    "visitSite": "ウェブサイトを見る"
   }
 }
