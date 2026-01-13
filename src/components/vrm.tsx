@@ -19,6 +19,11 @@ const animations = [
     loop: true,
     percentage: 10,
   },
+  {
+    url: "https://cdn.mikn.dev/vroid/horahora.vrma",
+    loop: true,
+    percentage: 1.14514,
+  },
   { url: "https://cdn.mikn.dev/vroid/hi.vrma", loop: false, percentage: 50 },
   {
     url: "https://cdn.mikn.dev/vroid/uishig.vrma",

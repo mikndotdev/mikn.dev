@@ -109,11 +109,11 @@ export default function IndexPage() {
               websiteUrl="https://karasnap.mikn.dev"
             />
             <OSSProductCard
-                name={t("ossProducts.nextDiscordAuth.title")}
-                description={t("ossProducts.nextDiscordAuth.description")}
-                icon={IdCard}
-                repoUrl="https://github.com/mikndotdev/next-discord-auth"
-                websiteUrl="https://npm.im/@mikandev/next-discord-auth"
+              name={t("ossProducts.nextDiscordAuth.title")}
+              description={t("ossProducts.nextDiscordAuth.description")}
+              icon={IdCard}
+              repoUrl="https://github.com/mikndotdev/next-discord-auth"
+              websiteUrl="https://npm.im/@mikandev/next-discord-auth"
             />
           </div>
         </div>
