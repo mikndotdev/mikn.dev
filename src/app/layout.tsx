@@ -1,11 +1,22 @@
 import { ReactNode } from "react";
-import type { Metadata } from "next";
+import { CursorToysProvider } from "@/contexts/CursorToysContext";
+import { NextIntlClientProvider } from "next-intl";
+import { Noto_Sans_JP } from "next/font/google";
 
-export const metadata: Metadata = {
-	title: "MikanDev",
-	description: "We make cool stuff to make life easier 🍊",
-};
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-noto-sans-jp",
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-	return <>{children}</>;
+  return (
+    <html className={notoSansJP.variable}>
+      <body>
+        <NextIntlClientProvider>
+          <CursorToysProvider>{children}</CursorToysProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }
