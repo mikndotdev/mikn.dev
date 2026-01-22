@@ -40,7 +40,7 @@
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-use": "^17.6.0",
-    "sharp": "^0.33.5",
+    "sharp": "^0.34.0",
     "shiki": "^1.24.4",
     "sonner": "^1.7.1",
     "tailwind-merge": "^3.3.1",
