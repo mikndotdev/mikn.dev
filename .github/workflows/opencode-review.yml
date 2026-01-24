@@ -26,4 +26,5 @@ jobs:
             - Check for code quality issues
             - Look for potential bugs
             - Suggest improvements
+            - At the end, add a collapsible section with a copiable prompt (code block) to be given to an AI coding agent to fix the issues found. Write this in a normal tone.
             - ${{ secrets.CUSTOM_REVIEW_INSTRUCTIONS || '' }}
