@@ -188,7 +188,7 @@ export function VRM() {
       <div className="flex flex-col justify-center items-center w-full h-full">
         {!isLoaded ? (
           <div className="flex items-center justify-center">
-            <Spinner className={"text-primary size-12"} />
+            <Spinner className={"text-primary size-12"} variant={"ellipsis"}/>
           </div>
         ) : (
           <Link href={"/playground"} className={"block w-full h-full"}>
