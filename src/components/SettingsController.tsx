@@ -80,7 +80,7 @@ export default function SettingsController({ children }: AccButtonProps) {
                     disabled={selectedToy === "custom"}
                     onClick={() => setSelectedToy("custom")}
                   >
-                    Custom Cursor
+                    mamomamo
                   </Button>
                 </div>
               </div>

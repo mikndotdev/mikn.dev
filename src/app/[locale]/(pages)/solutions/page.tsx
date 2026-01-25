@@ -80,7 +80,10 @@ export default function SolutionsPage() {
     <main className="flex flex-col items-center justify-center w-full overflow-x-hidden">
       <div className="flex flex-col justify-center items-center pb-24 px-4 w-full max-w-7xl mx-auto gap-12 md:gap-24">
         {sections.map((section, sectionIndex) => (
-          <div key={sectionIndex} className="flex flex-col justify-center items-center w-full gap-4">
+          <div
+            key={sectionIndex}
+            className="flex flex-col justify-center items-center w-full gap-4"
+          >
             <div className="text-center font-bold mt-3">
               <DecryptedText
                 text={t(`${section.key}.title`)}

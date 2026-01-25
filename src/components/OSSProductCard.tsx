@@ -29,7 +29,7 @@ export function OSSProductCard({
   icon,
   repoUrl,
   websiteUrl,
-    tags,
+  tags,
 }: IOSSProductCardProps) {
   const t = useTranslations("ossProducts");
 
@@ -61,13 +61,13 @@ export function OSSProductCard({
           {description}
         </p>
         {tags && (
-            <div className="mt-4 flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                    <Badge key={tag} variant={"default"}>
-                        {tag}
-                    </Badge>
-                ))}
-            </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <Badge key={tag} variant={"default"}>
+                {tag}
+              </Badge>
+            ))}
+          </div>
         )}
       </CardContent>
       <CardFooter className="flex flex-col gap-2 pt-4 px-6 items-start">
