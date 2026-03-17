@@ -95,7 +95,7 @@ export function VRM() {
     const loadModel = () => {
       return new Promise<import("@pixiv/three-vrm").VRM>((resolve, reject) => {
         loader.load(
-          "https://cdn.mikn.dev/vroid/mikan.dev(kyonyu).vrm",
+          "https://cdn.mikn.dev/vroid/みかん(Web).vrm",
           (gltf: GLTF) => {
             const loadedVrm = gltf.userData.vrm;
             setVrm(loadedVrm);
