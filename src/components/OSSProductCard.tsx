@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
-import { Github, Globe, type LucideIcon } from "lucide-react";
+import { Globe, type LucideIcon } from "lucide-react";
+import { IconType } from "@icons-pack/react-simple-icons";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -10,11 +12,13 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-interface IOSSProductCardProps {
+export interface IOSSProductCardProps {
   name: string;
   description: string;
-  icon: LucideIcon | string;
+  tags?: string[];
+  icon: LucideIcon | string | IconType;
   repoUrl: string;
   websiteUrl?: string;
 }
@@ -25,6 +29,7 @@ export function OSSProductCard({
   icon,
   repoUrl,
   websiteUrl,
+  tags,
 }: IOSSProductCardProps) {
   const t = useTranslations("ossProducts");
 
@@ -55,6 +60,15 @@ export function OSSProductCard({
         <p className="text-muted-foreground text-left text-sm md:text-base leading-relaxed">
           {description}
         </p>
+        {tags && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <Badge key={tag} variant={"default"}>
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
       </CardContent>
       <CardFooter className="flex flex-col gap-2 pt-4 px-6 items-start">
         <Link href={repoUrl} target="_blank" className="w-full">
@@ -62,7 +76,7 @@ export function OSSProductCard({
             variant="ghost"
             className="w-full justify-start gap-2 h-auto py-2 hover:bg-primary/10 hover:text-primary"
           >
-            <Github className="w-4 h-4 md:w-5 md:h-5" />
+            <SiGithub className="w-4 h-4 md:w-5 md:h-5" />
             <span>{t("viewRepo")}</span>
           </Button>
         </Link>

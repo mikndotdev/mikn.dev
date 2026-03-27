@@ -1,4 +1,19 @@
 {
+  "layout": {
+    "resources": "リソース",
+    "solutions": "ソリューション",
+    "accountCenter": "アカウントセンター",
+    "support": "サポート",
+    "contact": "お問い合わせ",
+    "legal": "法的条約",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "refunds": "返金ポリシー",
+    "jp-payments": "特定商取引法に基づく表記",
+    "home": "ホーム",
+    "vision": "私たちのビジョン",
+    "opensource": "オープンソース"
+  },
   "home": {
     "hero": {
       "blurb1": "生活を豊かにする",
@@ -46,5 +61,57 @@
   "ossProducts": {
     "viewRepo": "リポジトリを見る",
     "visitSite": "ウェブサイトを見る"
+  },
+  "solutions": {
+    "tags": {
+      "dev": "開発ツール",
+      "lib": "ライブラリ",
+      "fun": "面白いもの",
+      "ai": "AI搭載",
+      "legacy": "レガシー",
+      "beta": "ベータ版",
+      "api": "API",
+      "bot": "ボット"
+    },
+    "main": {
+      "title": "私たちの製品たち",
+      "description": "あなたの生活をより良くするためのプロジェクトとツールたちです！"
+    },
+    "legacy": {
+      "title": "レガシープロジェクト",
+      "description": "これらは現在アクティブに保守されていないプロジェクトですが、引き続き使用可能です。"
+    },
+    "karaSnap": {
+      "title": "KaraSnap",
+      "description": "AIを搭載した、最も簡単なカラオケ記録アプリ"
+    },
+    "nextDiscordAuth": {
+      "title": "Next Discord Auth",
+      "description": "Next.jsアプリのためのシンプルで使いやすいDiscord OAuth"
+    },
+    "rssfetch": {
+      "title": "RSSFetch",
+      "description": "RSSフィードの取得と解析のためのシンプルなAPI"
+    },
+    "mikanbot": {
+      "title": "MikanBot",
+      "description": "完全無料で使用可能な色んな機能を備えた多機能Discordボット"
+    },
+    "customrp": {
+      "title": "CustomRP Web",
+      "description": "ソフトウェアのダウンロード不要！カスタムDiscord Rich Presenceを実現させるアプリ"
+    },
+    "enkabadges": {
+      "title": "EnkaBadges",
+      "description": "ソシャゲーのステータスをGitHubプロフィールに表示しよう！"
+    },
+    "chat": {
+      "title": "MD Chat",
+      "description": "自分のAIを利用できるチャットアプリ"
+    },
+    "sukushocloud": {
+      "title": "sukusho.cloud",
+      "description": "使いやすいAPIを備えた多機能なスクリーンショットホスティングサービス"
+    }
   }
 }

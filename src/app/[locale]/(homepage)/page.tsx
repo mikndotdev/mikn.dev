@@ -23,6 +23,7 @@ import KaraSnapIcon from "@/assets/img/karasnap.png";
 
 export default function IndexPage() {
   const t = useTranslations("home");
+  const tSolutions = useTranslations("solutions");
   const [showCircularText, setShowCircularText] = useState(false);
 
   return (
@@ -102,18 +103,20 @@ export default function IndexPage() {
           </h3>
           <div className={"grid grid-cols-1 md:grid-cols-2 w-full mt-5 gap-4"}>
             <OSSProductCard
-              name={t("ossProducts.karaSnap.title")}
-              description={t("ossProducts.karaSnap.description")}
+              name={tSolutions("karaSnap.title")}
+              description={tSolutions("karaSnap.description")}
               icon={KaraSnapIcon.src}
               repoUrl="https://github.com/mikndotdev/karasnap"
               websiteUrl="https://karasnap.mikn.dev"
+              tags={[tSolutions("tags.fun"), tSolutions("tags.ai")]}
             />
             <OSSProductCard
-              name={t("ossProducts.nextDiscordAuth.title")}
-              description={t("ossProducts.nextDiscordAuth.description")}
+              name={tSolutions("nextDiscordAuth.title")}
+              description={tSolutions("nextDiscordAuth.description")}
               icon={IdCard}
               repoUrl="https://github.com/mikndotdev/next-discord-auth"
               websiteUrl="https://npm.im/@mikandev/next-discord-auth"
+              tags={[tSolutions("tags.dev"), tSolutions("tags.lib")]}
             />
           </div>
         </div>

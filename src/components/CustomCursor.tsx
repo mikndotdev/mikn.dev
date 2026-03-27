@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Mikan from "@/assets/img/mikan.png";
+import MikanCursor from "@/assets/img/MiknCursor.png";
 import Image from "next/image";
 
 export default function CustomCursor() {
@@ -49,9 +49,9 @@ export default function CustomCursor() {
       }}
     >
       <Image
-        src={Mikan}
+        src={MikanCursor}
         alt="Custom Cursor"
-        className="w-8 h-8"
+        className="w-10 h-10"
         width={32}
         height={32}
         priority

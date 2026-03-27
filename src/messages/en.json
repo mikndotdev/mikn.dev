@@ -27,17 +27,7 @@
     "OpenSourceBlurb": "We believe in freedom and openness. Every single one of our projects and services are open source and available for anyone to use, modify, and distribute. Check out our GitHub to see what we're working on!",
     "WorkWithBest": "Working with the best",
     "WorkWithBestBlurb": "We partner with other cool organizations and help get their cool stuff out there. We're all about the community :3",
-    "workWithMe": "Work with us!",
-    "ossProducts": {
-      "karaSnap": {
-        "title": "KaraSnap",
-        "description": "The easiest karaoke logging app ever, powered by AI"
-      },
-      "nextDiscordAuth": {
-        "title": "Next Discord Auth",
-        "description": "Simple, no-nonsense Discord OAuth for your Next.js apps"
-      }
-    }
+    "workWithMe": "Work with us!"
   },
   "contact": {
     "title": "Contact Us",
@@ -53,5 +43,57 @@
   "ossProducts": {
     "viewRepo": "View Repository",
     "visitSite": "Visit Website"
+  },
+  "solutions": {
+    "tags": {
+      "dev": "Developer Tools",
+      "lib": "Libraries",
+      "fun": "Fun Stuff",
+      "ai": "AI Powered",
+      "legacy": "Legacy",
+      "beta": "Beta",
+      "api": "APIs",
+      "bot": "Bots"
+    },
+    "main": {
+      "title": "Our solutions",
+      "description": "Open source projects and tools made to make your life easier :3"
+    },
+    "legacy": {
+      "title": "Legacy Projects",
+      "description": "These are projects that are no longer actively maintained or hosted by us, but are still available for use."
+    },
+    "karaSnap": {
+      "title": "KaraSnap",
+      "description": "The easiest karaoke logging app ever, powered by AI"
+    },
+    "nextDiscordAuth": {
+      "title": "Next Discord Auth",
+      "description": "Simple, no-nonsense Discord OAuth for your Next.js apps"
+    },
+    "rssfetch": {
+      "title": "RSSFetch",
+      "description": "Simple API for fetching and parsing RSS feeds"
+    },
+    "mikanbot": {
+      "title": "MikanBot",
+      "description": "A multifunctional Discord bot with a bunch of cool features, all free to use!"
+    },
+    "customrp": {
+      "title": "CustomRP Web",
+      "description": "Custom Discord Rich Presence, no software download required!"
+    },
+    "enkabadges": {
+      "title": "EnkaBadges",
+      "description": "Display gacha game stats on your GitHub profile!"
+    },
+    "chat": {
+      "title": "MD Chat",
+      "description": "The GPT wrapper for your AI"
+    },
+    "sukushocloud": {
+      "title": "sukusho.cloud",
+      "description": "A versatile screenshot hosting service with an easy-to-use API"
+    }
   }
 }
