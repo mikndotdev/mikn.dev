@@ -5,10 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { AnimationAction, Vector3 } from "three";
 import { VRMLoaderPlugin } from "@pixiv/three-vrm";
-import {
-  VRMAnimationLoaderPlugin,
-  createVRMAnimationClip,
-} from "@pixiv/three-vrm-animation";
+import { VRMAnimationLoaderPlugin, createVRMAnimationClip } from "@pixiv/three-vrm-animation";
 import { AnimationMixer, LoopOnce, LoopRepeat } from "three";
 import { Spinner } from "@/components/ui/shadcn-io/spinner";
 import Link from "next/link";
@@ -130,10 +127,7 @@ export function VRM() {
           const vrmAnimations = gltf.userData.vrmAnimations;
           if (vrmAnimations && vrmAnimations.length > 0) {
             if (loadedVrm && loadedVrm.humanoid) {
-              const animationClip = createVRMAnimationClip(
-                vrmAnimations[0],
-                loadedVrm,
-              );
+              const animationClip = createVRMAnimationClip(vrmAnimations[0], loadedVrm);
               const animationMixer = new AnimationMixer(loadedVrm.scene);
               const action = animationMixer.clipAction(animationClip);
 
@@ -154,10 +148,7 @@ export function VRM() {
         },
         undefined,
         (error: Error) => {
-          console.error(
-            "An error occurred while loading the animation:",
-            error,
-          );
+          console.error("An error occurred while loading the animation:", error);
         },
       );
     };

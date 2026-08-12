@@ -34,11 +34,7 @@ function RadioGroup(props: RadioGroupProps) {
 
   return (
     <RadioGroupProvider value={{ value, setValue }}>
-      <RadioGroupPrimitive.Root
-        data-slot="radio-group"
-        {...props}
-        onValueChange={setValue}
-      />
+      <RadioGroupPrimitive.Root data-slot="radio-group" {...props} onValueChange={setValue} />
     </RadioGroupProvider>
   );
 }
@@ -58,11 +54,7 @@ function RadioGroupIndicator({
   return (
     <AnimatePresence>
       {isChecked && (
-        <RadioGroupPrimitive.Indicator
-          data-slot="radio-group-indicator"
-          asChild
-          forceMount
-        >
+        <RadioGroupPrimitive.Indicator data-slot="radio-group-indicator" asChild forceMount>
           <motion.div
             key="radio-group-indicator-circle"
             data-slot="radio-group-indicator-circle"
@@ -78,18 +70,10 @@ function RadioGroupIndicator({
   );
 }
 
-type RadioGroupItemProps = Omit<
-  React.ComponentProps<typeof RadioGroupPrimitive.Item>,
-  "asChild"
-> &
+type RadioGroupItemProps = Omit<React.ComponentProps<typeof RadioGroupPrimitive.Item>, "asChild"> &
   HTMLMotionProps<"button">;
 
-function RadioGroupItem({
-  value: valueProps,
-  disabled,
-  required,
-  ...props
-}: RadioGroupItemProps) {
+function RadioGroupItem({ value: valueProps, disabled, required, ...props }: RadioGroupItemProps) {
   const { value } = useRadioGroup();
   const [isChecked, setIsChecked] = React.useState(value === valueProps);
 
@@ -99,12 +83,7 @@ function RadioGroupItem({
 
   return (
     <RadioGroupItemProvider value={{ isChecked, setIsChecked }}>
-      <RadioGroupPrimitive.Item
-        asChild
-        value={valueProps}
-        disabled={disabled}
-        required={required}
-      >
+      <RadioGroupPrimitive.Item asChild value={valueProps} disabled={disabled} required={required}>
         <motion.button
           data-slot="radio-group-item"
           whileHover={{ scale: 1.05 }}

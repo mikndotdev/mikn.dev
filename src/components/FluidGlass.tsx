@@ -1,12 +1,6 @@
 import * as THREE from "three";
 import { useRef, useState, useEffect, memo, ReactNode } from "react";
-import {
-  Canvas,
-  createPortal,
-  useFrame,
-  useThree,
-  ThreeElements,
-} from "@react-three/fiber";
+import { Canvas, createPortal, useFrame, useThree, ThreeElements } from "@react-three/fiber";
 import {
   useFBO,
   useGLTF,
@@ -43,8 +37,7 @@ export default function FluidGlass({
   cubeProps = {},
 }: FluidGlassProps) {
   const Wrapper = mode === "bar" ? Bar : mode === "cube" ? Cube : Lens;
-  const rawOverrides =
-    mode === "bar" ? barProps : mode === "cube" ? cubeProps : lensProps;
+  const rawOverrides = mode === "bar" ? barProps : mode === "cube" ? cubeProps : lensProps;
 
   const {
     navItems = [
@@ -137,14 +130,7 @@ const ModeWrapper = memo(function ModeWrapper({
     gl.setClearColor(0x5227ff, 1);
   });
 
-  const {
-    scale,
-    ior,
-    thickness,
-    anisotropy,
-    chromaticAberration,
-    ...extraMat
-  } = modeProps as {
+  const { scale, ior, thickness, anisotropy, chromaticAberration, ...extraMat } = modeProps as {
     scale?: number;
     ior?: number;
     thickness?: number;
@@ -173,9 +159,7 @@ const ModeWrapper = memo(function ModeWrapper({
           thickness={thickness ?? 5}
           anisotropy={anisotropy ?? 0.01}
           chromaticAberration={chromaticAberration ?? 0.1}
-          {...(typeof extraMat === "object" && extraMat !== null
-            ? extraMat
-            : {})}
+          {...(typeof extraMat === "object" && extraMat !== null ? extraMat : {})}
         />
       </mesh>
     </>
@@ -240,11 +224,7 @@ function NavItems({ items }: { items: NavItem[] }) {
   };
   const getDevice = () => {
     const w = window.innerWidth;
-    return w <= DEVICE.mobile.max
-      ? "mobile"
-      : w <= DEVICE.tablet.max
-        ? "tablet"
-        : "desktop";
+    return w <= DEVICE.mobile.max ? "mobile" : w <= DEVICE.tablet.max ? "tablet" : "desktop";
   };
 
   const [device, setDevice] = useState<keyof typeof DEVICE>(getDevice());
@@ -269,9 +249,7 @@ function NavItems({ items }: { items: NavItem[] }) {
 
   const handleNavigate = (link: string) => {
     if (!link) return;
-    link.startsWith("#")
-      ? (window.location.hash = link)
-      : (window.location.href = link);
+    link.startsWith("#") ? (window.location.hash = link) : (window.location.href = link);
   };
 
   return (
@@ -310,37 +288,18 @@ function Images() {
   useFrame(() => {
     group.current.children[0].material.zoom = 1 + data.range(0, 1 / 3) / 3;
     group.current.children[1].material.zoom = 1 + data.range(0, 1 / 3) / 3;
-    group.current.children[2].material.zoom =
-      1 + data.range(1.15 / 3, 1 / 3) / 2;
-    group.current.children[3].material.zoom =
-      1 + data.range(1.15 / 3, 1 / 3) / 2;
-    group.current.children[4].material.zoom =
-      1 + data.range(1.15 / 3, 1 / 3) / 2;
+    group.current.children[2].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 2;
+    group.current.children[3].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 2;
+    group.current.children[4].material.zoom = 1 + data.range(1.15 / 3, 1 / 3) / 2;
   });
 
   return (
     <group ref={group}>
-      <Image
-        position={[-2, 0, 0]}
-        scale={[3, height / 1.1]}
-        url="/assets/demo/cs1.webp"
-      />
+      <Image position={[-2, 0, 0]} scale={[3, height / 1.1]} url="/assets/demo/cs1.webp" />
       <Image position={[2, 0, 3]} scale={3} url="/assets/demo/cs2.webp" />
-      <Image
-        position={[-2.05, -height, 6]}
-        scale={[1, 3]}
-        url="/assets/demo/cs3.webp"
-      />
-      <Image
-        position={[-0.6, -height, 9]}
-        scale={[1, 2]}
-        url="/assets/demo/cs1.webp"
-      />
-      <Image
-        position={[0.75, -height, 10.5]}
-        scale={1.5}
-        url="/assets/demo/cs2.webp"
-      />
+      <Image position={[-2.05, -height, 6]} scale={[1, 3]} url="/assets/demo/cs3.webp" />
+      <Image position={[-0.6, -height, 9]} scale={[1, 2]} url="/assets/demo/cs1.webp" />
+      <Image position={[0.75, -height, 10.5]} scale={1.5} url="/assets/demo/cs2.webp" />
     </group>
   );
 }

@@ -53,5 +53,11 @@
   "ossProducts": {
     "viewRepo": "View Repository",
     "visitSite": "Visit Website"
+  },
+  "cookieConsent": {
+    "title": "she offers you a cookie",
+    "accept": "accept",
+    "policy": "Cookie Policy",
+    "retract": "Retract cookie consent"
   }
 }

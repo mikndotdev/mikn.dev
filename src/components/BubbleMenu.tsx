@@ -236,11 +236,7 @@ export default function BubbleMenu({
         }
       `}</style>
 
-      <nav
-        className={containerClassName}
-        style={style}
-        aria-label="Main navigation"
-      >
+      <nav className={containerClassName} style={style} aria-label="Main navigation">
         <div
           className={[
             "bubble logo-bubble",
@@ -321,9 +317,7 @@ export default function BubbleMenu({
               width: 26,
               height: 2,
               background: menuContentColor,
-              transform: isMenuOpen
-                ? "translateY(-4px) rotate(-45deg)"
-                : "none",
+              transform: isMenuOpen ? "translateY(-4px) rotate(-45deg)" : "none",
             }}
           />
         </button>
@@ -389,8 +383,7 @@ export default function BubbleMenu({
                       ["--pill-bg"]: menuBg,
                       ["--pill-color"]: menuContentColor,
                       ["--hover-bg"]: item.hoverStyles?.bgColor || "#f3f4f6",
-                      ["--hover-color"]:
-                        item.hoverStyles?.textColor || menuContentColor,
+                      ["--hover-color"]: item.hoverStyles?.textColor || menuContentColor,
                       background: "var(--pill-bg)",
                       color: "var(--pill-color)",
                       minHeight: "var(--pill-min-h, 160px)",

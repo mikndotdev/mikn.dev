@@ -1,20 +1,18 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { useSwetrix } from "@swetrix/nextjs";
 import { ReactNode } from "react";
 import { CursorToys } from "@/components/CursorToys";
 import SettingsController from "@/components/SettingsController";
 import { Footer } from "@/components/mikn/Footer";
 import { Header } from "@/components/mikn/Header";
 
-import { Github } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import MikanCat from "@/assets/img/mikan-cat.png";
 import Logo from "@/assets/img/mikan-vtube.svg";
 
 import Image from "next/image";
 
 export default function PagesLayout({ children }: { children: ReactNode }) {
-  useSwetrix("XxNIMaHCaVG3", { apiURL: "https://analytics.mikandev.tech/log" });
   const t = useTranslations("layout");
 
   const social = [
@@ -22,7 +20,7 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
       name: "GitHub",
       href: "https://github.com/mikndotdev",
       color: "hover:text-github hover:bg-github",
-      icon: Github,
+      icon: SiGithub,
     },
   ];
 
@@ -102,13 +100,7 @@ export default function PagesLayout({ children }: { children: ReactNode }) {
           className="text-white font-bold bg-secondary"
         >
           <div className="flex items-center self-end">
-            <Image
-              src={MikanCat.src}
-              width={200}
-              height={100}
-              alt=":3"
-              className="ml-2 mb-0"
-            />
+            <Image src={MikanCat.src} width={200} height={100} alt=":3" className="ml-2 mb-0" />
           </div>
         </Footer>
       </CursorToys>

@@ -1,15 +1,10 @@
 import { useTranslations } from "next-intl";
-import { Github, Globe, type LucideIcon } from "lucide-react";
+import { Globe, type LucideIcon } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardTitle,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardContent, CardTitle, CardFooter } from "@/components/ui/card";
 
 interface IOSSProductCardProps {
   name: string;
@@ -30,15 +25,7 @@ export function OSSProductCard({
 
   const IconComponent =
     typeof icon === "string"
-      ? () => (
-          <Image
-            src={icon}
-            alt={name}
-            width={48}
-            height={48}
-            className="rounded-lg"
-          />
-        )
+      ? () => <Image src={icon} alt={name} width={48} height={48} className="rounded-lg" />
       : icon;
 
   return (
@@ -49,9 +36,7 @@ export function OSSProductCard({
         </div>
       </CardHeader>
       <CardContent className="flex-grow pt-2 px-6">
-        <CardTitle className="text-xl md:text-2xl font-bold mb-2 text-left">
-          {name}
-        </CardTitle>
+        <CardTitle className="text-xl md:text-2xl font-bold mb-2 text-left">{name}</CardTitle>
         <p className="text-muted-foreground text-left text-sm md:text-base leading-relaxed">
           {description}
         </p>
@@ -62,7 +47,7 @@ export function OSSProductCard({
             variant="ghost"
             className="w-full justify-start gap-2 h-auto py-2 hover:bg-primary/10 hover:text-primary"
           >
-            <Github className="w-4 h-4 md:w-5 md:h-5" />
+            <SiGithub className="w-4 h-4 md:w-5 md:h-5" />
             <span>{t("viewRepo")}</span>
           </Button>
         </Link>

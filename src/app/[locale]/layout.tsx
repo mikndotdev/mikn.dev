@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { ReactNode } from "react";
 import "../globals.css";
-import { ConsentManager } from "@/components/consent-manager";
+import { CookieConsentModal } from "@/components/CookieConsentModal";
 
 export const metadata: Metadata = {
   title: "MikanDev",
@@ -25,10 +25,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: LocaleLayoutProps) {
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params;
 
   if (!routing.locales.includes(locale as any)) {
@@ -40,11 +37,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   return (
     <>
-      <NextIntlClientProvider messages={messages}>
-        <ConsentManager>
-          {children}
-          <Toaster richColors />
-        </ConsentManager>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        {children}
+        <Toaster richColors />
+        <CookieConsentModal />
       </NextIntlClientProvider>
     </>
   );

@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  motion,
-  useAnimation,
-  useMotionValue,
-  MotionValue,
-  Transition,
-} from "motion/react";
+import { motion, useAnimation, useMotionValue, MotionValue, Transition } from "motion/react";
 interface CircularTextProps {
   text: string;
   spinDuration?: number;
@@ -17,11 +11,7 @@ interface CircularTextProps {
   radius?: number;
 }
 
-const getRotationTransition = (
-  duration: number,
-  from: number,
-  loop: boolean = true,
-) => ({
+const getRotationTransition = (duration: number, from: number, loop: boolean = true) => ({
   from,
   to: from + 360,
   ease: "linear" as const,
