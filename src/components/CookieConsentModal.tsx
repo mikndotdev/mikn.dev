@@ -19,12 +19,7 @@ export function CookieConsentModal() {
 
   return (
     <Dialog open={hasConsent === false}>
-      <DialogContent
-        showCloseButton={false}
-        onEscapeKeyDown={(event) => event.preventDefault()}
-        onPointerDownOutside={(event) => event.preventDefault()}
-        onInteractOutside={(event) => event.preventDefault()}
-      >
+      <DialogContent showCloseButton={false}>
         <DialogTitle className="text-center text-xl">{t("title")}</DialogTitle>
         <a
           href="https://www.youtube.com/watch?v=poQBDCi-7o0"
