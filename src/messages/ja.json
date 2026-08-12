@@ -55,8 +55,8 @@
     "visitSite": "ウェブサイトを見る"
   },
   "cookieConsent": {
-    "title": "そこの君！このサイトはCookieを使ってるぞ！！いいよね？",
-    "accept": "いいね！",
+    "title": "Cookieをどうぞ！",
+    "accept": "ありがとう！",
     "policy": "Cookieポリシー",
     "retract": "Cookie同意を撤回"
   }
