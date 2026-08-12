@@ -1,9 +1,4 @@
-import {
-  LoaderCircleIcon,
-  LoaderIcon,
-  LoaderPinwheelIcon,
-  type LucideProps,
-} from "lucide-react";
+import { LoaderCircleIcon, LoaderIcon, LoaderPinwheelIcon, type LucideProps } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type SpinnerVariantProps = Omit<SpinnerProps, "variant">;
@@ -13,24 +8,14 @@ const Default = ({ className, ...props }: SpinnerVariantProps) => (
 );
 
 const Circle = ({ className, ...props }: SpinnerVariantProps) => (
-  <LoaderCircleIcon
-    className={cn("animate-spin", className)}
-    {...(props as any)}
-  />
+  <LoaderCircleIcon className={cn("animate-spin", className)} {...(props as any)} />
 );
 
 const Pinwheel = ({ className, ...props }: SpinnerVariantProps) => (
-  <LoaderPinwheelIcon
-    className={cn("animate-spin", className)}
-    {...(props as any)}
-  />
+  <LoaderPinwheelIcon className={cn("animate-spin", className)} {...(props as any)} />
 );
 
-const CircleFilled = ({
-  className,
-  size = 24,
-  ...props
-}: SpinnerVariantProps) => (
+const CircleFilled = ({ className, size = 24, ...props }: SpinnerVariantProps) => (
   <div className="relative" style={{ width: size, height: size }}>
     <div className="absolute inset-0 rotate-180">
       <LoaderCircleIcon
@@ -184,14 +169,7 @@ const Bars = ({ size = 24, ...props }: SpinnerVariantProps) => (
         }
       }
     `}</style>
-    <rect
-      className="spinner-bar"
-      fill="currentColor"
-      height="22"
-      width="6"
-      x="1"
-      y="1"
-    />
+    <rect className="spinner-bar" fill="currentColor" height="22" width="6" x="1" y="1" />
     <rect
       className="spinner-bar spinner-bars-2"
       fill="currentColor"

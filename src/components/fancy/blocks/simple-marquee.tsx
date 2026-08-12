@@ -150,10 +150,7 @@ const SimpleMarquee = ({
 
     // Calculate regular movement
     let moveBy =
-      directionFactor.current *
-      actualBaseVelocity *
-      (delta / 1000) *
-      smoothHoverFactor.get();
+      directionFactor.current * actualBaseVelocity * (delta / 1000) * smoothHoverFactor.get();
 
     // Adjust movement based on scroll velocity if scrollAwareDirection is enabled
     if (scrollAwareDirection && !isDragging.current) {

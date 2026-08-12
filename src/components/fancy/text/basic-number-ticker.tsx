@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from "react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from "react";
 import {
   animate,
   AnimationPlaybackControls,
@@ -53,9 +47,7 @@ const NumberTicker = forwardRef<NumberTickerRef, NumberTickerProps>(
   ) => {
     const count = useMotionValue(from);
     const rounded = useTransform(count, (latest) => Math.round(latest));
-    const [controls, setControls] = useState<AnimationPlaybackControls | null>(
-      null,
-    );
+    const [controls, setControls] = useState<AnimationPlaybackControls | null>(null);
 
     // Function to start the animation
     const startAnimation = useCallback(() => {

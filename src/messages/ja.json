@@ -1,4 +1,19 @@
 {
+  "layout": {
+    "resources": "リソース",
+    "solutions": "ソリューション",
+    "accountCenter": "アカウントセンター",
+    "support": "サポート",
+    "contact": "お問い合わせ",
+    "legal": "法的情報",
+    "terms": "利用規約",
+    "privacy": "プライバシーポリシー",
+    "refunds": "返金ポリシー",
+    "jp-payments": "特定商取引法に基づく表記",
+    "home": "ホーム",
+    "vision": "私たちのビジョン",
+    "opensource": "オープンソース"
+  },
   "home": {
     "hero": {
       "blurb1": "生活を豊かにする",
@@ -12,25 +27,17 @@
     "OpenSourceBlurb": "私たちは自由とオープンさを信じています。私たちのプロジェクトやサービスはすべてオープンソースで、誰でも使用、修正、配布が可能です。私たちのGitHubを是非見てみてね！",
     "WorkWithBest": "最高の人たちと一緒に",
     "WorkWithBestBlurb": "私達は他の素敵な組織と提携し、彼らの素晴らしいものを世に出すお手伝いをします。私達はコミュニティに全力を注いでいます！",
-    "workWithMe": "私たちと一緒にやろう！"
-  },
-  "nav": {
-    "support": "サポート",
-    "docs": "ドキュメント",
-    "solutions": "ソリューション",
-    "legal": "法的条約",
-    "payments": "支払いセンター",
-    "blog": "ブログ",
-    "discord": "Discord",
-    "contact": "お問い合わせ",
-    "terms": "利用規約",
-    "privacy": "プライバシーポリシー",
-    "jp-payments": "特定商取引法に基づく表記",
-    "gdpr": "GDPRコンプライアンス",
-    "myAccount": "マイアカウント",
-    "resources": "リソース",
-    "cookieConsent": "そこの君！このサイトはCookieを使ってるぞ！！いいよね？",
-    "accept": "いいね！"
+    "workWithMe": "私たちと一緒にやろう！",
+    "ossProducts": {
+      "karaSnap": {
+        "title": "KaraSnap",
+        "description": "AIを活用した、史上最も簡単なカラオケ記録アプリ"
+      },
+      "nextDiscordAuth": {
+        "title": "Next Discord Auth",
+        "description": "Next.jsアプリ向けの、シンプルで無駄のないDiscord OAuth"
+      }
+    }
   },
   "contact": {
     "title": "お問い合わせ",
@@ -46,5 +53,11 @@
   "ossProducts": {
     "viewRepo": "リポジトリを見る",
     "visitSite": "ウェブサイトを見る"
+  },
+  "cookieConsent": {
+    "title": "Cookieをどうぞ！",
+    "accept": "ありがとう！",
+    "policy": "Cookieポリシー",
+    "retract": "Cookie同意を撤回"
   }
 }

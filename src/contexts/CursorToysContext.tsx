@@ -8,16 +8,13 @@ interface CursorToysContextType {
   setSelectedToy: (value: SelectedToy) => void;
 }
 
-const CursorToysContext = createContext<CursorToysContextType | undefined>(
-  undefined,
-);
+const CursorToysContext = createContext<CursorToysContextType | undefined>(undefined);
 
 export const CursorToysProvider = ({ children }: { children: ReactNode }) => {
   const [selectedToy, setSelectedToyState] = useState<SelectedToy>(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("cursorToy") as SelectedToy;
-      return stored &&
-        ["none", "spark", "splash", "custom", "target"].includes(stored)
+      return stored && ["none", "spark", "splash", "custom", "target"].includes(stored)
         ? stored
         : "none";
     }
@@ -38,7 +35,6 @@ export const CursorToysProvider = ({ children }: { children: ReactNode }) => {
 
 export const useCursorToys = () => {
   const context = useContext(CursorToysContext);
-  if (!context)
-    throw new Error("useCursorToys must be used within CursorToysProvider");
+  if (!context) throw new Error("useCursorToys must be used within CursorToysProvider");
   return context;
 };

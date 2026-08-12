@@ -44,9 +44,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     }
 
     const cursor = cursorRef.current;
-    cornersRef.current = cursor.querySelectorAll<HTMLDivElement>(
-      ".target-cursor-corner",
-    );
+    cornersRef.current = cursor.querySelectorAll<HTMLDivElement>(".target-cursor-corner");
 
     let activeTarget: Element | null = null;
     let currentTargetMove: ((ev: Event) => void) | null = null;
@@ -273,20 +271,15 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
         resumeTimeout = setTimeout(() => {
           if (!activeTarget && cursorRef.current && spinTl.current) {
-            const currentRotation = gsap.getProperty(
-              cursorRef.current,
-              "rotation",
-            ) as number;
+            const currentRotation = gsap.getProperty(cursorRef.current, "rotation") as number;
             const normalizedRotation = currentRotation % 360;
 
             spinTl.current.kill();
-            spinTl.current = gsap
-              .timeline({ repeat: -1 })
-              .to(cursorRef.current, {
-                rotation: "+=360",
-                duration: spinDuration,
-                ease: "none",
-              });
+            spinTl.current = gsap.timeline({ repeat: -1 }).to(cursorRef.current, {
+              rotation: "+=360",
+              duration: spinDuration,
+              ease: "none",
+            });
 
             gsap.to(cursorRef.current, {
               rotation: normalizedRotation + 360,

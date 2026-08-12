@@ -1,12 +1,13 @@
 import React from "react";
 
 import { LucideIcon } from "lucide-react";
+import type { IconType } from "@icons-pack/react-simple-icons";
 
 export interface FooterProps {
   social: {
     name: string;
     href: string;
-    icon: LucideIcon;
+    icon: LucideIcon | IconType;
   }[];
   links: {
     name: string;
@@ -31,9 +32,7 @@ export const Footer: React.FC<FooterProps> = ({
 
   return (
     <footer className={className}>
-      <div
-        className={`mx-auto flex w-full ${maxWidth} flex-col justify-between`}
-      >
+      <div className={`mx-auto flex w-full ${maxWidth} flex-col justify-between`}>
         <div
           style={{
             gridTemplateColumns: `repeat(${links.length + 1}, minmax(0, 1fr))`,
@@ -42,9 +41,7 @@ export const Footer: React.FC<FooterProps> = ({
         >
           {links.map((item) => (
             <div key={item.name}>
-              <h3 className="text-sm font-semibold tracking-wider text-footer-text">
-                {item.name}
-              </h3>
+              <h3 className="text-sm font-semibold tracking-wider text-footer-text">{item.name}</h3>
               <ul className="mt-2 space-y-1">
                 {item.children.map((child) => (
                   <li key={child.name}>
@@ -64,9 +61,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div>
           <div className="mx-4 border-t border-footer-border py-2 lg:mx-0">
             <div className="mb-4 mt-1 flex w-full flex-col-reverse items-start justify-between gap-1 lg:m-0 lg:flex-row lg:items-center lg:gap-0">
-              <p className="text-xs tracking-wider text-white">
-                &copy; {copyright}
-              </p>
+              <p className="text-xs tracking-wider text-white">&copy; {copyright}</p>
               <div className="flex flex-row justify-start gap-1 lg:items-center">
                 {social.map((item) => (
                   <a

@@ -176,13 +176,11 @@ const MarqueeAlongSvgPath = ({
   );
 
   // Generate a random ID for the path if not provided
-  const id =
-    pathId || `marquee-path-${Math.random().toString(36).substring(7)}`;
+  const id = pathId || `marquee-path-${Math.random().toString(36).substring(7)}`;
 
   // Scroll tracking
   const { scrollY } = useScroll({
-    container:
-      (scrollContainer as RefObject<HTMLDivElement | null>) || container,
+    container: (scrollContainer as RefObject<HTMLDivElement | null>) || container,
   });
 
   const scrollVelocity = useVelocity(scrollY);
@@ -233,11 +231,7 @@ const MarqueeAlongSvgPath = ({
     }
 
     // Calculate regular movement
-    let moveBy =
-      directionFactor.current *
-      baseVelocity *
-      (delta / 1000) *
-      smoothHoverFactor.get();
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000) * smoothHoverFactor.get();
 
     // Adjust movement based on scroll velocity if scrollAwareDirection is enabled
     if (scrollAwareDirection && !isDragging.current) {
@@ -355,9 +349,7 @@ const MarqueeAlongSvgPath = ({
         const currentOffsetDistance = useMotionValue(0);
 
         // Update z-index when offset distance changes
-        const zIndex = useTransform(currentOffsetDistance, (value) =>
-          calculateZIndex(value),
-        );
+        const zIndex = useTransform(currentOffsetDistance, (value) => calculateZIndex(value));
 
         // Update current offset distance value when animation runs
         useEffect(() => {
@@ -384,10 +376,7 @@ const MarqueeAlongSvgPath = ({
             ref={(el) => {
               if (el) itemRefs.current.set(key, el);
             }}
-            className={cn(
-              "absolute top-0 left-0",
-              draggable && grabCursor && "cursor-grab",
-            )}
+            className={cn("absolute top-0 left-0", draggable && grabCursor && "cursor-grab")}
             style={{
               offsetPath: `path('${path}')`,
               offsetDistance: itemOffset,

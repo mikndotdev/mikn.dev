@@ -1,10 +1,5 @@
 import type React from "react";
-import {
-  type ComponentPropsWithoutRef,
-  forwardRef,
-  useState,
-  useEffect,
-} from "react";
+import { type ComponentPropsWithoutRef, forwardRef, useState, useEffect } from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/animate-ui/components/buttons/button";
@@ -117,18 +112,10 @@ interface MobileMenuItemProps {
   color: string;
 }
 
-const MobileMenuItem: React.FC<MobileMenuItemProps> = ({
-  name,
-  href,
-  color,
-  isCurrent,
-}) => {
+const MobileMenuItem: React.FC<MobileMenuItemProps> = ({ name, href, color, isCurrent }) => {
   return (
     <motion.li className="font-semibold" variants={mobileMenuItemVariants}>
-      <a
-        className="inline-flex w-full items-center py-4 leading-6 text-on-background"
-        href={href}
-      >
+      <a className="inline-flex w-full items-center py-4 leading-6 text-on-background" href={href}>
         <span className="pr-2">{name}</span>
         {isCurrent && (
           <svg width="8" height="8">
@@ -317,21 +304,9 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                     variants={mobileMenuButtonsVariants}
                   >
                     {buttons?.map((buttonProps) => {
-                      const {
-                        title,
-                        href,
-                        target,
-                        onClick,
-                        disabled,
-                        className,
-                      } = buttonProps;
+                      const { title, href, target, onClick, disabled, className } = buttonProps;
                       return href ? (
-                        <Link
-                          href={href}
-                          target={target ?? "_self"}
-                          key={title}
-                          className="w-full"
-                        >
+                        <Link href={href} target={target ?? "_self"} key={title} className="w-full">
                           <Button
                             variant="secondary"
                             className={`w-full ${className || ""}`}
@@ -377,10 +352,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                     {item.name}
                     {isCurrent ? (
                       <span className="absolute inset-x-0 -bottom-1.5 flex h-1 w-full items-center justify-center">
-                        <span
-                          style={{ background: _color }}
-                          className="h-[3px] w-3 rounded-full"
-                        />
+                        <span style={{ background: _color }} className="h-[3px] w-3 rounded-full" />
                       </span>
                     ) : (
                       <motion.span
@@ -401,15 +373,10 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
 
           <div className="hidden gap-2 lg:flex lg:justify-end">
             {buttons?.map((buttonProps) => {
-              const { title, href, target, onClick, disabled, className } =
-                buttonProps;
+              const { title, href, target, onClick, disabled, className } = buttonProps;
               return href ? (
                 <Link href={href} target={target ?? "_self"} key={title}>
-                  <Button
-                    variant="secondary"
-                    className={className}
-                    disabled={disabled}
-                  >
+                  <Button variant="secondary" className={className} disabled={disabled}>
                     {title}
                   </Button>
                 </Link>

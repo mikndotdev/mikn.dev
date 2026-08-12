@@ -1,26 +1,21 @@
+import { use } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import {
-  Mail,
-  Phone,
-  Headset,
-  CreditCard,
-  AlertTriangle,
-  Gamepad2,
-} from "lucide-react";
+import { setRequestLocale } from "next-intl/server";
+import { Mail, Phone, Headset, CreditCard, AlertTriangle, Gamepad2 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/animate-ui/components/buttons/button";
 
-export default function ContactPage() {
+export default function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = use(params);
+  setRequestLocale(locale);
   const t = useTranslations("contact");
 
   return (
     <main>
       <div className="flex flex-col space-y-5 justify-center items-center mt-10">
-        <h1 className="text-4xl lg:text-6xl text-white font-bold">
-          {t("title")}
-        </h1>
+        <h1 className="text-4xl lg:text-6xl text-white font-bold">{t("title")}</h1>
 
         <Card className="w-full min-h-20 bg-inherit border-primary border-4 mt-5">
           <CardContent className="flex flex-col items-center justify-center p-6 text-center text-gray-400 space-y-4">
