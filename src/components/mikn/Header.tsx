@@ -3,6 +3,7 @@ import { type ComponentPropsWithoutRef, forwardRef, useState, useEffect } from "
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/animate-ui/components/buttons/button";
+import { AnimatedLogo } from "@/components/mikn/AnimatedLogo";
 
 const getHeaderClassName = (isScrolled: boolean) => {
   const base =
@@ -261,11 +262,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
             href={brand.href}
             className="-m-1.5 flex items-center gap-2 p-1.5 absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0"
           >
-            <img
-              className="h-10 w-auto transition-transform duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-90"
-              src={brand.logo}
-              alt={brand.name}
-            />
+            <AnimatedLogo src={brand.logo} alt={brand.name} className="h-10 w-auto" />
             {brand.showTitle && (
               <span className="text-2xl font-semibold text-on-background lg:text-2xl">
                 {brand.name}
