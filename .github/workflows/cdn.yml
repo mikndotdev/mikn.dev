@@ -1,0 +1,37 @@
+name: Deploy CDN assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/cdn/**"
+      - ".github/workflows/cdn.yml"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.S3_REGION || 'auto' }}
+      AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+      AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure public/cdn is populated
+        run: |
+          if [ -z "$(find public/cdn -type f 2>/dev/null)" ]; then
+            echo "public/cdn is empty — refusing to sync (would delete web/static)." >&2
+            exit 1
+          fi
+
+      - name: Sync public/cdn to S3-compatible storage (web/static)
+        run: |
+          aws s3 sync public/cdn "s3://${{ secrets.S3_BUCKET }}/web/static" \
+            --endpoint-url "${{ secrets.S3_ENDPOINT }}" \
+            --delete \
+            --no-progress \
+            --cache-control "public, max-age=604800"

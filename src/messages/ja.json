@@ -27,16 +27,56 @@
     "OpenSourceBlurb": "私たちは自由とオープンさを信じています。私たちのプロジェクトやサービスはすべてオープンソースで、誰でも使用、修正、配布が可能です。私たちのGitHubを是非見てみてね！",
     "WorkWithBest": "最高の人たちと一緒に",
     "WorkWithBestBlurb": "私達は他の素敵な組織と提携し、彼らの素晴らしいものを世に出すお手伝いをします。私達はコミュニティに全力を注いでいます！",
-    "workWithMe": "私たちと一緒にやろう！",
-    "ossProducts": {
-      "karaSnap": {
-        "title": "KaraSnap",
-        "description": "AIを活用した、史上最も簡単なカラオケ記録アプリ"
-      },
-      "nextDiscordAuth": {
-        "title": "Next Discord Auth",
-        "description": "Next.jsアプリ向けの、シンプルで無駄のないDiscord OAuth"
-      }
+    "workWithMe": "私たちと一緒にやろう！"
+  },
+  "solutions": {
+    "title": "ソリューション",
+    "subtitle": "私たちが作ってきたすべて — アプリ、API、ツールなど。",
+    "karaSnap": {
+      "title": "KaraSnap",
+      "description": "AIを活用した、史上最も簡単なカラオケ記録アプリ"
+    },
+    "nextDiscordAuth": {
+      "title": "Next Discord Auth",
+      "description": "Next.jsアプリ向けの、シンプルで無駄のないDiscord OAuth"
+    },
+    "siBuster": {
+      "title": "SiBuster",
+      "description": "コピーしたリンクからトラッキングパラメータを自動で削除！"
+    },
+    "releaselink": {
+      "title": "releaselink",
+      "description": "GitHub Releases向けの、プラットフォームを判別する自動リダイレクト"
+    },
+    "100masu": {
+      "title": "100masu",
+      "description": "定番の百マス計算が、オンラインマルチプレイに対応！"
+    },
+    "rssfetch": {
+      "title": "rssfetch",
+      "description": "シンプルなRSSフィードの取得・解析API"
+    },
+    "sukushocloud": {
+      "title": "sukushocloud",
+      "description": "スクリーンショットのアップロード・ホスティングサービス"
+    },
+    "enkabadges": {
+      "title": "EnkaBadges",
+      "description": "ガチャゲームの戦績をGitHubプロフィールで自慢しよう！"
+    },
+    "sd2immich": {
+      "title": "SD2Immich",
+      "description": "SDカードの画像をImmichへ自動アップロードするシンプルなアプリ"
+    },
+    "categories": {
+      "games": "ゲーム",
+      "devtools": "開発ツール",
+      "apis": "API",
+      "bots": "ボット",
+      "apps": "アプリ",
+      "utilities": "ユーティリティ",
+      "beta": "ベータ",
+      "dead": "提供終了"
     }
   },
   "contact": {

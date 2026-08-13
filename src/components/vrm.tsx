@@ -8,37 +8,38 @@ import { VRMLoaderPlugin } from "@pixiv/three-vrm";
 import { VRMAnimationLoaderPlugin, createVRMAnimationClip } from "@pixiv/three-vrm-animation";
 import { AnimationMixer, LoopOnce, LoopRepeat } from "three";
 import { Spinner } from "@/components/ui/shadcn-io/spinner";
+import { cdnUrl } from "@/lib/cdn-converter";
 import Link from "next/link";
 
 const animations = [
   {
-    url: "https://cdn.mikn.dev/vroid/shikanoko.vrma",
+    url: cdnUrl("vroid/shikanoko.vrma"),
     loop: true,
     percentage: 10,
   },
   {
-    url: "https://cdn.mikn.dev/vroid/horahora.vrma",
+    url: cdnUrl("vroid/horahora.vrma"),
     loop: true,
     percentage: 1.14514,
   },
-  { url: "https://cdn.mikn.dev/vroid/hi.vrma", loop: false, percentage: 50 },
+  { url: cdnUrl("vroid/hi.vrma"), loop: false, percentage: 50 },
   {
-    url: "https://cdn.mikn.dev/vroid/uishig.vrma",
+    url: cdnUrl("vroid/uishig.vrma"),
     loop: false,
     percentage: 10,
   },
   {
-    url: "https://cdn.mikn.dev/vroid/tetoris.vrma",
+    url: cdnUrl("vroid/tetoris.vrma"),
     loop: false,
     percentage: 10,
   },
   {
-    url: "https://cdn.mikn.dev/vroid/telepathy.vrma",
+    url: cdnUrl("vroid/telepathy.vrma"),
     loop: false,
     percentage: 10,
   },
   {
-    url: "https://cdn.mikn.dev/vroid/soware.vrma",
+    url: cdnUrl("vroid/soware.vrma"),
     loop: false,
     percentage: 10,
   },
@@ -92,7 +93,7 @@ export function VRM() {
     const loadModel = () => {
       return new Promise<import("@pixiv/three-vrm").VRM>((resolve, reject) => {
         loader.load(
-          "https://cdn.mikn.dev/vroid/みかん(Web).vrm",
+          cdnUrl("vroid/mikan-web.vrm"),
           (gltf: GLTF) => {
             const loadedVrm = gltf.userData.vrm;
             setVrm(loadedVrm);
