@@ -27,16 +27,56 @@
     "OpenSourceBlurb": "We believe in freedom and openness. Every single one of our projects and services are open source and available for anyone to use, modify, and distribute. Check out our GitHub to see what we're working on!",
     "WorkWithBest": "Working with the best",
     "WorkWithBestBlurb": "We partner with other cool organizations and help get their cool stuff out there. We're all about the community :3",
-    "workWithMe": "Work with us!",
-    "ossProducts": {
-      "karaSnap": {
-        "title": "KaraSnap",
-        "description": "The easiest karaoke logging app ever, powered by AI"
-      },
-      "nextDiscordAuth": {
-        "title": "Next Discord Auth",
-        "description": "Simple, no-nonsense Discord OAuth for your Next.js apps"
-      }
+    "workWithMe": "Work with us!"
+  },
+  "solutions": {
+    "title": "Solutions",
+    "subtitle": "Everything we've built — apps, APIs, tools, and more.",
+    "karaSnap": {
+      "title": "KaraSnap",
+      "description": "The easiest karaoke logging app ever, powered by AI"
+    },
+    "nextDiscordAuth": {
+      "title": "Next Discord Auth",
+      "description": "Simple, no-nonsense Discord OAuth for your Next.js apps"
+    },
+    "siBuster": {
+      "title": "SiBuster",
+      "description": "Automatically remove tracking parameters from any links you copy!"
+    },
+    "releaselink": {
+      "title": "releaselink",
+      "description": "Automatic platform-aware redirects for GitHub Releases"
+    },
+    "100masu": {
+      "title": "100masu",
+      "description": "The classic calculation puzzle, now with online multiplayer!"
+    },
+    "rssfetch": {
+      "title": "rssfetch",
+      "description": "Simple RSS feed fetching and parsing API"
+    },
+    "sukushocloud": {
+      "title": "sukushocloud",
+      "description": "Screenshot upload and hosting service"
+    },
+    "enkabadges": {
+      "title": "EnkaBadges",
+      "description": "Show off your gacha game stats on your GitHub profile!"
+    },
+    "sd2immich": {
+      "title": "SD2Immich",
+      "description": "Simple app for auto-uploading images from SD cards into Immich"
+    },
+    "categories": {
+      "games": "Games",
+      "devtools": "Developer Tools",
+      "apis": "APIs",
+      "bots": "Bots",
+      "apps": "Apps",
+      "utilities": "Utilities",
+      "beta": "Beta",
+      "dead": "Discontinued"
     }
   },
   "contact": {

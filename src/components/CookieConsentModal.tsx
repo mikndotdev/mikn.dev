@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useConsentStore } from "@/stores/consent";
+import { cdnUrl } from "@/lib/cdn-converter";
 
 export function CookieConsentModal() {
   const t = useTranslations("cookieConsent");
@@ -28,7 +29,7 @@ export function CookieConsentModal() {
           className="block overflow-hidden rounded-md"
         >
           <video
-            src="https://cdn.mikn.dev/web/static/airi.mp4"
+            src={cdnUrl("airi.mp4")}
             autoPlay
             muted
             playsInline

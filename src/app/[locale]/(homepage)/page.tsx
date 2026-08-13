@@ -11,19 +11,18 @@ import DecryptedText from "@/components/DecryptedText";
 import CurvedLoop from "@/components/CurvedLoop";
 import ScrollFloat from "@/components/ScrollFloat";
 import SplitText from "@/components/SplitText";
-import { OSSProductCard } from "@/components/OSSProductCard";
+import { SolutionsFolder } from "@/components/SolutionsFolder";
 import { VRM } from "@/components/vrm";
-import { IdCard } from "lucide-react";
 
 import NeodyLogo from "@/assets/img/NeodyLogo.png";
 import KuronekoLogo from "@/assets/img/kuroneko.png";
 import RTLogo from "@/assets/img/rt.png";
 import TakasumiLogo from "@/assets/img/takasumi.png";
-import KaraSnapIcon from "@/assets/img/karasnap.png";
 
 export default function IndexPage() {
   const t = useTranslations("home");
   const [showCircularText, setShowCircularText] = useState(false);
+  const [folderOpen, setFolderOpen] = useState(false);
 
   return (
     <main className="flex flex-col items-center justify-center w-full overflow-x-hidden">
@@ -100,21 +99,19 @@ export default function IndexPage() {
           <h3 className="text-lg md:text-xl text-gray-400 text-center w-full md:w-11/12">
             {t("OpenSourceBlurb")}
           </h3>
-          <div className={"grid grid-cols-1 md:grid-cols-2 w-full mt-5 gap-4"}>
-            <OSSProductCard
-              name={t("ossProducts.karaSnap.title")}
-              description={t("ossProducts.karaSnap.description")}
-              icon={KaraSnapIcon.src}
-              repoUrl="https://github.com/mikndotdev/karasnap"
-              websiteUrl="https://karasnap.mikn.dev"
-            />
-            <OSSProductCard
-              name={t("ossProducts.nextDiscordAuth.title")}
-              description={t("ossProducts.nextDiscordAuth.description")}
-              icon={IdCard}
-              repoUrl="https://github.com/mikndotdev/next-discord-auth"
-              websiteUrl="https://npm.im/@mikandev/next-discord-auth"
-            />
+          <div className="flex flex-col items-center gap-12 mt-10 pt-16">
+            <SolutionsFolder onOpenChange={setFolderOpen} />
+            <div
+              className={`transition-transform duration-300 ease-in-out ${
+                folderOpen ? "translate-y-20" : ""
+              }`}
+            >
+              <Link href={"/solutions"}>
+                <Button variant="default" size="lg">
+                  {t("hero.primaryCta")}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
 
