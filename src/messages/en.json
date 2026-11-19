@@ -59,5 +59,35 @@
     "accept": "accept",
     "policy": "Cookie Policy",
     "retract": "Retract cookie consent"
+  },
+  "vision": {
+    "title": "The MikanDev Vision",
+    "philosophy": {
+      "blurb1": "Great software should be freely accessible to anyone to benefit from, and the way it's made should also be open for contribution, copying, and learning from.",
+      "description1": "Ever since I was told 'this is awesome!' because of a thing I made and shared in a community many moons ago, I've always strived to make software that I hoped people would enjoy.",
+      "description2": "Beneficial software should be free, and ever since starting I've never really put any sort of paywall on the things I make. It's always seemed like more than a hassle than anything else, and if I think the thing I made is good, why limit access to it? That's why MikanDev has always provided all it's services for free.",
+      "description3": "A lot of the knowledge I self-taught myself was based on cobbling together various guides on the internet, and looking at open-source stuff that did the things I wanted to do. The open-source community is a treasure trove of programming knowledge and information, and I hope that by open-sourcing all of our stuff, it might help someone else learn to do that thing they want.",
+      "description4": "We also license all our stuff with the most lenient terms possible. Copy away! Change our stuff to your liking, host it and do whatever you want! This freedom, is what I think contributes to making great software.",
+      "footnote": "Those are the things we value at MikanDev. I hope you enjoy our stuff :)"
+    },
+    "values": {
+      "title": "Our Values",
+      "foreverFree": {
+        "title": "Forever free and open-source",
+        "description": "All of our services are available for absolutely no cost, and each has its own public code repository: a one-to-one representation of what makes it tick."
+      },
+      "noBS": {
+        "title": "Zero bullshit",
+        "description": "We don't harvest your data, track you, or anything of the sort. I personally despise most ads, so we don't run ads anywhere in our software either. We want you to enjoy our stuff and will take nothing in return (though donations are always welcome!)"
+      },
+      "selfFunded": {
+        "title": "100% self-funded",
+        "description": "Our services are all self-funded, with zero external influence. Even if some things may run at a loss, we keep running them for the love of the game, and I'll keep this going for as long as I can :)"
+      }
+    },
+    "independentInfra": {
+      "title": "Fully independent infrastructure",
+      "description": "Apart from a few things, we run our services on fully in-house infrastructure. We also partner with <link>Neody Networks</link> to run fully independent network infrastructure as well, down to the ASN level. We won't be affected by the next AWS/Cloudflare outage :)"
+    }
   }
 }
