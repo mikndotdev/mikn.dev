@@ -37,7 +37,7 @@ Positioner); typecheck + full build clean.
   - Close button, header/footer/title/description classes, `showCloseButton`
     prop, `data-slot` attributes: UNCHANGED.
   - Leftover scan clean: `grep -n "radix-ui\|@radix-ui\|data-\[state="
-    src/components/ui/dialog.tsx` → no matches.
+src/components/ui/dialog.tsx` → no matches.
 
 - `src/components/CookieConsentModal.tsx` (consumer)
   - Removed the three Radix-only dismiss handlers from `<DialogContent>`:

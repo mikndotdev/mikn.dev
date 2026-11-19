@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Noto_Sans_JP } from "next/font/google";
 import { Button } from "@/components/animate-ui/components/buttons/button";
+import { ConfusedCorner } from "@/components/ConfusedCorner";
 import "./globals.css";
 
 const notoSansJP = Noto_Sans_JP({
@@ -20,6 +21,7 @@ export default function NotFound() {
               <Button className={"mt-5"}>Take me back</Button>
             </Link>
           </div>
+          <ConfusedCorner />
         </body>
       </html>
     </>

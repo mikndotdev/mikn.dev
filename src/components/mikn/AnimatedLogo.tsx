@@ -56,10 +56,7 @@ export function AnimatedLogo({ src, alt, className }: AnimatedLogoProps) {
   };
 
   return (
-    <span
-      className={cn("relative inline-block", className)}
-      onMouseEnter={handleHover}
-    >
+    <span className={cn("relative inline-block", className)} onMouseEnter={handleHover}>
       {animating ? (
         <motion.img
           key={`logo-${runKey}`}

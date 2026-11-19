@@ -13,6 +13,7 @@ import {
   Text,
 } from "@react-three/drei";
 import { easing } from "maath";
+import { cdnUrl } from "@/lib/cdn-converter";
 
 type Mode = "lens" | "bar" | "cube";
 
@@ -169,7 +170,7 @@ const ModeWrapper = memo(function ModeWrapper({
 function Lens({ modeProps, ...p }: { modeProps?: ModeProps } & MeshProps) {
   return (
     <ModeWrapper
-      glb="https://cdn.mikn.dev/web/static/lens.glb"
+      glb={cdnUrl("lens.glb")}
       geometryKey="Cylinder"
       followPointer
       modeProps={modeProps}
@@ -181,7 +182,7 @@ function Lens({ modeProps, ...p }: { modeProps?: ModeProps } & MeshProps) {
 function Cube({ modeProps, ...p }: { modeProps?: ModeProps } & MeshProps) {
   return (
     <ModeWrapper
-      glb="https://cdn.mikn.dev/web/static/cube.glb"
+      glb={cdnUrl("cube.glb")}
       geometryKey="Cube"
       followPointer
       modeProps={modeProps}
@@ -203,7 +204,7 @@ function Bar({ modeProps = {}, ...p }: { modeProps?: ModeProps } & MeshProps) {
 
   return (
     <ModeWrapper
-      glb="https://cdn.mikn.dev/web/static/bar.glb"
+      glb={cdnUrl("bar.glb")}
       geometryKey="Cube"
       lockToBottom
       followPointer={false}
